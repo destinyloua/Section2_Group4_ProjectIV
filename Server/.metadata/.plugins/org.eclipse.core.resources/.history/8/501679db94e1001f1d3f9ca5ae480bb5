@@ -1,0 +1,33 @@
+package Main;
+
+import java.net.*;
+
+public class SocketHandler {
+	protected String buffer;
+	
+	public Boolean MakeConnection(int port) {
+		try (ServerSocket serverSocket = new ServerSocket(port)) {
+            System.out.println("Server listening on port " + port);
+
+            // Accept client connection
+            Socket clientSocket = serverSocket.accept();
+            System.out.println("Client connected!");
+
+            // Create input and output streams
+            BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
+            PrintWriter out = new PrintWriter(clientSocket.getOutputStream(), true);
+
+            // Receive message
+            String message = in.readLine();
+            System.out.println("Received: " + message);
+
+            // Send response
+            out.println("Message received: " + message);
+
+            // Close connections
+            clientSocket.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+	}
+}

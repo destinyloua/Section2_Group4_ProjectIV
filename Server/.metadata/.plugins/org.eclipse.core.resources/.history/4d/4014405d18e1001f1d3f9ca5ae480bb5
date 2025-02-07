@@ -1,0 +1,126 @@
+package Main;
+
+import java.awt.EventQueue;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
+public class ImageToString extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+    private JPanel contentPane;
+    private String imagePath = "C:\\Users\\baona\\OneDrive - Conestoga College\\School\\24-25\\WINTER 25\\Project 4\\Project 4\\Server\\Server\\src\\resources\\images\\image1.jpg";
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    ImageToString frame = new ImageToString();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    /**
+     * Create the frame.
+     */
+    public ImageToString() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 450, 300);
+        contentPane = new JPanel();
+        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+        
+        ImageIcon imageIcon = new ImageIcon(imagePath);
+        Image image = imageIcon.getImage();
+
+        // Convert the ImageIcon to BufferedImage
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(new File(imagePath)); // Read the image
+            if (bufferedImage == null) {
+                System.out.println("Failed to load the image.");
+            } else {
+                System.out.println("Image loaded successfully. Width: " + bufferedImage.getWidth() + ", Height: " + bufferedImage.getHeight());
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        if (bufferedImage != null) {
+            ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+            try {
+                boolean written = ImageIO.write(bufferedImage, "jpg", byteArrayOutputStream); // Write image to byte array
+                if (written) {
+                    byte[] imageBytes = byteArrayOutputStream.toByteArray();
+                    System.out.println("Byte array length: " + imageBytes.length);
+                } else {
+                    System.out.println("Failed to write image to byte array.");
+                }
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+
+        // Convert BufferedImage to byte array
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        try {
+            ImageIO.write(bufferedImage, "jpg", byteArrayOutputStream);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        byte[] imageBytes = byteArrayOutputStream.toByteArray();
+        
+        System.out.println("Image byte array length: " + imageBytes.length); // Print length to debug
+        
+        ImageIcon converted = byteArrayToImageIcon(imageBytes);
+
+        setContentPane(contentPane);
+
+        JLabel lblNewLabel = new JLabel("");
+        lblNewLabel.setIcon(imageIcon);
+        contentPane.add(lblNewLabel);
+    }
+
+    // Convert byte array back to ImageIcon
+    public static ImageIcon byteArrayToImageIcon(byte[] imageBytes) {
+        if (imageBytes == null || imageBytes.length == 0) {
+            System.out.println("Received empty or null byte array.");
+            return null; // Return null if byte array is invalid
+        }
+
+        try {
+            // Convert byte array to BufferedImage
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(imageBytes);
+            BufferedImage bufferedImage = ImageIO.read(byteArrayInputStream);
+
+            if (bufferedImage == null) {
+                System.out.println("Failed to decode byte array into BufferedImage.");
+                return null; // Return null if the image decoding fails
+            }
+
+            // Convert BufferedImage to ImageIcon
+            return new ImageIcon(bufferedImage);
+        } catch (IOException e) {
+            System.out.println("IOException while reading image bytes: " + e.getMessage());
+            return null; // Return null if an error occurs
+        }
+    }
+}

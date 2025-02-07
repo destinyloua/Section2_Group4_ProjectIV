@@ -1,0 +1,25 @@
+package Main;
+import java.nio.*;
+public class Message extends SocketHandler {
+	private int length;
+	private String message;
+	
+	private byte[] rawData;
+	
+	public Message(byte[] data) {
+		ByteBuffer buffer = ByteBuffer.wrap(data);
+		this.length = buffer.getInt();
+		byte[] byteBuffer = new byte[length];
+		buffer.get(byteBuffer);
+		this.message = new String(byteBuffer);
+	}
+	
+	public byte[] GetRawData() {
+		return rawData;
+	}
+	
+	public String GetMessage() {
+		return message;
+	}
+	
+}

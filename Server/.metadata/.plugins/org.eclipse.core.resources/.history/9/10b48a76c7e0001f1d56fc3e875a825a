@@ -1,0 +1,54 @@
+package Main;
+
+import java.sql.*;
+
+public class MysqlTest {
+
+    private Connection connection;
+    private Statement statement;
+    private ResultSet resultSet;
+
+    // Connect to the MySQL database
+    public void connectToDatabase() {
+        try {
+            // Change the connection URL, username, and password as per your setup
+            String url = "jdbc:mysql://localhost:3306/test_project4";
+            String user = "root"; // Your MySQL username
+            String password = "password"; // Your MySQL password
+            connection = DriverManager.getConnection(url, user, password);
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Fetch and display the users table from MySQL
+    public String displayUsersTable() {
+        StringBuilder result = new StringBuilder();
+        try {
+            String query = "SELECT * FROM users";
+            resultSet = statement.executeQuery(query);
+            result.append("Displaying Users Table from MySQL:\n");
+            while (resultSet.next()) {
+                int id = resultSet.getInt("id");
+                String name = resultSet.getString("name");
+                String email = resultSet.getString("email");
+                result.append("ID: " + id + ", Name: " + name + ", Email: " + email + "\n");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return result.toString();
+    }
+
+    // Close the database connection
+    public void closeConnection() {
+        try {
+            if (resultSet != null) resultSet.close();
+            if (statement != null) statement.close();
+            if (connection != null) connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}

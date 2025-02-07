@@ -1,0 +1,53 @@
+package Main;
+
+import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import java.util.Base64;
+
+public class ImageToString {
+    public static void main(String[] args) throws IOException {
+        // Example: Load an ImageIcon (you can use any ImageIcon from WindowBuilder)
+        ImageIcon imageIcon = new ImageIcon("path/to/your/image.jpg");
+
+        // Convert ImageIcon to String
+        String imageString = imageIconToString(imageIcon);
+        System.out.println("Encoded Image String: " + imageString);
+
+        // Convert String back to ImageIcon
+        ImageIcon newImageIcon = stringToImageIcon(imageString);
+        // Example usage of the new ImageIcon in a JLabel
+        JLabel label = new JLabel(newImageIcon);
+        JOptionPane.showMessageDialog(null, label);
+    }
+
+    // Convert ImageIcon to a Base64 String
+    public static String imageIconToString(ImageIcon imageIcon) throws IOException {
+        // Convert ImageIcon to BufferedImage
+        Image image = imageIcon.getImage();
+        BufferedImage bufferedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g = bufferedImage.createGraphics();
+        g.drawImage(image, 0, 0, null);
+        g.dispose();
+
+        // Convert BufferedImage to byte array
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(bufferedImage, "jpg", baos);
+        byte[] imageBytes = baos.toByteArray();
+        return Base64.getEncoder().encodeToString(imageBytes); // Convert to Base64 String
+    }
+
+    // Convert Base64 String back to ImageIcon
+    public static ImageIcon stringToImageIcon(String imageString) {
+        byte[] imageBytes = Base64.getDecoder().decode(imageString); // Decode from Base64
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(new java.io.ByteArrayInputStream(imageBytes));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new ImageIcon(bufferedImage); // Return the ImageIcon
+    }
+}

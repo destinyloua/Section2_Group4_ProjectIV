@@ -1,0 +1,93 @@
+package Main;
+
+import java.awt.EventQueue;
+import java.awt.Graphics2D;
+import java.awt.Image;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
+
+public class ImageToString extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private String imagePath = "C:\\Users\\baona\\OneDrive - Conestoga College\\School\\24-25\\WINTER 25\\Project 4\\Project 4\\Server\\Server\\src\\resources\\images\\image1.jpg";
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					ImageToString frame = new ImageToString();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public ImageToString() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		ImageIcon imageIcon = new ImageIcon(imagePath);
+        Image image = imageIcon.getImage();
+
+        // Convert the ImageIcon to BufferedImage
+        BufferedImage bufferedImage = new BufferedImage(image.getWidth(null), image.getHeight(null), BufferedImage.TYPE_INT_ARGB);
+        Graphics2D g = bufferedImage.createGraphics();
+        g.drawImage(image, 0, 0, null);
+        g.dispose();
+
+        // Convert BufferedImage to byte array
+        ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
+        try {
+			ImageIO.write(bufferedImage, "jpg", byteArrayOutputStream);
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+        byte[] imageBytes = byteArrayOutputStream.toByteArray();
+        
+        System.out.println(imageBytes);
+        
+        ImageIcon converted = byteArrayToImageIcon(imageBytes);
+		
+		setContentPane(contentPane);
+		
+		JLabel lblNewLabel = new JLabel("");
+		lblNewLabel.setIcon(imageIcon);
+		contentPane.add(lblNewLabel);
+	}
+	
+	public static ImageIcon byteArrayToImageIcon(byte[] imageBytes) {
+        try {
+            // Convert byte array to BufferedImage
+            ByteArrayInputStream byteArrayInputStream = new ByteArrayInputStream(imageBytes);
+            BufferedImage bufferedImage = ImageIO.read(byteArrayInputStream);
+
+            // Convert BufferedImage to ImageIcon
+            return new ImageIcon(bufferedImage);
+        } catch (IOException e) {
+            e.printStackTrace();
+            return null; // Return null if an error occurs
+        }
+    }
+
+}

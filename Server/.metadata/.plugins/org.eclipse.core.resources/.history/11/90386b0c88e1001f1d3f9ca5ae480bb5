@@ -1,0 +1,9 @@
+package Main;
+
+public class Plant {
+	private int id;
+	private String name;
+	private float price;
+	private int quantity;
+	private String imagePath;
+}

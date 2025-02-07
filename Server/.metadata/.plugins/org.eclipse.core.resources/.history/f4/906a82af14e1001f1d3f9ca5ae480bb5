@@ -1,0 +1,46 @@
+package Main;
+
+import javax.swing.*;
+import java.awt.image.BufferedImage;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
+import javax.imageio.ImageIO;
+import java.util.Base64;
+
+public class ImageToString {
+	public static void main(String[] args) throws IOException {
+        // Example: Load an ImageIcon (you can use any ImageIcon from WindowBuilder)
+        ImageIcon imageIcon = new ImageIcon("C:\\Users\\baona\\OneDrive - Conestoga College\\School\\24-25\\WINTER 25\\Project 4\\Project 4\\Server\\Server\\src\\resources\\images\\image1.jpg");
+
+        // Convert ImageIcon to String
+        String imageString = imageIconToString(imageIcon);
+        System.out.println("Encoded Image String: " + imageString);
+
+        // Convert String back to ImageIcon
+        ImageIcon newImageIcon = stringToImageIcon(imageString);
+        // Example usage of the new ImageIcon in a JLabel
+        JLabel label = new JLabel(newImageIcon);
+        JOptionPane.showMessageDialog(null, label);
+    }
+
+    // Convert ImageIcon to a Base64 String
+    public static String imageIconToString(ImageIcon imageIcon) throws IOException {
+        BufferedImage bufferedImage = (BufferedImage) imageIcon.getImage();
+        ByteArrayOutputStream baos = new ByteArrayOutputStream();
+        ImageIO.write(bufferedImage, "jpg", baos);
+        byte[] imageBytes = baos.toByteArray();
+        return Base64.getEncoder().encodeToString(imageBytes); // Convert to Base64 String
+    }
+
+    // Convert Base64 String back to ImageIcon
+    public static ImageIcon stringToImageIcon(String imageString) {
+        byte[] imageBytes = Base64.getDecoder().decode(imageString); // Decode from Base64
+        BufferedImage bufferedImage = null;
+        try {
+            bufferedImage = ImageIO.read(new java.io.ByteArrayInputStream(imageBytes));
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return new ImageIcon(bufferedImage); // Return the ImageIcon
+    }
+}

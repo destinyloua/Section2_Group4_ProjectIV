@@ -1,0 +1,37 @@
+package Main;
+
+import java.io.*;
+import java.net.ServerSocket;
+import java.net.Socket;
+
+public class Main {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+				int port = 28000; // Port number
+
+		        try (ServerSocket serverSocket = new ServerSocket(port)) {
+		            System.out.println("Server is listening on port " + port);
+
+		            while (true) {
+		                Socket socket = serverSocket.accept(); // Accept client connection
+		                System.out.println("New client connected");
+
+		                // Create input and output streams
+		                BufferedReader input = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+		                PrintWriter output = new PrintWriter(socket.getOutputStream(), true);
+
+		                String message = input.readLine(); // Read message from client
+		                System.out.println("Received: " + message);
+
+		                output.println("Hello Client! Message received."); // Respond to client
+		                socket.close(); // Close connection after responding
+		                System.out.println("Socket closed");
+		            }
+		        } catch (IOException ex) {
+		        	System.out.println("Server Error");
+		            ex.printStackTrace();
+		        }
+	}
+
+}

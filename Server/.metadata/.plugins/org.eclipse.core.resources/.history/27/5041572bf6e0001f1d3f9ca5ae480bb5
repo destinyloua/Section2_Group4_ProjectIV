@@ -1,0 +1,49 @@
+package Main;
+
+import java.awt.*;
+
+public class Plant extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+	private JPanel panel;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Plant frame = new Plant();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Plant() {
+		setTitle("Multi-page Application");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 840, 700);
+        contentPane = new JPanel();
+        contentPane.setLayout(new BorderLayout());
+        setContentPane(contentPane);
+
+        // Initialize the CardLayout and main panel
+        cardLayout = new CardLayout();
+        mainPanel = new JPanel(cardLayout);
+        contentPane.add(mainPanel, BorderLayout.CENTER);
+
+        // Add pages to the CardLayout
+        mainPanel.add(new Page1(mainPanel, cardLayout), "Page 1");
+        mainPanel.add(new Page2(mainPanel, cardLayout), "Page 2");
+        mainPanel.add(new Page3(mainPanel, cardLayout), "Page 3");
+	}
+
+}

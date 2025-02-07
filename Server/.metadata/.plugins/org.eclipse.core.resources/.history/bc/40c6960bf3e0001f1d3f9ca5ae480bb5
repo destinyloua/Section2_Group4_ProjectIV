@@ -1,0 +1,32 @@
+package Main;
+
+import java.sql.*;
+
+public class DatabaseHandler {
+	private static String url;
+	private static String user;
+	private static String password;
+	
+    private Connection connection;
+    private Statement statement;
+    private ResultSet resultSet;
+
+	public void SetUpConnection(String urlInput, String userInput, String passwordInput) {
+		url = urlInput;
+		user = userInput;
+		password = passwordInput;
+	}
+	
+	public Boolean ConnectDatabase() {
+        try {
+            connection = DriverManager.getConnection(url, user, password);
+            statement = connection.createStatement();
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return false;
+        }
+	}
+	
+	
+}

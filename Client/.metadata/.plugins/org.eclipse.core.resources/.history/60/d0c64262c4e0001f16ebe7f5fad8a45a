@@ -1,0 +1,73 @@
+package Main;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import java.net.*;
+import javax.swing.*;
+
+public class ChatClient {
+    private JFrame frame;
+    private JTextField textField;
+    private JTextArea textArea;
+    private PrintWriter out;
+    private BufferedReader in;
+    private Socket socket;
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(() -> {
+            try {
+                ChatClient client = new ChatClient();
+                client.frame.setVisible(true);
+                client.startConnection("127.0.0.1", 12345);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    public ChatClient() {
+        frame = new JFrame("Chat Client");
+        frame.setBounds(100, 100, 400, 300);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.getContentPane().setLayout(new BorderLayout());
+
+        textField = new JTextField();
+        textField.addActionListener(e -> sendMessage());
+        frame.getContentPane().add(textField, BorderLayout.SOUTH);
+
+        textArea = new JTextArea();
+        textArea.setEditable(false);
+        frame.getContentPane().add(new JScrollPane(textArea), BorderLayout.CENTER);
+    }
+
+    public void startConnection(String ip, int port) {
+        try {
+            socket = new Socket(ip, port);
+            in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            out = new PrintWriter(socket.getOutputStream(), true);
+
+            new Thread(() -> {
+                try {
+                    String message;
+                    while ((message = in.readLine()) != null) {
+                        textArea.append(message + "\n");
+                    }
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+            }).start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    private void sendMessage() {
+        String message = textField.getText();
+        if (!message.isEmpty()) {
+            out.println(message);
+            textField.setText("");
+        }
+    }
+}

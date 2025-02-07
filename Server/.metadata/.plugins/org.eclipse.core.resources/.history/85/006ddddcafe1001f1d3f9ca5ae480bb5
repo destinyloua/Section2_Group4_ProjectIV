@@ -1,0 +1,11 @@
+package Main;
+
+public class Message extends SocketHandler {
+	
+	private byte[] data;
+	private int length;
+	
+	public Message(String data) {
+		
+	}
+}

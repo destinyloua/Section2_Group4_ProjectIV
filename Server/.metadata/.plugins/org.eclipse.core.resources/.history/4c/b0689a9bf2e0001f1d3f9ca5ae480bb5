@@ -1,0 +1,14 @@
+package Main;
+
+public class DatabaseHandler {
+	private static String url;
+	private static String user;
+	private static String password;
+
+	public static void SetUpConnection(String urlInput, String userInput, String passwordInput) {
+		url = urlInput;
+		user = userInput;
+		password = passwordInput;
+	}
+	
+}

@@ -1,0 +1,42 @@
+package Main;
+import java.nio.*;
+public class Message extends SocketHandler {
+	private int length;
+	private String message;
+	
+	private byte[] rawData;
+	
+	public Message(byte[] data) {
+		ByteBuffer buffer = ByteBuffer.wrap(data);
+		this.length = buffer.getInt();
+		byte[] byteBuffer = new byte[length];
+		buffer.get(byteBuffer);
+		this.message = new String(byteBuffer);
+	}
+	
+	public byte[] GetRawData() {
+		return rawData;
+	}
+	
+	public String GetMessage() {
+		return message;
+	}
+	
+	public void SerializeData(String message) {
+		// Convert the integer to byte array (4 bytes)
+        byte[] length = ByteBuffer.allocate(4).putInt( message.length()).array();
+        
+        // Convert string to byte array
+        byte[] stringBytes = message.getBytes();
+        
+        // Allocate a new byte array that will hold both the length and the string
+        byte[] byteArray = new byte[4 + stringBytes.length]; // 4 bytes for the length + string length
+
+        // Copy the length (stored as an integer) to the first 4 bytes
+        System.arraycopy(length, 0, byteArray, 0, 4); // Copy integer bytes to the final byte array
+
+        // Copy the string bytes into the final byte array starting at index 4
+        System.arraycopy(stringBytes, 0, byteArray, 4, stringBytes.length);
+	}
+	
+}

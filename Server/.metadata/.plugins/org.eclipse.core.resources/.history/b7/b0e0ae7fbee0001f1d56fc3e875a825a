@@ -1,0 +1,59 @@
+package Main;
+
+import java.awt.EventQueue;
+import java.util.Scanner;
+
+import javax.swing.JFrame;
+import javax.swing.JPanel;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JTextArea;
+import java.awt.CardLayout;
+
+public class Test extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JPanel contentPane;
+
+	/**
+	 * Launch the application.
+	 */
+	public static void main(String[] args) {
+		EventQueue.invokeLater(new Runnable() {
+			public void run() {
+				try {
+					Test frame = new Test();
+					frame.setVisible(true);
+				} catch (Exception e) {
+					e.printStackTrace();
+				}
+			}
+		});
+	}
+
+	/**
+	 * Create the frame.
+	 */
+	public Test() {
+		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		setBounds(100, 100, 450, 300);
+		contentPane = new JPanel();
+		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+		
+		setContentPane(contentPane);
+		contentPane.setLayout(new CardLayout(0, 0));
+		
+		JPanel panel1 = new JPanel();
+		contentPane.add(panel1, "name_1989731824800");
+		
+		JTextArea txtrThisIsPage = new JTextArea();
+		txtrThisIsPage.setText("This is page 1");
+		panel1.add(txtrThisIsPage);
+		
+		JPanel panel2 = new JPanel();
+		contentPane.add(panel2, "name_2021013977100");
+		
+		JTextArea txtrThisIsPage_1 = new JTextArea();
+		txtrThisIsPage_1.setText("This is page 2");
+		panel2.add(txtrThisIsPage_1);
+	}
+}

@@ -1,0 +1,27 @@
+package Main;
+
+public class Message extends SocketHandler {
+	private int length;
+	private String message;
+	
+	private byte[] rawData;
+	
+	public Message(String data) {
+		this.message = data;
+		this.length = data.length();
+		rawData = new byte[length+1];
+		rawData[0] = (byte) length;
+		byte[] byteData = data.getBytes();
+		
+		System.arraycopy(byteData, 0, rawData, 1, length);
+	}
+	
+	public byte[] GetRawData() {
+		return rawData;
+	}
+	
+	public String GetMessage() {
+		return message;
+	}
+	
+}

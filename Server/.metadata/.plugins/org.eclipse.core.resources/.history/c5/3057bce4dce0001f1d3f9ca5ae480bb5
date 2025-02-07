@@ -1,0 +1,142 @@
+package Server.Main;
+
+import javax.swing.*;
+import javax.swing.table.*;
+import java.awt.*;
+import java.awt.event.*;
+import java.sql.*;
+import java.util.Vector;
+
+public class ImageInTableApp extends JFrame {
+    private JPanel contentPane;
+    private JTable table;
+    private JScrollPane scrollPane;
+    private Connection connection;
+    private Statement statement;
+    private ResultSet resultSet;
+
+    public static void main(String[] args) {
+        EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                try {
+                    ImageInTableApp frame = new ImageInTableApp();
+                    frame.setVisible(true);
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    public ImageInTableApp() {
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 600, 400);
+        contentPane = new JPanel();
+        contentPane.setLayout(new BorderLayout());
+        setContentPane(contentPane);
+
+        // Create table model and set it to JTable
+        Vector<Vector<Object>> rowData = new Vector<>();
+        rowData.add(createRow(1, "John Doe", "image1.jpg"));
+        rowData.add(createRow(2, "Jane Smith", "image2.jpg"));
+
+        // Define column names including the new "Action" column for buttons
+        Vector<String> columnNames = new Vector<>();
+        columnNames.add("ID");
+        columnNames.add("Name");
+        columnNames.add("Image");
+        columnNames.add("Action");
+
+        // Create table model
+        DefaultTableModel tableModel = new DefaultTableModel(rowData, columnNames);
+        table = new JTable(tableModel);
+
+        // Set custom renderer and editor for the "Action" column (buttons)
+        table.getColumn("Action").setCellRenderer(new ButtonRenderer());
+        table.getColumn("Action").setCellEditor(new ButtonEditor(new JCheckBox()));
+
+        // Add the table to a JScrollPane for better display
+        scrollPane = new JScrollPane(table);
+        contentPane.add(scrollPane, BorderLayout.CENTER);
+    }
+
+    // Method to create a row with an ID, name, image and button
+    public Vector<Object> createRow(int id, String name, String imageFile) {
+        Vector<Object> row = new Vector<>();
+        row.add(id);  // Add ID (Integer)
+        row.add(name); // Add Name (String)
+        row.add(new ImageIcon(imageFile)); // Add Image (ImageIcon)
+        row.add("Click Me"); // Add text for the button in the Action column
+        return row;
+    }
+
+    // ButtonRenderer class to display a button in the table
+    class ButtonRenderer extends JButton implements TableCellRenderer {
+
+        public ButtonRenderer() {
+            setText("Click Me");
+        }
+
+        @Override
+        public Component getTableCellRendererComponent(JTable table, Object value,
+                                                       boolean isSelected, boolean hasFocus, int row, int column) {
+            return this;
+        }
+    }
+
+    // ButtonEditor class to handle button clicks
+    class ButtonEditor extends DefaultCellEditor {
+        protected JButton button;
+        private String label;
+
+        public ButtonEditor(JCheckBox checkBox) {
+            super(checkBox);
+            button = new JButton();
+            button.setOpaque(true);
+            button.addActionListener(new ActionListener() {
+                @Override
+                public void actionPerformed(ActionEvent e) {
+                    // Action when the button is clicked
+                    JOptionPane.showMessageDialog(null, "Button clicked at row " + table.getSelectedRow());
+                }
+            });
+        }
+
+        @Override
+        public Component getTableCellEditorComponent(JTable table, Object value,
+                                                     boolean isSelected, int row, int column) {
+            label = (value == null) ? "Click Me" : value.toString();
+            button.setText(label);
+            return button;
+        }
+
+        @Override
+        public Object getCellEditorValue() {
+            return label;
+        }
+    }
+
+    // Connect to the MySQL database (just an example, not used for table in this case)
+    public void connectToDatabase() {
+        try {
+            String url = "jdbc:mysql://localhost:3306/test_project4";
+            String user = "root";
+            String password = "password";
+            connection = DriverManager.getConnection(url, user, password);
+            statement = connection.createStatement();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+
+    // Close the database connection
+    public void closeConnection() {
+        try {
+            if (resultSet != null) resultSet.close();
+            if (statement != null) statement.close();
+            if (connection != null) connection.close();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+    }
+}

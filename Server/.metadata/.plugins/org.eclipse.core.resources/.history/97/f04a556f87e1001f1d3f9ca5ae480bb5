@@ -1,0 +1,21 @@
+package Main;
+
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JLabel;
+
+public class Home extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Create the panel.
+	 */
+	public Home() {
+		
+		JScrollPane scrollPane = new JScrollPane();
+		add(scrollPane);
+
+	}
+
+}

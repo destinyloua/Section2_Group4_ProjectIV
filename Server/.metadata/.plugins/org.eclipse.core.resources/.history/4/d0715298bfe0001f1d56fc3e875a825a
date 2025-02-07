@@ -1,0 +1,63 @@
+package Main;
+
+import java.awt.EventQueue;
+import javax.swing.*;
+import java.awt.CardLayout;
+
+public class Test extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+    private JPanel contentPane;
+    private CardLayout cardLayout;
+    private JPanel mainPanel;
+
+    /**
+     * Launch the application.
+     */
+    public static void main(String[] args) {
+        EventQueue.invokeLater(() -> {
+            try {
+                Test frame = new Test();
+                frame.setVisible(true);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        });
+    }
+
+    /**
+     * Create the frame.
+     */
+    public Test() {
+        setTitle("Page Switching Example");
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setBounds(100, 100, 450, 300);
+
+        cardLayout = new CardLayout();
+        mainPanel = new JPanel(cardLayout);
+        getContentPane().add(mainPanel);
+
+        // Page 1
+        JPanel panel1 = new JPanel();
+        panel1.setLayout(null);
+        JButton btnNext = new JButton("Go to Page 2");
+        btnNext.setBounds(150, 100, 150, 30);
+        btnNext.addActionListener(e -> cardLayout.show(mainPanel, "Page2"));
+        panel1.add(btnNext);
+        mainPanel.add(panel1, "Page1");
+
+        // Page 2
+        JPanel panel2 = new JPanel();
+        panel2.setLayout(null);
+        JLabel lblPage2 = new JLabel("Welcome to Page 2");
+        lblPage2.setBounds(150, 100, 150, 30);
+        panel2.add(lblPage2);
+        JButton btnBack = new JButton("Go Back");
+        btnBack.setBounds(150, 150, 150, 30);
+        btnBack.addActionListener(e -> cardLayout.show(mainPanel, "Page1"));
+        panel2.add(btnBack);
+        mainPanel.add(panel2, "Page2");
+
+        cardLayout.show(mainPanel, "Page1"); // Show Page 1 by default
+    }
+}
