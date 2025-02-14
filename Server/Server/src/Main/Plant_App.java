@@ -43,7 +43,7 @@ public class Plant_App extends JFrame {
         String user = "root"; // Replace with your DB username
         String password = "Nam@326389"; // Replace with your DB password
         
-        DatabaseHandler db = new DatabaseHandler();
+        Database db = new Database();
         Vector<Plant>plants = new Vector<>();
         
 		db.SetUpConnection(url, user, password);

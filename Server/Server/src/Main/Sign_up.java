@@ -63,7 +63,7 @@ public class Sign_up extends JPanel {
 		btnNewButton.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				DatabaseHandler db = new DatabaseHandler();
+				Database db = new Database();
 				Account newAccount = new Account(fName.getText(), lName.getText(), email.getText(), Integer.toString(password.getText().hashCode()));
 				String url = "jdbc:mysql://localhost:3306/project4"; // Replace with your DB info
 	            String user = "root"; // Replace with your DB username

@@ -56,7 +56,7 @@ public class Log_in extends JPanel {
 		logIn.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
-				DatabaseHandler db = new DatabaseHandler();
+				Database db = new Database();
 				String dbUrl = "jdbc:mysql://localhost:3306/project4"; // Replace with your DB info
 	            String dbUser = "root"; // Replace with your DB username
 	            String dbPassword = "Nam@326389"; // Replace with your DB password
