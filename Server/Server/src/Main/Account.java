@@ -1,17 +1,33 @@
 package Main;
 
+import java.nio.*;
+
 public class Account {
 	private int id;
 	private String fName;
 	private String lName;
 	private String email;
-	private String password;
+	private int password;
+	private byte[] data;
 	
 	public Account(String fName, String lName, String email, String password) {
 		this.fName = fName;
 		this.lName = lName;
 		this.email = email;
-		this.password = password;
+		this.password = password.hashCode();
+	}
+	
+	public Account(byte[] data) {
+		ByteBuffer read = ByteBuffer.wrap(data);
+		this.id = read.getInt();
+		this.password = read.getInt();
+		byte[] buffer = new byte[read.remaining()];
+		read.get(buffer);
+	    String combined = new String(buffer);
+	    String[] splitArray = combined.split("#", 3);
+	    this.fName = splitArray[0];
+	    this.lName = splitArray[1];
+	    this.email = splitArray[2];
 	}
 	
 	public String GetFName() {
@@ -26,11 +42,22 @@ public class Account {
 		return email;
 	}
 	
-	public String GetPassword() {
+	public int GetPassword() {
 		return password;
 	}
 	
 	public Integer id() {
 		return id;
+	}
+	
+	public byte[] Serialize() {
+		byte[] idByte = ByteBuffer.allocate(4).putInt(id).array();
+		byte[] passwordByte = ByteBuffer.allocate(4).putInt(password).array();
+		String combined = fName + "#" + lName + "#" + email;
+		this.data = new byte[8+combined.length()];
+		System.arraycopy(idByte, 0, data, 0, 4);
+		System.arraycopy(passwordByte, 0, data, 4, 4);
+		System.arraycopy(combined.getBytes(), 0, data, 8, combined.length());
+		return data;
 	}
 }

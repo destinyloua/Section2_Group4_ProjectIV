@@ -63,7 +63,7 @@ public class Database {
 			pstm.setString(1, a.GetFName());
 			pstm.setString(2, a.GetLName());
 			pstm.setString(3, a.GetEmail());
-			pstm.setString(4, a.GetPassword());
+			pstm.setInt(4, a.GetPassword());
 			
 			int rowInserted = pstm.executeUpdate();
 			if(rowInserted > 0) {
@@ -77,12 +77,12 @@ public class Database {
 		return false;
 	}
 	
-	public Boolean AuthenticateLogin(String email, String password) {
+	public Boolean AuthenticateLogin(Account account) {
 		String query = "Select count(*) from Accounts where email = ? and password = ?";
 		try {
 			pstm = connection.prepareStatement(query);
-			pstm.setString(1, email);
-			pstm.setString(2, password);
+			pstm.setString(1, account.GetEmail());
+			pstm.setInt(2, account.GetPassword());
 			
 			resultSet = pstm.executeQuery();
 			resultSet.next();
