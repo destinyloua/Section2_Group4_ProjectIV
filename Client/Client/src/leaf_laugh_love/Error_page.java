@@ -1,6 +1,9 @@
 package leaf_laugh_love;
 
 import javax.swing.JPanel;
+
+import back_end.SocketHandler;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;

@@ -1,0 +1,25 @@
+package leaf_laugh_love;
+
+import javax.swing.*;
+import java.awt.*;
+
+public class MessageFrame extends JFrame {
+
+    private static final long serialVersionUID = 1L;
+
+    public MessageFrame(String message) {
+        setTitle("Message Window");
+        setSize(300, 200);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        JPanel panel = new JPanel();
+        panel.setLayout(new BorderLayout());
+
+        JLabel messageLabel = new JLabel(message, SwingConstants.CENTER);
+        messageLabel.setFont(new Font("Segoe UI", Font.BOLD, 16));
+
+        panel.add(messageLabel, BorderLayout.CENTER);
+        add(panel);
+    }
+}
