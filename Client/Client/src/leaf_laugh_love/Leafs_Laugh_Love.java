@@ -60,6 +60,8 @@ public class Leafs_Laugh_Love extends JFrame {
         cardLayout = new CardLayout();
         mainPanel = new JPanel(cardLayout);
         contentPane.add(mainPanel, BorderLayout.CENTER);
+//    	mainPanel.add(new Home_page(mainPanel, cardLayout), "Home");
+
         //Connect to server
         if(SocketHandler.MakeConnection()) {
             mainPanel.add(new Log_in_page(mainPanel, cardLayout), "Log In");

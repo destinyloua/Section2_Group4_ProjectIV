@@ -76,9 +76,11 @@ public class Dashboard_page extends JPanel {
 
             JLabel orderId = new JLabel("Order #" + o.GetId());
             orderId.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            orderId.setPreferredSize(new Dimension(479, 27));
 
             JLabel totalPrice = new JLabel("$" + o.GetTotalPrice());
-            totalPrice.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+            totalPrice.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+            totalPrice.setPreferredSize(new Dimension(479, 27));
 
             JButton editButton = new JButton("Edit");
             JLabel orderStatus;

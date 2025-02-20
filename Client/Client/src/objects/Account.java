@@ -53,28 +53,6 @@ public class Account extends SocketHandler{
 		}
 	}
 	
-	public Boolean SignUp() {
-		byte[] accountData = Serialize();
-		byte[] object = ByteBuffer.allocate(4).putInt(1).array();
-		byte[] flag = ByteBuffer.allocate(4).putInt(1).array();
-		byte[] frame = new byte[8+accountData.length];
-		System.arraycopy(object, 0, frame, 0, 4);
-		System.arraycopy(flag, 0, frame, 4, 4);
-		System.arraycopy(accountData, 0, frame, 8, accountData.length);
-		SocketHandler.SendData(frame);
-		
-		byte[] receivedData = SocketHandler.ReceiveData();
-		ByteBuffer read = ByteBuffer.wrap(receivedData);
-		int response;
-		response = read.getInt();
-		if(response == 1) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
-	
 	public String GetFName() {
 		return fName;
 	}

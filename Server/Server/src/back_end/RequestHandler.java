@@ -8,7 +8,7 @@ import objects.*;
 
 public class RequestHandler implements Runnable {
 	private static int object;
-	private static int flag;
+	private static int action;
 	
 	public static Boolean Processing() {
 		while(SocketHandler.CheckConnection()) {
@@ -21,23 +21,36 @@ public class RequestHandler implements Runnable {
 				break;
 			}
 			else {
-				flag = read.getInt();
+				action = read.getInt();
 				if(object == 1) {
-					if(flag == 1) {
+					if(action == 1) {
 						byte[] accountData = new byte[read.remaining()];
 						read.get(accountData);
 						Account a = new Account(accountData);
 						object =0;
-						flag = 0;
+						action = 0;
 						if(DatabaseHandler.InsertNewAccount(a)) {
+							byte[] response = ByteBuffer.allocate(4).putInt(1).array();
+							SocketHandler.SendData(response);
 							SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yy-HH:mm:ss");
 					        String timeStamp = dateFormat.format(new Date());
 					        String logMessage = timeStamp + ": New account created";
 					        FileHandler.WriteToFile("Log.txt", logMessage);
-
-							byte[] response = ByteBuffer.allocate(4).putInt(1).array();
-							SocketHandler.SendData(response);
 						}
+						else {
+							//Failed
+							byte[] response = ByteBuffer.allocate(4).putInt(0).array();
+							SocketHandler.SendData(response);
+							
+							SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yy-HH:mm:ss");
+					        String timeStamp = dateFormat.format(new Date());
+					        String logMessage = timeStamp + ": New account create (Failed)";
+					        FileHandler.WriteToFile("Log.txt", logMessage);
+						}
+					}
+					
+					else {
+						//Auth
 					}
 				}
 			}
