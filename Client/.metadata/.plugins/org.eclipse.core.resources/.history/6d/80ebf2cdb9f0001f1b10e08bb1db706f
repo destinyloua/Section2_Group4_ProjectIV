@@ -1,0 +1,98 @@
+package back_end;
+
+import java.nio.ByteBuffer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Vector;
+
+import objects.*;
+
+public class RequestHandler {	
+	private static Packet packet;
+	private static ByteBuffer read;
+	private static byte[] data;
+	
+	public static Vector<Plant> GetPlantsList(){
+		Vector<Plant> plantsList = new Vector<>();
+		packet.SetHeader(3, 2);
+		packet.SetContent(0);
+		SocketHandler.SendData(packet);
+		
+		byte[] receivedData = SocketHandler.ReceiveData();
+		read = ByteBuffer.wrap(receivedData);
+		int response;
+		response = read.getInt();
+		if(response == 1) {
+			System.out.println(read.getInt() + " plants will receive");
+			for(int i=0; i< read.getInt(); i++) {
+				read = ByteBuffer.wrap(SocketHandler.ReceiveData());
+				read.getInt();
+				read.get(data);
+				Plant p = new Plant(data);
+				read = ByteBuffer.wrap(SocketHandler.ReceiveData());
+				read.getInt();
+				int imgSize = read.getInt();
+				byte[] imgData = new byte[imgSize];
+				int chunkSize = 32768;
+				int totalChunks = (int) Math.ceil((double) imgSize/(chunkSize-4));
+				for(int j =0;j<totalChunks;j++) {
+					data = SocketHandler.ReceiveData();
+					System.arraycopy(data, 4, imgData, chunkSize*j, data.length);
+				}
+		        try {
+		        	Path imagePath = Paths.get(p.GetImagePath());
+			        Files.write(imagePath, imgData);
+			        System.out.println("Image saved as: received_image.jpg");
+		        }
+		        catch (Exception e){
+		        	System.out.println("Can't save image"+e.getMessage());
+		        }
+			}
+		}
+		else {
+			return null;
+		}
+	}
+	public static Boolean CreateAccount(Account a){
+		packet.SetHeader(1, 1);
+		packet.SetContent(a);
+		SocketHandler.SendData(packet);
+		
+		byte[] receivedData = SocketHandler.ReceiveData();
+		ByteBuffer read = ByteBuffer.wrap(receivedData);
+		int response;
+		response = read.getInt();
+		if(response == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public static Boolean AuthenticateLogin(Account a) {
+		packet.SetHeader(1, 2);
+		packet.SetContent(a);
+		SocketHandler.SendData(packet);
+
+		byte[] receivedData = SocketHandler.ReceiveData();
+		ByteBuffer read = ByteBuffer.wrap(receivedData);
+		int header;
+		header = read.getInt();
+		if(header == 1) {
+			int content = read.getInt();
+			if(content == 1) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
+		}
+	}
+	
+	
+}

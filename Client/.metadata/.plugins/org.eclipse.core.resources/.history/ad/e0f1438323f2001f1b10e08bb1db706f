@@ -1,0 +1,70 @@
+package testing;
+
+import javax.swing.*;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Vector;
+import back_end.RequestHandler;
+import objects.Plant;
+
+public class PlantReceiverTest extends JFrame {
+    private DefaultListModel<String> plantListModel;
+    private JList<String> plantList;
+    private JButton receiveButton;
+    
+    public PlantReceiverTest() {
+        setTitle("Plant Receiver Test");
+        setSize(400, 300);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLayout(new BorderLayout());
+
+        // UI Components
+        plantListModel = new DefaultListModel<>();
+        plantList = new JList<>(plantListModel);
+        receiveButton = new JButton("Receive Plants");
+
+        // Button action
+        receiveButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                receivePlants();
+            }
+        });
+
+        // Add components to the window
+        add(new JScrollPane(plantList), BorderLayout.CENTER);
+        add(receiveButton, BorderLayout.SOUTH);
+
+        setVisible(true);
+    }
+
+    private void receivePlants() {
+        plantListModel.clear(); // Clear previous data
+        Vector<Plant> plants = RequestHandler.ReceivePlantsList();
+        
+        if (plants != null && !plants.isEmpty()) {
+            for (Plant p : plants) {
+                plantListModel.addElement(p.GetName());
+                
+                // Verify if the image was saved
+                Path imgPath = Paths.get(p.GetImagePath());
+                if (Files.exists(imgPath)) {
+                    System.out.println("Image verified: " + imgPath);
+                } else {
+                    System.out.println("Error: Image file not found for " + p.GetName());
+                }
+            }
+            JOptionPane.showMessageDialog(this, "Successfully received " + plants.size() + " plants!");
+        } else {
+            JOptionPane.showMessageDialog(this, "Failed to receive plants list.");
+        }
+    }
+
+    public static void main(String[] args) {
+        SwingUtilities.invokeLater(PlantReceiverTest::new);
+    }
+}

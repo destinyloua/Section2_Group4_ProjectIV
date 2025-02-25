@@ -69,7 +69,7 @@ public class Order_info_window extends JFrame {
         cancelledConfirmPanel.setLayout(null);
         
         JLabel cancelledPanelLabel = new JLabel("You are cancelling");
-        cancelledPanelLabel.setFont(new Font("Segoe UI", Font.PLAIN, 32));
+        cancelledPanelLabel.setFont(new Font("Segoe UI", Font.PLAIN, 30));
         cancelledPanelLabel.setBounds(10, 10, 255, 43);
         cancelledConfirmPanel.add(cancelledPanelLabel);
         
@@ -172,7 +172,7 @@ public class Order_info_window extends JFrame {
 		    plantCard.setPreferredSize(new Dimension(290, 60)); // Fixed size
 		    plantCard.setBackground(new Color(170, 170, 170));
 
-		    JLabel plantId = new JLabel("Plant ID: " + order.GetPId().get(i));
+		    JLabel plantId = new JLabel(p.GetName());
 		    plantId.setFont(new Font("Segoe UI", Font.BOLD, 20));
 		    float total = p.GetPrice() * order.GetQuantity().get(i);
 		    JLabel price = new JLabel("$" + p.GetPrice() + " x " + order.GetQuantity().get(i) + " = " + "$" + total);

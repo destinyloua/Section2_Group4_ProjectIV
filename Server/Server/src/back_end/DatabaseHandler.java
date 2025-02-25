@@ -46,6 +46,39 @@ public class DatabaseHandler {
 	    }
 	}
 	
+	public static int GetNumberOfOrder() {
+		String query = "Select count(*) from Orders";
+		try {
+			pstm = connection.prepareStatement(query);
+
+			resultSet = pstm.executeQuery();
+			resultSet.next();
+			int rowReturned = resultSet.getInt(1);
+			return rowReturned;
+		}
+		catch(Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		return 0;
+	}
+	
+	public static int GetNumberOfOrder(int status) {
+		String query = "Select count(*) from Orders WHERE status = ?";
+		try {
+			pstm = connection.prepareStatement(query);
+			pstm.setInt(1, status);
+			
+			resultSet = pstm.executeQuery();
+			resultSet.next();
+			int rowReturned = resultSet.getInt(1);
+			return rowReturned;
+		}
+		catch(Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		return 0;
+	}
+	
 	public static Boolean CheckDuplicatedEmail(String email) {
 		String query = "Select count(*) from Accounts where email = ?";
 		try {
@@ -118,7 +151,7 @@ public class DatabaseHandler {
 	
 	public static Vector<Plant> FetchPlantsList(){
 		Vector<Plant> plantsList = new Vector<>();
-		String query = "Select * from Plants";
+		String query = "Select * from Plants ORDER BY name ASC";
 		try {
 			pstm = connection.prepareStatement(query);
 			resultSet = pstm.executeQuery();
@@ -291,6 +324,92 @@ public class DatabaseHandler {
 			System.out.println("Error: " + e.getMessage());
 			return null;
 		}
+	}
+	
+	public static Order FetchOrderByAId(int accountId) {
+		String query1 = "Select * from Orders Where aId = ?";
+		int oId;
+		int aId;
+		float totalPrice;
+		int status;
+		Vector<Integer> pId = new Vector<>();
+		Vector<Integer> quantity = new Vector<>();
+		try {
+			pstm = connection.prepareStatement(query1);
+			pstm.setInt(1, accountId);
+			resultSet = pstm.executeQuery();
+			resultSet.next();
+			oId = resultSet.getInt(1);
+			aId = resultSet.getInt(2);
+			totalPrice = resultSet.getFloat(3);
+			status = resultSet.getInt(4);
+		}
+		catch(Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			return null;
+		}
+		String query2 = "SELECT p.id, oi.quantity, o.id FROM Order_items oi JOIN Plants p ON oi.pId = p.id JOIN Orders o ON o.id = oi.oId WHERE o.aId = ?";
+		try {
+			pstm = connection.prepareStatement(query2);
+			pstm.setInt(1, accountId);
+			resultSet = pstm.executeQuery();
+			while(resultSet.next()) {
+				pId.add(resultSet.getInt(1));
+				quantity.add(resultSet.getInt(1));
+			}
+		}
+		catch(Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			return null;
+		}
+		Order order = new Order(oId, aId, totalPrice, status, pId, quantity);
+		return order;
+	}
+	
+	public static Boolean InsertNewOrder(Order o) {
+		String query = "INSERT INTO Orders (aID, totalPrice, status) VALUES (?,?,?)";
+		try {
+			pstm = connection.prepareStatement(query);
+			pstm.setInt(1, o.GetAId());
+			pstm.setFloat(2, o.GetTotalPrice());
+			pstm.setInt(3, o.GetStatus());
+			
+			int rowInserted = pstm.executeUpdate();
+			
+			if(rowInserted > 0 && InsertItems(o)) {
+				System.out.println("Inserted successfully");
+				return true;
+			}
+		}
+		catch(Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		return false;
+	}
+	
+	public static Boolean InsertItems(Order o) {
+		String query = "INSERT INTO Order_items (oId, pId, quantity) VALUES (?,?,?)";
+		try {
+			pstm = connection.prepareStatement(query);
+			Vector<Integer> pId = o.GetPId();
+			Vector<Integer> quantity = o.GetQuantity();
+			
+			for(int i =0; i < pId.size(); i++) {
+				pstm.setInt(1, o.GetId());
+				pstm.setInt(2, pId.get(i));
+				pstm.setInt(3, quantity.get(i));
+				int rowInserted = pstm.executeUpdate();
+				if(rowInserted <=0) {
+					return false;
+				}
+			}
+			System.out.println("Inserted successfully");
+			return true;
+		}
+		catch(Exception e) {
+			System.out.println("Error: " + e.getMessage());
+		}
+		return false;
 	}
 	
 }

@@ -1,0 +1,14 @@
+package back_end;
+
+import java.awt.*;
+import java.awt.image.BufferedImage;
+
+public class ImageProcessor {
+	private static String filePath;
+	
+	public static Boolean Resize(String filePath, int w, int h) {
+		BufferedImage imageReader = new 
+		Image img = 
+		return true;
+	}
+}

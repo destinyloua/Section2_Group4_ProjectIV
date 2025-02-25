@@ -2,9 +2,10 @@ package objects;
 
 import java.nio.*;
 
+import back_end.*;
 import back_end.SocketHandler;
 
-public class Account extends SocketHandler{
+public class Account extends SocketHandler implements Objects{
 	private int id;
 	private String fName;
 	private String lName;
@@ -47,33 +48,33 @@ public class Account extends SocketHandler{
 	    this.email = splitArray[2];
 	}
 	
-	public Boolean Authenticate() {
-		SocketHandler.SendData(Serialize());
-		byte[] receivedData = SocketHandler.ReceiveData();
-		ByteBuffer read = ByteBuffer.wrap(receivedData);
-		int response;
-		response = read.getInt();
-		if(response == 1) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+//	public Boolean Authenticate() {
+//		SocketHandler.SendData(Serialize());
+//		byte[] receivedData = SocketHandler.ReceiveData();
+//		ByteBuffer read = ByteBuffer.wrap(receivedData);
+//		int response;
+//		response = read.getInt();
+//		if(response == 1) {
+//			return true;
+//		}
+//		else {
+//			return false;
+//		}
+//	}
 	
-	public Boolean SignUp() {
-		SocketHandler.SendData(Serialize());
-		byte[] receivedData = SocketHandler.ReceiveData();
-		ByteBuffer read = ByteBuffer.wrap(receivedData);
-		int response;
-		response = read.getInt();
-		if(response == 1) {
-			return true;
-		}
-		else {
-			return false;
-		}
-	}
+//	public Boolean SignUp() {
+//		SocketHandler.SendData(Serialize());
+//		byte[] receivedData = SocketHandler.ReceiveData();
+//		ByteBuffer read = ByteBuffer.wrap(receivedData);
+//		int response;
+//		response = read.getInt();
+//		if(response == 1) {
+//			return true;
+//		}
+//		else {
+//			return false;
+//		}
+//	}
 	
 	public String GetFName() {
 		return fName;

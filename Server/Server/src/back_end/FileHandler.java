@@ -55,4 +55,11 @@ public class FileHandler {
             return null;
         }
     }
+    
+    public static void SaveLog(String message) {
+		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yy-HH:mm:ss");
+        String timeStamp = dateFormat.format(new Date());
+        String logMessage = timeStamp + ": " + message;
+        FileHandler.WriteToFile("Log.txt", logMessage);
+    }
 }

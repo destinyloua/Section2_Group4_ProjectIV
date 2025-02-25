@@ -1,13 +1,13 @@
 package leaf_laugh_love;
 
 import javax.swing.JPanel;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
-import back_end.RequestHandler;
-import back_end.SocketHandler;
-import objects.Account;
+import back_end.*;
+import objects.*;
 
 import javax.swing.JTextField;
 import java.awt.Rectangle;
@@ -70,7 +70,7 @@ public class Sign_up_page extends JPanel {
 		add(btnNewButton);
 		btnNewButton.addActionListener(e -> {
 			Account a = new Account(fName.getText(), lName.getText(), email.getText(), password.getText());
-			if(RequestHandler.CreateAccount(a)) {
+			if(ResponseHandler.CreateAccount(a)) {
 				cardLayout.show(mainPanel, "Sign Up Success");
 			}
 			else {

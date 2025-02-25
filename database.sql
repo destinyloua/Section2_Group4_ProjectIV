@@ -37,27 +37,25 @@ CREATE TABLE Order_items (
 
 -- Step 3: Insert Sample Data into Plants
 INSERT INTO Plants (name, price, quantity, imagePath) VALUES
-('Aloe Vera', 5.99, 20, 'images/aloe_vera.jpg'),
-('Snake Plant', 12.49, 15, 'images/snake_plant.jpg'),
-('Peace Lily', 8.99, 10, 'images/peace_lily.jpg'),
-('Spider Plant', 7.50, 25, 'images/spider_plant.jpg');
+('Catus', 20.99, 20, 'cactus.jpg'),
+('Cylinder Snake Plant', 14.99, 15, 'cylinder_snake_plant.jpg'),
+('Rubber Plant', 55.50, 10, 'rubber_plant.jpg'),
+('Sansevieria Snake Plant', 29.99, 25, 'sansevieria_snake_plant.jpg'),
+('Succulent Plant', 7.50, 25, 'succulent_plant.jpg');
 
 -- Step 4: Insert a Sample Account
 INSERT INTO Accounts (fName, lName, email, password) VALUES
-('John', 'Doe', 'john.doe@example.com', 1353467532);
-
--- Get the account ID
-SELECT id FROM Accounts WHERE email = 'john.doe@example.com';
+("Avrin", "Akbari", "avrin@gmail.com", 123456789),
+("Destiny", "Louangsombath", "destiny@gmail.com", 123456789),
+("Hui-Ying", "Huang", "ying@gmail.com", 123456789),
+("Tyler", "Dao", "tyler@gmail.com", 123456789);
 
 -- Step 5: Create Two Orders for the Account (Assume John has id=1)
 INSERT INTO Orders (aID, totalPrice, status) VALUES
-(1, 26.98, 0),  -- First Order
-(1, 34.99, 1), -- Second Order
-(1, 34.99, 2), -- Third Order
-(1, 34.99, -1); -- Fourth Order
-
--- Get order IDs
-SELECT id FROM Orders WHERE aID = 1 ORDER BY id ASC;
+(1, 99.99, 0),  -- First Order
+(2, 99.99, 1), -- Second Order
+(3, 99.99, 2), -- Third Order
+(4, 99.99, -1); -- Fourth Order
 
 -- Step 6: Add Items to the Orders
 -- First Order (ID: 1)
@@ -67,17 +65,30 @@ INSERT INTO Order_items (oId, pId, quantity) VALUES
 
 -- Second Order (ID: 2)
 INSERT INTO Order_items (oId, pId, quantity) VALUES
-(2, 2, 1), -- Snake Plant x1
-(2, 4, 2); -- Spider Plant x2
+(2, 2, 1),
+(2, 4, 2);
+
+-- Second Order (ID: 3)
+INSERT INTO Order_items (oId, pId, quantity) VALUES
+(3, 3, 1),
+(3, 4, 1);
+
+-- Second Order (ID: 4)
+INSERT INTO Order_items (oId, pId, quantity) VALUES
+(4, 2, 5),
+(4, 3, 2);
 
 -- Step 7: Retrieve Items from the First Order
 SELECT p.id, oi.quantity FROM Order_items oi JOIN Plants p ON oi.pId = p.id WHERE oi.oId = 1;
 
-Select * from Orders Where id = 1;
+SELECT p.id, oi.quantity, o.id FROM Order_items oi JOIN Plants p ON oi.pId = p.id JOIN Orders o ON o.id = oi.oId WHERE o.aId = 1;
+
+
+Select * from Orders Where aId = 1;
 
 -- Step 8: Verify Data
 SELECT * FROM Orders;
 SELECT * FROM Accounts;
 SELECT * FROM Order_items;
 
-SELECT * FROM Plants WHERE id = 1;
+SELECT * FROM Plants;

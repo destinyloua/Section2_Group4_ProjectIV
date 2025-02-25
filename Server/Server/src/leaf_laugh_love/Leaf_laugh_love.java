@@ -62,17 +62,6 @@ public class Leaf_laugh_love extends JFrame {
 		setTitle("Leaf, Laugh, Love Dashboard");
 		DatabaseHandler.SetUpConnection(url, user, password);
 		DatabaseHandler.ConnectDatabase();
-//		
-//		
-//		Vector<Order> list = new Vector<>();
-//		list = DatabaseHandler.FecthOrdersList();
-//		
-//		for(int i=0; i<list.size();i++) {
-//			list.get(i).Display();
-//		}
-		
-		Order o1 = DatabaseHandler.FecthOrder(1);
-		o1.Display();
 		
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 840, 700);
@@ -91,14 +80,32 @@ public class Leaf_laugh_love extends JFrame {
         else {
         	mainPanel.add(new Error_page(mainPanel, cardLayout), "Error");
         }
-        
-//      Thread socketThread = new Thread(new Message_page());
-//      socketThread.start();
 	}
 	
 	public static void StartServer() {
-		SocketHandler.MakeConnection(27000);
-        Thread requestHandlingThread = new Thread(new RequestHandler());
-        requestHandlingThread.start();
+//		SocketHandler.MakeConnection(27000);
+//        Thread requestHandlingThread = new Thread(new RequestHandler());
+//        requestHandlingThread.start();
+		
+	    while (true) {  // Keep listening for new connections
+	        try {
+//	        	SocketHandler.CloseServer();
+	            SocketHandler.MakeConnection(27000);  // Wait for a client connection
+	            
+	            Thread requestHandlingThread = new Thread(new RequestHandler());
+	            requestHandlingThread.start();
+	            
+	            System.out.println("Client connected, handling requests...");
+
+	            // Wait for the client to disconnect
+	            requestHandlingThread.join();  
+	            
+	            System.out.println("Client disconnected, waiting for new connection...");
+
+	        } catch (Exception e) {
+	            e.printStackTrace();
+	            System.out.println("Error in connection. Restarting server...");
+	        }
+	    }
 	}
 }

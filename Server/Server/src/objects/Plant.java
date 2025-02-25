@@ -2,12 +2,14 @@ package objects;
 
 import java.nio.*;
 
-public class Plant {
+import back_end.Objects;
+
+public class Plant implements Objects{
 	private int id;
 	private float price;
 	private int quantity;
 	private String name;
-	private String imagePath;
+	private String imagePath = "resources/images/plants/";
 	private byte[] data;
 	
 	public Plant() {
@@ -19,15 +21,23 @@ public class Plant {
 		this.price = price;
 		this.quantity = quantity;
 		this.name = name;
-		this.imagePath = imagePath;
+		this.imagePath += imagePath;
+		System.out.println(imagePath);
 	}
 	
-	public Plant(int id, String name, float price, int quantity) {
-		this.id = id;
+//	public Plant(int id, String name, float price, int quantity) {
+//		this.id = id;
+//		this.price = price;
+//		this.quantity = quantity;
+//		this.name = name;
+//		this.imagePath = name.toLowerCase().replace(" ", "_");
+//	}
+	
+	public Plant(String name, float price, int quantity, String imgFormat) {
+		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
-		this.name = name;
-		this.imagePath = "null";
+		this.imagePath = name.toLowerCase().replace(" ", "_") + imgFormat;
 	}
 	
 	public Plant(byte[] data) {
@@ -41,7 +51,7 @@ public class Plant {
 	}
 	
 	public void SetImage(String path) {
-		this.imagePath = path;
+		this.imagePath += path;
 	}
 	
 	public int GetId() {

@@ -1,6 +1,9 @@
 package back_end;
 
 import java.net.*;
+
+import objects.Packet;
+
 import java.io.*;
 
 public class SocketHandler {
@@ -29,6 +32,17 @@ public class SocketHandler {
 	        }
 	}
 	
+	public static Boolean MakeConnection(int port) {
+		 try {
+			 	socket = new Socket("localhost", port);
+	            System.out.println("Connected to server");
+	            return true;
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	            return false;
+	        }
+	}
+	
 	public static Boolean SendData(byte[] data) {
         // Create DataOutputStream to send raw data (binary data)
 		try {
@@ -39,6 +53,45 @@ public class SocketHandler {
 
 	        // Send the actual raw byte data
 	        out.write(data);  // Write the byte array data	
+	        return true;
+		}
+		catch(Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			return false;
+		}
+	}
+	
+	public static Boolean SendData(Objects object) {
+        // Create DataOutputStream to send raw data (binary data)
+		try {
+	        DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+	        
+	        byte[] data = object.Serialize();
+	        
+	        // Send the length of the data first
+	        out.writeInt(data.length);  // Write the length of the byte array
+
+	        // Send the actual raw byte data
+	        out.write(data);  // Write the byte array data	
+	        return true;
+		}
+		catch(Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			return false;
+		}
+	}
+	
+	
+	public static Boolean SendData(Packet packet) {
+        // Create DataOutputStream to send raw data (binary data)
+		try {
+	        DataOutputStream out = new DataOutputStream(socket.getOutputStream());
+
+	        // Send the length of the data first
+	        out.writeInt(packet.GetPacket().length);  // Write the length of the byte array
+
+	        // Send the actual raw byte data
+	        out.write(packet.GetPacket());  // Write the byte array data	
 	        return true;
 		}
 		catch(Exception e) {

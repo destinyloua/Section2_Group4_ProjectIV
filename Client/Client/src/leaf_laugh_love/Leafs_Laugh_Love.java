@@ -6,6 +6,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import back_end.ResponseHandler;
 import back_end.SocketHandler;
 
 import java.awt.event.WindowAdapter;
@@ -43,9 +44,7 @@ public class Leafs_Laugh_Love extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				byte[] frame = ByteBuffer.allocate(4).putInt(-1).array();
-				SocketHandler.SendData(frame);
-				SocketHandler.CloseConnection();
+				ResponseHandler.TerminateConnection();
 				System.out.println("Closed");
 			}
 		});
@@ -66,6 +65,7 @@ public class Leafs_Laugh_Love extends JFrame {
         if(SocketHandler.MakeConnection()) {
             mainPanel.add(new Log_in_page(mainPanel, cardLayout), "Log In");
             mainPanel.add(new Sign_up_page(mainPanel, cardLayout), "Sign Up");
+            mainPanel.add(new Home_page(mainPanel, cardLayout), "Home");
             mainPanel.add(new Sign_up_success_page(mainPanel, cardLayout), "Sign Up Success");
         	mainPanel.add(new Error_page(mainPanel, cardLayout), "Error");
         }

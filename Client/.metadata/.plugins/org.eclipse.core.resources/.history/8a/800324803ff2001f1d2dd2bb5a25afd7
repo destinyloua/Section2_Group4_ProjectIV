@@ -1,0 +1,20 @@
+package testing;
+
+import java.nio.ByteBuffer;
+
+import back_end.SocketHandler;
+
+public class ImageReceiver {
+	
+	public void Receive(String savedFile) {
+		byte[] receivedImgSize = SocketHandler.ReceiveData();
+		ByteBuffer read = ByteBuffer.wrap(receivedImgSize);
+		
+	}
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+
+	}
+
+}
