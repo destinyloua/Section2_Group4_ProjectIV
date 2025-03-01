@@ -13,6 +13,12 @@ public class Packet {
 		System.arraycopy(ByteBuffer.allocate(4).putInt(object).array(),0 , this.header, 0, 4);
 		System.arraycopy(ByteBuffer.allocate(4).putInt(action).array(),0 , this.header, 4, 4);
 	}
+	
+	public void SetHeader(int size) {
+		header = new byte[4];
+		System.arraycopy(ByteBuffer.allocate(4).putInt(size).array(),0 , this.header, 0, 4);
+	}
+	
 	public void SetContent(Objects object) {
 		this.content = object.Serialize();
 	}
@@ -28,6 +34,11 @@ public class Packet {
 	
 	public void SetContent(int value) {
 		this.content = ByteBuffer.allocate(4).putInt(value).array();
+	}
+	
+	public void SetContent(String message) {
+		this.content = new byte[message.length()];
+		this.content = message.getBytes();
 	}
 	
 	public byte[] GetPacket() {

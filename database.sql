@@ -90,5 +90,7 @@ Select * from Orders Where aId = 1;
 SELECT * FROM Orders;
 SELECT * FROM Accounts;
 SELECT * FROM Order_items;
-
+Select count(*) from Orders;
 SELECT * FROM Plants;
+
+Delete from Plants where id=6;

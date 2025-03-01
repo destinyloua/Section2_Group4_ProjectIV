@@ -1,0 +1,97 @@
+package leaf_laugh_love;
+
+import javax.swing.*;
+
+import back_end.ResponseHandler;
+import back_end.SocketHandler;
+import objects.Message;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import java.net.*;
+
+public class Help_window {
+	 private JFrame frame;
+	    private JTextArea chatArea;
+	    private JTextField messageField, serverField, portField;
+	    private JButton sendButton, connectButton;
+	    private JButton endBttn;
+	    
+	    public Help_window() {
+	        frame = new JFrame("Chat Client");
+	        frame.setSize(400, 400);
+	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        frame.getContentPane().setLayout(new BorderLayout());
+	        
+	        chatArea = new JTextArea();
+	        chatArea.setEditable(false);
+	        JScrollPane scrollPane = new JScrollPane(chatArea);
+	        frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
+	        
+	        endBttn = new JButton("End chat");
+	        scrollPane.setColumnHeaderView(endBttn);
+	        endBttn.addActionListener(e->{
+	        	//TODO send termination signal to server
+	        	ResponseHandler.ChatTerminate();
+	        	frame.setVisible(false);
+	        });
+	        
+	        JPanel inputPanel = new JPanel(new BorderLayout());
+	        messageField = new JTextField();
+	        sendButton = new JButton("Send");
+	        inputPanel.add(messageField, BorderLayout.CENTER);
+	        inputPanel.add(sendButton, BorderLayout.EAST);
+	        frame.getContentPane().add(inputPanel, BorderLayout.SOUTH);
+	        
+	        sendButton.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	                sendMessage();
+	            }
+	        });
+	        
+	        frame.setVisible(true);
+	        
+	        connectToServer(); // Automatically connect on startup
+	    }
+	    
+	    private void connectToServer() {
+	    	//new Thread(this::receiveMessages).start();
+	        if (SocketHandler.MakeChatConnecion()) {
+	            chatArea.append("Connected to server\n");
+	            new Thread(this::receiveMessages).start();
+	        } else {
+	            chatArea.append("Failed to connect\n");
+	        }
+	    }
+	    
+	    private void sendMessage() {
+	        String message = messageField.getText();
+	        if (!message.isEmpty()) {
+	            if (ResponseHandler.SendMessage(message)) {
+	                chatArea.append("Me: " + message + "\n");
+	                messageField.setText("");
+	            } else {
+	                chatArea.append("Failed to send message\n");
+	            }
+	        }
+	    }
+	    
+	    private void receiveMessages() {
+	        while (SocketHandler.CheckConnection()) {
+	            Message m = SocketHandler.ReceiveMessage();
+	            if (data != null) {
+	                Message m = new Message(data);
+	                if(m.GetMessage() == "\0") {
+	                	frame.setVisible(false);
+	                }
+	                else {
+	                	chatArea.append("Server: " + m.GetMessage() + "\n");
+	                }
+	            }
+	        }
+	    }
+}
+

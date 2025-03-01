@@ -53,6 +53,9 @@ setLayout(null);
 		helpBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 		helpBttn.setBounds(425, 568, 153, 35);
 		add(helpBttn);
+		helpBttn.addActionListener(e->{
+			ResponseHandler.StartChat();
+		});
 		
 		JButton cartBttn = new JButton("View cart");
 		cartBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));

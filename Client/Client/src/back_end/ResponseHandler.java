@@ -6,12 +6,53 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Vector;
 
+import leaf_laugh_love.Help_window;
 import objects.*;
 
 public class ResponseHandler {	
 	private static Packet packet = new Packet();
 	private static ByteBuffer read;
 	private static byte[] data;
+	
+	public static void ChatTerminate() {
+		Message m = new Message("");
+		SocketHandler.SendMessage(m);
+		SocketHandler.CloseChatConnection();
+	}
+	
+	public static Boolean StartChat() {
+		//TODO send request to chat
+		//TODO connect to chat
+		packet.SetHeader(4, 1);
+		packet.SetContent(0);
+		SocketHandler.SendData(packet);
+		
+		read = ByteBuffer.wrap(SocketHandler.ReceiveData());
+		System.out.println("Waiting for connecting from server");
+		if(read.getInt() == 1) {
+			try {
+				Thread.sleep(500);
+			}
+			catch (Exception e){
+				
+			}
+			new Help_window();
+			
+//			Message m = SocketHandler.ReceiveMessage();
+//			System.out.println(m.GetMessage());
+			
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public static Boolean SendMessage(String message) {
+		Message m = new Message (message);
+		SocketHandler.SendMessage(m);
+		return true;
+	}
 	
 	public static Vector<Plant> GetPlantsList(){
 		packet.SetHeader(3, 2);

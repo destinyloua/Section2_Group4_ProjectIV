@@ -2,6 +2,7 @@ package back_end;
 
 import java.net.*;
 
+import objects.Message;
 import objects.Packet;
 
 import java.io.*;
@@ -9,11 +10,23 @@ import java.io.*;
 public class SocketHandler {
 	protected static String buffer;
 	protected static Socket socket;
+	protected static Socket chatSocket;
 	
 	public static Boolean MakeConnection(int port,  String serverAddress) {
 		 try {
 			 	socket = new Socket(serverAddress, port);
 	            System.out.println("Connected to server");
+	            return true;
+	        } catch (IOException e) {
+	            e.printStackTrace();
+	            return false;
+	        }
+	}
+	
+	public static Boolean MakeChatConnecion() {
+		 try {
+			 	chatSocket = new Socket("localhost", 27001);
+	            System.out.println("Connected to chat server");
 	            return true;
 	        } catch (IOException e) {
 	            e.printStackTrace();
@@ -58,6 +71,64 @@ public class SocketHandler {
 		catch(Exception e) {
 			System.out.println("Error: " + e.getMessage());
 			return false;
+		}
+	}
+	
+	public static Boolean SendMessage(Message message) {
+        // Create DataOutputStream to send raw data (binary data)
+		try {
+	        DataOutputStream out = new DataOutputStream(chatSocket.getOutputStream());
+
+	        byte[] data = message.Serialize();
+	        // Send the length of the data first
+	        out.writeInt(data.length);  // Write the length of the byte array
+
+	        // Send the actual raw byte data
+	        out.write(data);  // Write the byte array data	
+	        return true;
+		}
+		catch(Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			return false;
+		}
+	}
+	
+	public static Boolean SendMessage(Packet p) {
+        // Create DataOutputStream to send raw data (binary data)
+		try {
+	        DataOutputStream out = new DataOutputStream(chatSocket.getOutputStream());
+
+	        byte[] data = p.GetPacket();
+	        // Send the length of the data first
+	        out.writeInt(data.length);  // Write the length of the byte array
+
+	        // Send the actual raw byte data
+	        out.write(data);  // Write the byte array data	
+	        return true;
+		}
+		catch(Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			return false;
+		}
+	}
+	
+	
+	public static byte[] ReceiveMessage() {
+		try {
+            // Create DataInputStream to read raw data (binary data)
+            DataInputStream inputStream = new DataInputStream(chatSocket.getInputStream());
+
+            // Read the length of the data
+            int dataLength = inputStream.readInt();  // Read the length of the incoming data (e.g., 1024 bytes)
+            byte[] data = new byte[dataLength];
+
+            // Read the raw byte data from the stream
+            inputStream.readFully(data);  // Reads the specified number of bytes into the array
+            return data;
+		}
+		catch(Exception e) {
+			System.out.println("Error: "+e.getMessage());
+			return null;
 		}
 	}
 	
@@ -137,5 +208,19 @@ public class SocketHandler {
 			System.out.println("Error: "+e.getMessage());
 			return false;
 		}
+	}
+	
+	public static Boolean CloseChatConnection() {
+	    try {
+	        if (chatSocket != null && !chatSocket.isClosed()) {
+	            chatSocket.close();
+	            System.out.println("Chat socket on port 27001 closed.");
+	        }
+	        chatSocket = null; // Ensure it is completely released
+	        return true;
+	    } catch (IOException e) {
+	        System.out.println("Error while closing chat connection: " + e.getMessage());
+	        return false;
+	    }
 	}
 }

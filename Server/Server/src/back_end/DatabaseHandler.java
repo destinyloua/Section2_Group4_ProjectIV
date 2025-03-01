@@ -101,6 +101,26 @@ public class DatabaseHandler {
 		return false;
 	}
 	
+	public static Boolean InsertNewPlant(Plant p) {
+		String query = "INSERT INTO Plants (name, price, quantity, imagePath) VALUES (?, ?, ?, ?)";
+		try {
+			pstm=connection.prepareStatement(query);
+			pstm.setString(1, p.GetName());
+			pstm.setFloat(2, p.GetPrice());
+			pstm.setInt(3, p.GetQuantity());
+			pstm.setString(4, p.GetImagePath());
+			int rowInserted = pstm.executeUpdate();
+			if(rowInserted>0) {
+				System.out.println("New plant inserted");
+				return true;
+			}
+		}
+		catch(Exception e) {
+			e.getStackTrace();
+		}
+		return false;
+	}
+	
 	public static Boolean InsertNewAccount(Account a) {
 		String query = "Insert into Accounts (fName, lName, email, password) values (?,?,?,?)";
 		try {

@@ -56,7 +56,10 @@ public class Dashboard_page extends JPanel {
         JButton btnChat = new JButton("Chat");
         btnChat.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
         btnChat.setBounds(620, 567, 100, 40);
-        add(btnChat);
+        //add(btnChat);
+//        btnChat.addActionListener(e->{
+//        	new Message_window();
+//        });
         
         JLabel lblTotalCompleted = new JLabel("Total completed:" + DatabaseHandler.GetNumberOfOrder(2));
         lblTotalCompleted.setForeground(new Color(85, 169, 85));

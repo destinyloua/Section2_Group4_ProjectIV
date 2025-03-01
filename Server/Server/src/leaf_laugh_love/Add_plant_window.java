@@ -1,6 +1,7 @@
 package leaf_laugh_love;
 import javax.swing.*;
 
+import back_end.DatabaseHandler;
 import back_end.ImageProcessor;
 import objects.Plant;
 
@@ -114,14 +115,28 @@ public class Add_plant_window extends JFrame {
         getContentPane().add(btnAddPlant);
         btnAddPlant.addActionListener(e->{
         	try {
-        		int quantity = Integer.parseInt(lblQuantity.getText());
-        		float price = Float.parseFloat(lblPrice.getText());
-        		String name = lblplantName.getText();
+        		String strQuantity = quantityInput.getText();
+        		System.out.println(strQuantity);
+        		int quantity = Integer.parseInt(strQuantity);
+        		String strPrice = priceInput.getText();
+        		System.out.println(strPrice);
+        		float price = Float.parseFloat(strPrice);
+        		String name = nameInput.getText();
+        		System.out.println("Parsed info");
         		Plant p = new Plant(name, price, quantity, ImageProcessor.GetFileExtension(selectedFile));
+        		System.out.println("Plant created");
         		String destinationFile = "resources/images/plants/" + p.GetImagePath();
         		ImageProcessor.CopyFile(imagePath, destinationFile);
+        		System.out.println("File saved");
         		//TODO add to database
-        		
+        		if(DatabaseHandler.InsertNewPlant(p)) {
+        			JOptionPane.showMessageDialog(null, "Plant inserted successfully!");
+        			setVisible(false);
+        		}
+        		else {
+        			JOptionPane.showMessageDialog(null, "Failed to insert plant");
+        			setVisible(false);
+        		}
         	}
         	catch(Exception ex) {
         		JOptionPane.showMessageDialog(null, "Price and quantity must be a number!");

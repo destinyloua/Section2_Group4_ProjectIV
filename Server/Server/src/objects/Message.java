@@ -1,14 +1,38 @@
 package objects;
 
+import java.nio.ByteBuffer;
+
 import back_end.Objects;
 
 public class Message implements Objects{
-	private int size;
 	private String message;
-	private byte[] data;
+	private int length;
+	
+	public Message(byte[] data){
+		ByteBuffer read = ByteBuffer.wrap(data);
+		this.length = read.getInt();
+		byte[] messageData = new byte[length];
+		read.get(messageData);
+		this.message = new String(messageData);
+	}
+	
+	public Message(String message) {
+		this.message = message;
+		this.length = message.length();
+	}
+	
+	public String GetMessage() {
+		return message;
+	}
+	
+	public int GetLength() {
+		return length;
+	}
 	
 	public byte[] Serialize() {
-		
+		byte[] data = new byte[message.length() + 4];
+		System.arraycopy(ByteBuffer.allocate(4).putInt(length).array(), 0, data, 0, 4);
+		System.arraycopy(message.getBytes(), 0, data, 4, length);
 		return data;
 	}
 }

@@ -28,11 +28,11 @@ public class Error_page extends JPanel {
 			lblNewLabel.setBounds(208, 298, 443, 44);
 			lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD, 32));
 			add(lblNewLabel);
-			JButton btnNewButton = new JButton("Back to log in");
+			JButton btnNewButton = new JButton("Back to dashboard");
 			btnNewButton.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					cardLayout.show(mainPanel, "Log In");
+					cardLayout.show(mainPanel, "Dashboard");
 				}
 			});
 			btnNewButton.setFont(new Font("Segoe UI", Font.PLAIN, 20));
