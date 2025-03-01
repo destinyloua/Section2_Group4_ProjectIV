@@ -1,0 +1,125 @@
+package leaf_laugh_love;
+
+import javax.swing.*;
+
+import back_end.FileHandler;
+import back_end.ResponseHandler;
+import back_end.SocketHandler;
+import objects.Message;
+import objects.Packet;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.*;
+import java.net.*;
+import java.nio.ByteBuffer;
+import java.util.Random;
+
+public class Help_window {
+	 private JFrame frame;
+	    private JTextArea chatArea;
+	    private JTextField messageField, serverField, portField;
+	    private JButton sendButton, connectButton;
+	    private JButton endBttn;
+    	private int id = new Random().nextInt(100000);
+    	private String logFile = id+".txt";
+	    
+	    public Help_window() {
+	        frame = new JFrame("Chat Client");
+	    	FileHandler.CreateFile(logFile);
+	        frame.setSize(400, 400);
+	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	        frame.getContentPane().setLayout(new BorderLayout());
+	        
+	        chatArea = new JTextArea();
+	        chatArea.setEditable(false);
+	        JScrollPane scrollPane = new JScrollPane(chatArea);
+	        frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
+	        
+	        endBttn = new JButton("End chat");
+	        scrollPane.setColumnHeaderView(endBttn);
+	        endBttn.addActionListener(e->{
+	        	//TODO send termination signal to server
+	        	Terminate();
+	        	frame.setVisible(false);
+	        });
+	        
+	        JPanel inputPanel = new JPanel(new BorderLayout());
+	        messageField = new JTextField();
+	        sendButton = new JButton("Send");
+	        inputPanel.add(messageField, BorderLayout.CENTER);
+	        inputPanel.add(sendButton, BorderLayout.EAST);
+	        frame.getContentPane().add(inputPanel, BorderLayout.SOUTH);
+	        
+	        sendButton.addActionListener(new ActionListener() {
+	            @Override
+	            public void actionPerformed(ActionEvent e) {
+	                sendMessage();
+	            }
+	        });
+	        
+	        frame.setVisible(true);
+	        
+	        connectToServer(); // Automatically connect on startup
+	    }
+	    
+	    private void connectToServer() {
+	    	//new Thread(this::receiveMessages).start();
+	        if (SocketHandler.MakeChatConnecion()) {
+	            chatArea.append("Connected to server\n");
+	            chatArea.append("Your session ID is: " + id + "\n");
+	            chatArea.append("NOTE: ALL TEXTS WILL BE SAVED AT: " + id+".txt\n");
+	            FileHandler.SaveLog(logFile, "Session started");
+	            new Thread(this::receiveMessages).start();
+	        } else {
+	            chatArea.append("Failed to connect\n");
+	        }
+	    }
+	    
+	    private void sendMessage() {
+	        String message = messageField.getText();
+	        if (!message.isEmpty()) {
+		        Packet p = new Packet();
+		        p.SetHeader(message.length());
+		        p.SetContent(message);
+	            if (SocketHandler.SendMessage(p)) {
+	                chatArea.append("Me: " + message + "\n");
+	                messageField.setText("");
+	                FileHandler.SaveLog(id, "Client: "+ message);
+	            } else {
+	                chatArea.append("Failed to send message\n");
+	            }
+	        }
+	    }
+	    
+	    private void receiveMessages() {
+	        while (true) {
+	            byte[] data = SocketHandler.ReceiveMessage();
+	            System.out.println(data.length);
+	            ByteBuffer read = ByteBuffer.wrap(data);
+	            System.out.println("Data received");
+	            if (read.getInt() == -1) {
+	            	SocketHandler.CloseChatConnection();
+                	frame.setVisible(false);
+	            }
+                else {
+	            	byte[] messageData = new byte[read.remaining()];
+	            	read.get(messageData);
+	            	String m = new String(messageData);
+	            	chatArea.append("Server: " + m + "\n");
+	            	FileHandler.SaveLog("Convo", "Server: "+ m);
+                }
+	        }
+	    }
+	    
+	    private void Terminate() {
+	    	Packet p = new Packet();
+	    	p.SetHeader(-1);
+	    	p.SetContent(0);
+	    	SocketHandler.SendMessage(p);
+	    	messageField.setText("");
+	    	FileHandler.SaveLog("Convo", "Session terminated");
+	    }
+}
+

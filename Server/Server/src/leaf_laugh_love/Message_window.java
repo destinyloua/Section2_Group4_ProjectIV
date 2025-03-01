@@ -2,6 +2,7 @@ package leaf_laugh_love;
 
 import javax.swing.*;
 
+import back_end.FileHandler;
 import back_end.MessageHandler;
 import back_end.SocketHandler;
 import objects.Message;
@@ -21,6 +22,8 @@ public class Message_window {
     private JTextField messageField;
     private JButton sendButton;
     private JButton endBttn;
+    private int sId;
+    private String fileName;
 
     public Message_window() {
         frame = new JFrame("Server Chat");
@@ -62,23 +65,30 @@ public class Message_window {
 
     private void startServer() {
     	chatArea.append("Client connected\n");
+    	ByteBuffer read = ByteBuffer.wrap(SocketHandler.ReceiveMessage());
+    	read.getInt();
+    	this.sId = read.getInt();
+    	this.fileName = sId + ".txt";
+    	chatArea.append("SESSION ID: " + sId+"\n");
+    	FileHandler.CreateFile(fileName);
+    	FileHandler.SaveLog(fileName,"Session started");
     	new Thread(this::ReceiveMessage).start();
     }
     
     public void ReceiveMessage() {
     	while(SocketHandler.CheckChatConnection()) {
     		ByteBuffer read = ByteBuffer.wrap(SocketHandler.ReceiveMessage());
-    		System.out.println(read.remaining());
     		if(read.getInt() == -1) {
+    			FileHandler.SaveLog(fileName, "Session terminated");
     			frame.setVisible(false);
     			SocketHandler.EndChat();
     		}
     		else {
     			byte[] messageData = new byte[read.remaining()];
-    			System.out.println(read.remaining());
     			read.get(messageData);
     			String m = new String(messageData);
-    			chatArea.append(m + "\n");
+    			chatArea.append("Client: "+m + "\n");
+    			FileHandler.SaveLog(fileName,"Client: "+m);
     		}
     	}
 	}
@@ -91,8 +101,8 @@ public class Message_window {
         	p.SetContent(message);
             chatArea.append("Server: " + message+ "\n");
             SocketHandler.SendMessage(p);
-            System.out.println("Message sent");
             messageField.setText("");
+            FileHandler.SaveLog(fileName, "Server: " + message);
         }
     }
     
@@ -102,5 +112,6 @@ public class Message_window {
     	p.SetContent(0);
     	SocketHandler.SendMessage(p);
     	messageField.setText("");
+    	FileHandler.SaveLog(fileName, "Session terminated");
     }
 }

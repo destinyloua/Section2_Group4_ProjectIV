@@ -28,8 +28,7 @@ public class Leaf_laugh_love extends JFrame {
 					Leaf_laugh_love frame = new Leaf_laugh_love();
 					frame.setVisible(true);
 					FileHandler.CreateFile("Log.txt");
-					String logMessage = FileHandler.GetTimeStamp() + ": Server started";
-					FileHandler.WriteToFile("Log.txt", logMessage);
+					FileHandler.SaveLog("Server started");
 
                     new Thread(new Runnable() {
                         @Override
@@ -52,8 +51,7 @@ public class Leaf_laugh_love extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				String logMessage = FileHandler.GetTimeStamp() + ": Server stopped";
-				FileHandler.WriteToFile("Log.txt", logMessage);
+				FileHandler.SaveLog("Server stopped");
 			}
 		});
 		String url = "jdbc:mysql://localhost:3306/project4";

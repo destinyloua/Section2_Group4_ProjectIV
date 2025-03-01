@@ -2,6 +2,7 @@ package leaf_laugh_love;
 
 import javax.swing.*;
 
+import back_end.FileHandler;
 import back_end.ResponseHandler;
 import back_end.SocketHandler;
 import objects.Message;
@@ -13,6 +14,7 @@ import java.awt.event.ActionListener;
 import java.io.*;
 import java.net.*;
 import java.nio.ByteBuffer;
+import java.util.Random;
 
 public class Help_window {
 	 private JFrame frame;
@@ -20,9 +22,12 @@ public class Help_window {
 	    private JTextField messageField, serverField, portField;
 	    private JButton sendButton, connectButton;
 	    private JButton endBttn;
+    	private int id = new Random().nextInt(100000);
+    	private String logFile = id+".txt";
 	    
 	    public Help_window() {
 	        frame = new JFrame("Chat Client");
+	    	FileHandler.CreateFile(logFile);
 	        frame.setSize(400, 400);
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frame.getContentPane().setLayout(new BorderLayout());
@@ -62,7 +67,14 @@ public class Help_window {
 	    private void connectToServer() {
 	    	//new Thread(this::receiveMessages).start();
 	        if (SocketHandler.MakeChatConnecion()) {
+	        	Packet sId = new Packet();
+	        	sId.SetHeader(4);
+	        	sId.SetContent(id);
+	        	SocketHandler.SendMessage(sId);
 	            chatArea.append("Connected to server\n");
+	            chatArea.append("Your session ID is: " + id + "\n");
+	            chatArea.append("NOTE: ALL TEXTS WILL BE SAVED AT: " + id+".txt\n");
+	            FileHandler.SaveLog(logFile, "Session started");
 	            new Thread(this::receiveMessages).start();
 	        } else {
 	            chatArea.append("Failed to connect\n");
@@ -78,6 +90,7 @@ public class Help_window {
 	            if (SocketHandler.SendMessage(p)) {
 	                chatArea.append("Me: " + message + "\n");
 	                messageField.setText("");
+	                FileHandler.SaveLog(logFile, "Client: "+ message);
 	            } else {
 	                chatArea.append("Failed to send message\n");
 	            }
@@ -99,6 +112,7 @@ public class Help_window {
 	            	read.get(messageData);
 	            	String m = new String(messageData);
 	            	chatArea.append("Server: " + m + "\n");
+	            	FileHandler.SaveLog(logFile, "Server: "+ m);
                 }
 	        }
 	    }
@@ -109,6 +123,7 @@ public class Help_window {
 	    	p.SetContent(0);
 	    	SocketHandler.SendMessage(p);
 	    	messageField.setText("");
+	    	FileHandler.SaveLog(logFile, "Session terminated");
 	    }
 }
 
