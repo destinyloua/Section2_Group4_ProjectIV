@@ -53,9 +53,9 @@ public class MysqlApp extends JFrame {
     // Connect to the MySQL database
     public void connectToDatabase() {
         try {
-            String url = "jdbc:mysql://localhost:3306/test_project4"; // Replace with your DB info
+            String url = "jdbc:mysql://localhost:3306/project4"; // Replace with your DB info
             String user = "root"; // Replace with your DB username
-            String password = "Nam@326389"; // Replace with your DB password
+            String password = "$quillyChonk4bear!"; // Replace with your DB password
             connection = DriverManager.getConnection(url, user, password);
             statement = connection.createStatement();
         } catch (SQLException e) {

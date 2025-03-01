@@ -69,6 +69,10 @@ public class Order implements Objects{
 		return quantity;
 	}
 	
+	public float GetTotalPrice() {
+		return totalPrice; 
+	}
+	
 
 	public byte[] Serialize() {
 		int size = (pId.size()*4) + (quantity.size()*4)+16;
@@ -84,5 +88,5 @@ public class Order implements Objects{
 		}
 		this.data = read.array();
 		return data;
-	}
+	} 
 }

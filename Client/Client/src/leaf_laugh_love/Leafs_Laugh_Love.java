@@ -8,6 +8,7 @@ import javax.swing.JPanel;
 
 import back_end.ResponseHandler;
 import back_end.SocketHandler;
+import objects.Order;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -68,6 +69,7 @@ public class Leafs_Laugh_Love extends JFrame {
             mainPanel.add(new Home_page(mainPanel, cardLayout), "Home");
             mainPanel.add(new Sign_up_success_page(mainPanel, cardLayout), "Sign Up Success");
         	mainPanel.add(new Error_page(mainPanel, cardLayout), "Error");
+        	//mainPanel.add(new Cart_page(mainPanel, cardLayout, o), "Cart");
         }
         else {
         	mainPanel.add(new Error_page(mainPanel, cardLayout), "Error");
@@ -76,3 +78,5 @@ public class Leafs_Laugh_Love extends JFrame {
 	}
 
 }
+
+
