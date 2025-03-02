@@ -59,7 +59,7 @@ public class Log_in extends JPanel {
 				Database db = new Database();
 				String dbUrl = "jdbc:mysql://localhost:3306/project4"; // Replace with your DB info
 	            String dbUser = "root"; // Replace with your DB username
-	            String dbPassword = "Nam@326389"; // Replace with your DB password
+	            String dbPassword = "$quillyChonk4bear!"; // Replace with your DB password
 	            
 	            String email = login_email.getText();
 	            String password = Integer.toString(login_password.getText().hashCode());

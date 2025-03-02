@@ -1,0 +1,21 @@
+# Eclipse metadata files
+.metadata/
+bin/
+build/
+
+# Eclipse project files
+.project
+.classpath
+
+# IntelliJ IDEA project files (if you're using IntelliJ in the future)
+.idea/
+*.iml
+
+# Windows thumbnail cache
+Thumbs.db
+
+# Log files
+*.log
+
+# Eclipse-specific build files (if applicable)
+*.tmp
