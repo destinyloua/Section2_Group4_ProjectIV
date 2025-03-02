@@ -53,15 +53,13 @@ public class Dashboard_page extends JPanel {
         	new Plants_list_window();
         });
         
-        JButton btbExit = new JButton("Exit");
-        btbExit.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
-        btbExit.setBounds(620, 567, 100, 40);
-        add(btbExit);
-        btbExit.addActionListener(e->{
-        	SocketHandler.CloseServer();
-        	FileHandler.SaveLog("Server stopped");
-        	System.exit(1);
-        });
+        JButton btnChat = new JButton("Chat");
+        btnChat.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+        btnChat.setBounds(620, 567, 100, 40);
+        //add(btnChat);
+//        btnChat.addActionListener(e->{
+//        	new Message_window();
+//        });
         
         JLabel lblTotalCompleted = new JLabel("Total completed:" + DatabaseHandler.GetNumberOfOrder(2));
         lblTotalCompleted.setForeground(new Color(85, 169, 85));

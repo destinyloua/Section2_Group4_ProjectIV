@@ -1,3 +1,0 @@
-03/01/25-00:09:44: Session started
-03/01/25-00:09:47: Client: HIII
-03/01/25-00:09:50: Session terminated

@@ -1,5 +1,5 @@
 package back_end;
-//TODO LOGGING
+
 import java.net.*;
 import java.nio.ByteBuffer;
 
@@ -24,7 +24,6 @@ public class SocketHandler {
             // Accept client connection
             chatSocket = serverChatSocket.accept();
             System.out.println("Client chat connected!");
-            FileHandler.SaveLog("Client connected on port 27001 (Chatting socket)");
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -77,7 +76,6 @@ public class SocketHandler {
             // Accept client connection
             clientSocket = serverSocket.accept();
             System.out.println("Client connected!");
-            FileHandler.SaveLog("Client connected on port 27000");
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -181,10 +179,13 @@ public class SocketHandler {
 	public static Boolean Disconnect() {
 		try {
 	        if (clientSocket != null) {
+//	            // Close the input and output streams
+//	            clientSocket.getInputStream().close();  // Close the input stream
+//	            clientSocket.getOutputStream().close(); // Close the output stream
+
 	            // Finally, close the client socket itself
 	            clientSocket.close();
 	            System.out.println("Client connection closed.");
-	            FileHandler.SaveLog("Connection on port 27000 disconnected");
 	            return true;
 	        } else {
 	            System.out.println("No client connection to close.");
@@ -202,7 +203,6 @@ public class SocketHandler {
 	        	serverChatSocket.close();
 	            chatSocket.close();
 	            System.out.println("Chat socket on port 27001 closed.");
-	            FileHandler.SaveLog("Server socket closed on port 27001 (Chatting socket)");
 	        }
 	        chatSocket = null; // Ensure it is completely released
 	        return true;
@@ -214,9 +214,8 @@ public class SocketHandler {
 	
 	public static Boolean CloseServer() {
 		try {
-			EndChat();
 			serverSocket.close();
-			FileHandler.SaveLog("Server socket closed on port 27000");
+			serverChatSocket.close();
 			return true;
 		}
 		catch (Exception e){

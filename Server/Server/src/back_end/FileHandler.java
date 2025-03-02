@@ -62,11 +62,4 @@ public class FileHandler {
         String logMessage = timeStamp + ": " + message;
         FileHandler.WriteToFile("Log.txt", logMessage);
     }
-    
-    public static void SaveLog(String fileName, String message) {
-		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yy-HH:mm:ss");
-        String timeStamp = dateFormat.format(new Date());
-        String logMessage = timeStamp + ": " + message;
-        FileHandler.WriteToFile(fileName, logMessage);
-    }
 }
