@@ -32,7 +32,7 @@ public class Sign_up_page extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Sign_up_page(JPanel mainPanel, CardLayout cardLayout) {
+	public Sign_up_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Sign Up");
@@ -69,11 +69,19 @@ public class Sign_up_page extends JPanel {
 		btnNewButton.setBounds(220, 478, 400, 40);
 		add(btnNewButton);
 		btnNewButton.addActionListener(e -> {
-			Account a = new Account(fName.getText(), lName.getText(), email.getText(), password.getText());
+			a.SetAccount(fName.getText(), lName.getText(), email.getText().toLowerCase(), password.getText());
 			if(ResponseHandler.CreateAccount(a)) {
-				cardLayout.show(mainPanel, "Sign Up Success");
+				mainPanel.removeAll();
+				mainPanel.add(new Sign_up_success_page(mainPanel, cardLayout, a, o), "Sign up success");
+				mainPanel.repaint();
+				mainPanel.revalidate();
+				cardLayout.show(mainPanel, "Sign up success");
 			}
 			else {
+				mainPanel.removeAll();
+				mainPanel.add(new Error_page(mainPanel, cardLayout, a, o), "Error");
+				mainPanel.repaint();
+				mainPanel.revalidate();
 				cardLayout.show(mainPanel, "Error");
 			}
         });
@@ -84,7 +92,11 @@ public class Sign_up_page extends JPanel {
 		btnBackToLog.setBounds(220, 528, 400, 40);
 		add(btnBackToLog);
 		btnBackToLog.addActionListener(e ->{
-			cardLayout.show(mainPanel, "Log In");
+			mainPanel.removeAll();
+			mainPanel.add(new Log_in_page(mainPanel, cardLayout, a, o), "Log in");
+			mainPanel.repaint();
+			mainPanel.revalidate();
+			cardLayout.show(mainPanel, "Log in");
 		});
 	}
 }

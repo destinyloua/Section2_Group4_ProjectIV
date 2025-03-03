@@ -94,3 +94,6 @@ Select count(*) from Orders;
 SELECT * FROM Plants;
 
 Delete from Plants where id=6;
+
+Select * from Accounts where email = "baonam6a3@gmail.com";
+SELECT * from Accounts WHERE email = "baonam6a3@gmail.com";

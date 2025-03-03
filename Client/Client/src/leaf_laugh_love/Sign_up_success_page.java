@@ -1,6 +1,9 @@
 package leaf_laugh_love;
 
 import javax.swing.JPanel;
+
+import objects.*;
+
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.JButton;
@@ -15,7 +18,7 @@ public class Sign_up_success_page extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Sign_up_success_page(JPanel mainPanel, CardLayout cardLayout) {
+	public Sign_up_success_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Congratulations! Your account is created!");
@@ -29,7 +32,11 @@ public class Sign_up_success_page extends JPanel {
 		btnNewButton.setBounds(220, 361, 400, 40);
 		add(btnNewButton);
 		btnNewButton.addActionListener(e->{
-			cardLayout.show(mainPanel, "Log In");
+			mainPanel.removeAll();
+			mainPanel.add(new Log_in_page(mainPanel, cardLayout, a, o), "Log in");
+			mainPanel.repaint();
+			mainPanel.revalidate();
+			cardLayout.show(mainPanel, "Log in");
 		});
 		
 		JLabel lblNewLabel_1 = new JLabel("After logging in, you can see your account information in the setting page");

@@ -16,18 +16,18 @@ public class Home_page extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Home_page(JPanel mainPanel, CardLayout cardLayout) {
-setLayout(null);
+	public Home_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
+		setLayout(null);
     	
     	JLabel lblNewLabel = new JLabel("New label");
-    	lblNewLabel.setIcon(new ImageIcon("resources/images/logo.png"));
-    	lblNewLabel.setBounds(251, 33, 60, 60);
+    	lblNewLabel.setIcon(new ImageIcon("resources\\images\\logo.png"));
+    	lblNewLabel.setBounds(10, 20, 60, 60);
     	add(lblNewLabel);
     	
-    	JLabel TitleLabel = new JLabel("Leaf, Laugh, Love");
+    	JLabel TitleLabel = new JLabel("Leaf, Laugh, Love | Hi " + a.GetFName());
     	TitleLabel.setForeground(new Color(85, 169, 85));
     	TitleLabel.setFont(new Font("Segoe UI Black", Font.BOLD, 32));
-    	TitleLabel.setBounds(316, 43, 290, 39);
+    	TitleLabel.setBounds(75, 28, 736, 39);
     	add(TitleLabel);
     	
     	JPanel plantsList = new JPanel();
@@ -55,6 +55,7 @@ setLayout(null);
 		add(helpBttn);
 		helpBttn.addActionListener(e->{
 			ResponseHandler.StartChat();
+			new Help_window(a);
 		});
 		
 		JButton cartBttn = new JButton("View cart");

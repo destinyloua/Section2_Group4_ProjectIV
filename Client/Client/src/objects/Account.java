@@ -40,6 +40,27 @@ public class Account implements Objects{
 	    this.email = splitArray[2];
 	}
 	
+	public void SetAccount(String fName, String lName, String email, String password) {
+		this.fName = fName;
+		this.lName = lName;
+		this.email = email;
+		this.password = password.hashCode();
+	}
+	
+	public void SetAccount(String fName, String lName, String email, int password) {
+		this.fName = fName;
+		this.lName = lName;
+		this.email = email;
+		this.password = password;
+	}
+	
+	public void SetAccount(String email, String password) {
+		this.fName = "Null";
+		this.lName = "Null";
+		this.email = email;
+		this.password = password.hashCode();
+	}
+	
 //	public Boolean Authenticate() {
 //		SocketHandler.SendData(Serialize());
 //		byte[] receivedData = SocketHandler.ReceiveData();

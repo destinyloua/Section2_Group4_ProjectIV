@@ -2,10 +2,8 @@ package leaf_laugh_love;
 
 import javax.swing.*;
 
-import back_end.ResponseHandler;
-import back_end.SocketHandler;
-import objects.Message;
-import objects.Packet;
+import back_end.*;
+import objects.*;
 
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -20,8 +18,10 @@ public class Help_window {
 	    private JTextField messageField, serverField, portField;
 	    private JButton sendButton, connectButton;
 	    private JButton endBttn;
+	    private Account a;
 	    
-	    public Help_window() {
+	    public Help_window(Account a) {
+	    	this.a = a;
 	        frame = new JFrame("Chat Client");
 	        frame.setSize(400, 400);
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -76,7 +76,7 @@ public class Help_window {
 		        p.SetHeader(message.length());
 		        p.SetContent(message);
 	            if (SocketHandler.SendMessage(p)) {
-	                chatArea.append("Me: " + message + "\n");
+	                chatArea.append(a.GetFName()+": " + message + "\n");
 	                messageField.setText("");
 	            } else {
 	                chatArea.append("Failed to send message\n");

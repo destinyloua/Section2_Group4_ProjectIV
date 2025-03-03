@@ -78,7 +78,7 @@ public class Message_window {
     			System.out.println(read.remaining());
     			read.get(messageData);
     			String m = new String(messageData);
-    			chatArea.append(m + "\n");
+    			chatArea.append("Client: "+ m + "\n");
     		}
     	}
 	}

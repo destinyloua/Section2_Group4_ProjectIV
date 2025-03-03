@@ -3,6 +3,7 @@ package leaf_laugh_love;
 import javax.swing.JPanel;
 
 import back_end.SocketHandler;
+import objects.*;
 
 import javax.swing.JLabel;
 import java.awt.Font;
@@ -20,7 +21,7 @@ public class Error_page extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Error_page(JPanel mainPanel, CardLayout cardLayout) {
+	public Error_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
 		setLayout(null);
 		
 		if(SocketHandler.CheckConnection()) {
@@ -32,7 +33,11 @@ public class Error_page extends JPanel {
 			btnNewButton.addMouseListener(new MouseAdapter() {
 				@Override
 				public void mouseClicked(MouseEvent e) {
-					cardLayout.show(mainPanel, "Log In");
+					mainPanel.removeAll();
+					mainPanel.add(new Log_in_page(mainPanel, cardLayout, a, o), "Log in");
+					mainPanel.repaint();
+					mainPanel.revalidate();
+					cardLayout.show(mainPanel, "Log in");
 				}
 			});
 			btnNewButton.setFont(new Font("Segoe UI", Font.PLAIN, 20));

@@ -36,8 +36,6 @@ public class ResponseHandler {
 			catch (Exception e){
 				
 			}
-			new Help_window();
-			
 //			Message m = SocketHandler.ReceiveMessage();
 //			System.out.println(m.GetMessage());
 			
@@ -52,6 +50,26 @@ public class ResponseHandler {
 		Message m = new Message (message);
 		SocketHandler.SendMessage(m);
 		return true;
+	}
+	
+	public static Account GetAccount(Account a) {
+		packet.SetHeader(1, 3);
+		packet.SetContent(a);
+		SocketHandler.SendData(packet);
+		System.out.println("Start");
+		read = ByteBuffer.wrap(SocketHandler.ReceiveData());
+		if(read.getInt()==0) {
+			System.out.println("Failed");
+			return null;
+		}
+		else {
+			System.out.println("Success");
+			byte[] accountData = new byte[read.remaining()];
+			read.get(accountData);
+			a = new Account(accountData);
+			System.out.println(a.GetEmail());
+			return a;
+		}
 	}
 	
 	public static Vector<Plant> GetPlantsList(){

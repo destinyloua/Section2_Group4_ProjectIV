@@ -20,6 +20,7 @@ public class RequestHandler implements Runnable {
 	public static Boolean Processing() {
 		while(SocketHandler.CheckConnection()) {
 			data = SocketHandler.ReceiveData();
+			System.out.println(data.length);
 			System.out.println("Request received");
 			read = ByteBuffer.wrap(data);
 			object = read.getInt();
@@ -41,6 +42,9 @@ public class RequestHandler implements Runnable {
 					}
 					else if(action == 2) {
 						Authenticate();
+					}
+					else if(action == 3) {
+						GetAccountByEmail();
 					}
 				}
 				
@@ -87,6 +91,26 @@ public class RequestHandler implements Runnable {
 			}
 		}
 		return true;
+	}
+	
+	public static Boolean GetAccountByEmail() {
+		Account a = DatabaseHandler.FetchAccountByEmail(new Account(data).GetEmail());
+		if(a == null) {
+			packet.SetHeader(false);
+			packet.SetContent(false);
+			SocketHandler.SendData(packet);
+			
+			FileHandler.SaveLog("Failed to send account data to client");
+			return false;
+		}
+		else {
+			packet.SetHeader(true);
+			packet.SetContent(a);
+			SocketHandler.SendData(packet);
+			
+			FileHandler.SaveLog("Account " + a.GetId() + " data sent to client");
+			return true;
+		}
 	}
 	
 	public static Boolean GetOrderByAId() {

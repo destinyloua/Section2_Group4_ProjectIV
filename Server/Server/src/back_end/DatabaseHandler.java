@@ -326,6 +326,30 @@ public class DatabaseHandler {
 		return a;
 	}
 	
+	public static Account FetchAccountByEmail(String email){
+		String query1 = "SELECT * from Accounts WHERE email = ?";
+		int aId;
+		String fName;
+		String lName;
+		int password;
+		try {
+			pstm = connection.prepareStatement(query1);
+			pstm.setString(1, email);
+			resultSet = pstm.executeQuery();
+			resultSet.next();
+			aId = resultSet.getInt(1);
+			fName = resultSet.getString(2);
+			lName = resultSet.getString(3);
+			password = resultSet.getInt(5);
+		}
+		catch(Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			return null;
+		}
+		Account a = new Account(aId, fName, lName, email, password);
+		return a;
+	}
+	
 	public static Plant FetchPlant(int id) {
 		String query = "SELECT * FROM Plants WHERE id = ?";
 		try {
