@@ -17,6 +17,10 @@ public class Home_page extends JPanel {
 	 * Create the panel.
 	 */
 	public Home_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
+		//TODO add all the available page here
+		mainPanel.add(new Orders_history_page(mainPanel, cardLayout, a, o), "Orders history");
+		mainPanel.add(new View_cart_page(mainPanel, cardLayout, a, o), "Cart");
+
 		setLayout(null);
     	
     	JLabel lblNewLabel = new JLabel("New label");
@@ -48,6 +52,9 @@ public class Home_page extends JPanel {
 		orderBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 		orderBttn.setBounds(262, 568, 153, 35);
 		add(orderBttn);
+		orderBttn.addActionListener(e->{		
+			cardLayout.show(mainPanel, "Orders history");
+		});
 		
 		JButton helpBttn = new JButton("Help");
 		helpBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
@@ -62,6 +69,9 @@ public class Home_page extends JPanel {
 		cartBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 		cartBttn.setBounds(588, 568, 153, 35);
 		add(cartBttn);
+		cartBttn.addActionListener(e->{
+			cardLayout.show(mainPanel, "Cart");
+		});
 		
 		JButton logOutBttn = new JButton("Log out");
 		

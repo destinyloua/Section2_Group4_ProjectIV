@@ -13,6 +13,10 @@ public class Account implements Objects{
 	private int password;
 	private byte[] data;
 	
+	public Account() {
+
+	}
+	
 	public Account(String fName, String lName, String email, String password) {
 		this.fName = fName;
 		this.lName = lName;

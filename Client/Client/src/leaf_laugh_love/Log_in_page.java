@@ -53,6 +53,7 @@ public class Log_in_page extends JPanel {
 				// Send data to server
 				Account a = new Account(login_email.getText(), login_password.getText());
 				if(ResponseHandler.AuthenticateLogin(a)) {
+					System.out.println("Auth ok");
 					Account newAcc = ResponseHandler.GetAccount(a);
 					a.SetAccount(newAcc.GetFName(), newAcc.GetLName(), newAcc.GetEmail(), newAcc.GetPassword());
 					mainPanel.removeAll();

@@ -13,7 +13,7 @@ public class Order_info_window extends JFrame {
 
 	private static final long serialVersionUID = 1L;
 	public Order_info_window(int orderId) {
-		Order order = DatabaseHandler.FecthOrder(orderId);
+		Order order = DatabaseHandler.FetchOrderById(orderId);
 		Account account = DatabaseHandler.FetchAccount(order.GetAId());
 		setTitle("Order #" + orderId);
         setSize(840, 700);

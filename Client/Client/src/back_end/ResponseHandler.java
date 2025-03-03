@@ -56,14 +56,11 @@ public class ResponseHandler {
 		packet.SetHeader(1, 3);
 		packet.SetContent(a);
 		SocketHandler.SendData(packet);
-		System.out.println("Start");
 		read = ByteBuffer.wrap(SocketHandler.ReceiveData());
 		if(read.getInt()==0) {
-			System.out.println("Failed");
 			return null;
 		}
 		else {
-			System.out.println("Success");
 			byte[] accountData = new byte[read.remaining()];
 			read.get(accountData);
 			a = new Account(accountData);
@@ -72,18 +69,37 @@ public class ResponseHandler {
 		}
 	}
 	
+	public static Vector<Order> GetOrdersList(Account a){
+		packet.SetHeader(2, 2);
+		packet.SetContent(a);
+		SocketHandler.SendData(packet);
+		read = ByteBuffer.wrap(SocketHandler.ReceiveData());
+		Vector<Order> ordersList = new Vector<>();
+		if(read.getInt() == 0) {
+			return ordersList;
+		}
+		else {
+			int numberOfOrders = read.getInt();
+			System.out.println("Receiving " + numberOfOrders + " orders");
+			for(int i=0; i<numberOfOrders;i++) {
+				Order o = new Order(SocketHandler.ReceiveData());
+				ordersList.add(o);
+			}
+			return ordersList;
+		}
+	}
+	
 	public static Vector<Plant> GetPlantsList(){
 		packet.SetHeader(3, 2);
 		packet.SetContent(0);
 		SocketHandler.SendData(packet);
-		
+		Vector<Plant> plantsList = new Vector<>();
 		read = ByteBuffer.wrap(SocketHandler.ReceiveData());
 		if(read.getInt() == 0) {
-			return null;
+			return plantsList;
 		}
 		else {
 			int numberOfPlants = read.getInt();
-			Vector<Plant> plantsList = new Vector<>();
 			System.out.println("Receiving " + numberOfPlants + " plants");
 			for(int i=0;i<numberOfPlants;i++) {
 				Plant p = new Plant(SocketHandler.ReceiveData());

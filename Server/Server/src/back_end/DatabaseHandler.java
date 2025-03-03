@@ -198,7 +198,7 @@ public class DatabaseHandler {
 		return plantsList;
 	}
 	
-	public static Vector<Order> FecthOrdersList(){
+	public static Vector<Order> FetchOrdersList(){
 		Vector<Order> ordersList = new Vector<>();
 		String query = "Select * from Orders";
 		try {
@@ -219,7 +219,7 @@ public class DatabaseHandler {
 		return ordersList;
 	}
 	
-	public static Order FecthOrder(int id){
+	public static Order FetchOrderById(int id){
 		String query1 = "Select * from Orders Where id = ?";
 		int oId;
 		int aId;
@@ -370,44 +370,28 @@ public class DatabaseHandler {
 		}
 	}
 	
-	public static Order FetchOrderByAId(int accountId) {
+	public static Vector<Order> FetchOrdersListByAId(int accountId) {
 		String query1 = "Select * from Orders Where aId = ?";
 		int oId;
 		int aId;
 		float totalPrice;
 		int status;
-		Vector<Integer> pId = new Vector<>();
-		Vector<Integer> quantity = new Vector<>();
+		Vector<Order> orders = new Vector<>();
 		try {
 			pstm = connection.prepareStatement(query1);
 			pstm.setInt(1, accountId);
 			resultSet = pstm.executeQuery();
-			resultSet.next();
-			oId = resultSet.getInt(1);
-			aId = resultSet.getInt(2);
-			totalPrice = resultSet.getFloat(3);
-			status = resultSet.getInt(4);
-		}
-		catch(Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			return null;
-		}
-		String query2 = "SELECT p.id, oi.quantity, o.id FROM Order_items oi JOIN Plants p ON oi.pId = p.id JOIN Orders o ON o.id = oi.oId WHERE o.aId = ?";
-		try {
-			pstm = connection.prepareStatement(query2);
-			pstm.setInt(1, accountId);
-			resultSet = pstm.executeQuery();
 			while(resultSet.next()) {
-				pId.add(resultSet.getInt(1));
-				quantity.add(resultSet.getInt(1));
+				oId = resultSet.getInt(1);
+				Order o = FetchOrderById(oId);
+				orders.add(o);
 			}
+			return orders;
 		}
 		catch(Exception e) {
 			System.out.println("Error: " + e.getMessage());
 			return null;
 		}
-		Order order = new Order(oId, aId, totalPrice, status, pId, quantity);
-		return order;
 	}
 	
 	public static Boolean InsertNewOrder(Order o) {

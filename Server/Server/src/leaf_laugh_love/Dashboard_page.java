@@ -91,7 +91,7 @@ public class Dashboard_page extends JPanel {
         add(panel);
         panel.setLayout(null);
         
-        Vector<Order> orders = new Vector<>(DatabaseHandler.FecthOrdersList());
+        Vector<Order> orders = new Vector<>(DatabaseHandler.FetchOrdersList());
         
         JLabel lblNewLabel_1 = new JLabel("Total orders: " + DatabaseHandler.GetNumberOfOrder());
         lblNewLabel_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 24));
@@ -121,7 +121,7 @@ public class Dashboard_page extends JPanel {
      */
     private void loadOrders() {
         orderList.removeAll(); // Clear the existing orders
-        Vector<Order> orders = new Vector<>(DatabaseHandler.FecthOrdersList()); // Fetch updated order list
+        Vector<Order> orders = new Vector<>(DatabaseHandler.FetchOrdersList()); // Fetch updated order list
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;

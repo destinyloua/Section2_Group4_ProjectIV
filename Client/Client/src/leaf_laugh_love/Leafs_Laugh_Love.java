@@ -21,8 +21,8 @@ public class Leafs_Laugh_Love extends JFrame {
     private JPanel contentPane;
     private CardLayout cardLayout;
     private JPanel mainPanel;
-    private Account a;
-    private Order o;
+    private Account a = new Account();
+    private Order o = new Order();
 
 	/**
 	 * Launch the application.
@@ -68,11 +68,6 @@ public class Leafs_Laugh_Love extends JFrame {
         //Connect to server
         if(SocketHandler.MakeConnection()) {
             mainPanel.add(new Log_in_page(mainPanel, cardLayout,a,o), "Log In");
-            //mainPanel.add(new Sign_up_page(mainPanel, cardLayout), "Sign Up");
-//            mainPanel.add(new Home_page(mainPanel, cardLayout), "Home");
-//            mainPanel.add(new Sign_up_success_page(mainPanel, cardLayout), "Sign Up Success");
-//        	mainPanel.add(new Error_page(mainPanel, cardLayout), "Error");
-        	//mainPanel.add(new Cart_page(mainPanel, cardLayout, o), "Cart");
         }
         else {
         	mainPanel.add(new Error_page(mainPanel, cardLayout, a, o), "Error");

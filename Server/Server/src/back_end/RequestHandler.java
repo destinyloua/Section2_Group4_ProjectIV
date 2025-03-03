@@ -54,7 +54,7 @@ public class RequestHandler implements Runnable {
 						PlaceOrder();
 					}
 					else if(action ==2) {
-						
+						GetOrdersListByAId();
 					}
 				}
 				
@@ -113,23 +113,28 @@ public class RequestHandler implements Runnable {
 		}
 	}
 	
-	public static Boolean GetOrderByAId() {
-		int id = read.getInt();
-		Order o = DatabaseHandler.FetchOrderByAId(id);
-		if(o == null) {
-			packet.SetHeader(false);
+	public static Boolean GetOrdersListByAId() {
+		read = ByteBuffer.wrap(data);
+		System.out.println("Coppied: " + data.length);
+		int aId = read.getInt();
+		Vector<Order> orders = DatabaseHandler.FetchOrdersListByAId(aId);
+		if(orders.isEmpty()) {
+			packet.SetHeader(true);
 			packet.SetContent(false);
 			SocketHandler.SendData(packet);
-			
-	        FileHandler.SaveLog("Failed to send order data to client");
+			FileHandler.SaveLog("Orders list of account #"+ aId +" sent to client");
 	        return false;
 		}
 		else {
 			packet.SetHeader(true);
-			packet.SetContent(o);
+			packet.SetContent(orders.size());
 			SocketHandler.SendData(packet);
-			
-	        FileHandler.SaveLog("Order #" + o.GetId() + "data sent to client");
+			for(int i=0;i<orders.size();i++) {
+				packet.SetHeader(true);
+				packet.SetContent(orders.get(i));
+				SocketHandler.SendData(packet);
+			}
+			FileHandler.SaveLog("Orders list of account #"+ aId +" sent to client");
 	        return true;
 		}
 	}
@@ -154,15 +159,9 @@ public class RequestHandler implements Runnable {
 		}
 	}
 	
-	//Haven done NEED IMAGE
 	public static Boolean GetPlantsList() {
 		Vector<Plant> plants;
 		plants = DatabaseHandler.FetchPlantsList();
-		
-		for(Plant p : plants) {
-			System.out.println(p.GetImagePath());
-		}
-		
 		if(plants.isEmpty()) {
 			packet.SetHeader(false);
 			packet.SetContent(false);
