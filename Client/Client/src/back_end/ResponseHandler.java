@@ -116,6 +116,26 @@ public class ResponseHandler {
 		//TODO receive plant into / make a class to process image
 	}
 	
+	public static Plant GetPlant(int id) {
+		packet.SetHeader(3, 1);
+		packet.SetContent(id);
+		SocketHandler.SendData(packet);
+		read = ByteBuffer.wrap(SocketHandler.ReceiveData());
+		if(read.getInt() == 0) {
+			return null;
+		}
+		else {
+			byte[] plantData = new byte[read.remaining()];
+			read.get(plantData);
+			Plant p = new Plant(plantData);
+			//Set ImageName
+			p.SetImage(new String(SocketHandler.ReceiveData()));
+			ReceiveImage(p.GetImagePath());
+			System.out.println(p.GetName() + " received with image");
+			return p;	
+		}
+	}
+	
 	public static void ReceiveImage(String savedFile) {
 	    try {
 	        // Get image size

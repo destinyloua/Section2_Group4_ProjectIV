@@ -34,6 +34,7 @@ public class RequestHandler implements Runnable {
 				if(read.remaining() > 0) {
 					data = new byte[read.remaining()];
 					read.get(data);
+					read = ByteBuffer.wrap(data);
 				}
 				//Account
 				if(object == 1) {
@@ -114,7 +115,7 @@ public class RequestHandler implements Runnable {
 	}
 	
 	public static Boolean GetOrdersListByAId() {
-		read = ByteBuffer.wrap(data);
+//		read = ByteBuffer.wrap(data);
 		System.out.println("Coppied: " + data.length);
 		int aId = read.getInt();
 		Vector<Order> orders = DatabaseHandler.FetchOrdersListByAId(aId);
@@ -227,7 +228,6 @@ public class RequestHandler implements Runnable {
 		}
 	}
 	
-	//Haven done NEED IMAGE
 	public static Boolean GetPlantById() {
 		int id = read.getInt();
 		Plant p = DatabaseHandler.FetchPlant(id);
@@ -243,6 +243,10 @@ public class RequestHandler implements Runnable {
 			packet.SetHeader(true);
 			packet.SetContent(p);
 			SocketHandler.SendData(packet);
+			
+			SocketHandler.SendData(p.GetImagePath().getBytes());
+			//TODO SEND IMAGE
+			SendImage(p.GetImagePath());
 			
 	        FileHandler.SaveLog("Plant " + p.GetId() + "data sent to client");
 	        return true;

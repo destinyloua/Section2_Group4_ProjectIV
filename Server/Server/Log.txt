@@ -498,3 +498,32 @@
 03/03/25-16:14:56: Authentication success
 03/03/25-16:14:56: Account 5 data sent to client
 03/03/25-16:14:56: Orders list of account #0 sent to client
+03/03/25-16:29:25: Server started
+03/03/25-16:29:46: Authentication success
+03/03/25-16:29:46: Account 5 data sent to client
+03/03/25-16:29:46: Orders list of account #0 sent to client
+03/03/25-16:31:27: Authentication success
+03/03/25-16:31:27: Account 5 data sent to client
+03/03/25-16:31:27: Orders list of account #0 sent to client
+03/03/25-16:33:03: Authentication success
+03/03/25-16:33:03: Account 5 data sent to client
+03/03/25-16:33:03: Orders list of account #0 sent to client
+03/03/25-16:43:19: Authentication success
+03/03/25-16:43:19: Account 5 data sent to client
+03/03/25-16:43:19: Orders list of account #0 sent to client
+03/03/25-16:45:23: Server started
+03/03/25-16:45:45: Authentication success
+03/03/25-16:45:45: Account 5 data sent to client
+03/03/25-16:45:45: Orders list of account #0 sent to client
+03/03/25-16:47:37: Server started
+03/03/25-16:47:53: Authentication success
+03/03/25-16:47:53: Account 5 data sent to client
+03/03/25-16:47:53: Orders list of account #0 sent to client
+03/03/25-16:48:00: Plant 3data sent to client
+03/03/25-16:49:22: Authentication success
+03/03/25-16:49:22: Account 5 data sent to client
+03/03/25-16:49:22: Orders list of account #0 sent to client
+03/03/25-16:49:31: Plant 1data sent to client
+03/03/25-16:49:32: Orders list of account #0 sent to client
+03/03/25-16:49:43: Plant 1data sent to client
+03/03/25-16:55:14: Server stopped

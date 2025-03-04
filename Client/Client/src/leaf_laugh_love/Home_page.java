@@ -19,7 +19,6 @@ public class Home_page extends JPanel {
 	public Home_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
 		//TODO add all the available page here
 		mainPanel.add(new Orders_history_page(mainPanel, cardLayout, a, o), "Orders history");
-		mainPanel.add(new View_cart_page(mainPanel, cardLayout, a, o), "Cart");
 
 		setLayout(null);
     	
@@ -70,6 +69,10 @@ public class Home_page extends JPanel {
 		cartBttn.setBounds(588, 568, 153, 35);
 		add(cartBttn);
 		cartBttn.addActionListener(e->{
+			mainPanel.removeAll();
+			mainPanel.add(new View_cart_page(mainPanel, cardLayout, a, o), "Cart");
+			mainPanel.repaint();
+			mainPanel.revalidate();
 			cardLayout.show(mainPanel, "Cart");
 		});
 		
@@ -109,6 +112,10 @@ public class Home_page extends JPanel {
 			addBttn.setForeground(new Color(0, 0, 0));
 			addBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 			addBttn.setBounds(105, 63, 150, 30);
+			addBttn.addActionListener(e->{
+				o.AddPlant(p.GetId(), 1);
+				
+			});
 			
 			JButton detailBttn = new JButton("See details");
 			detailBttn.setForeground(new Color(0, 0, 0));

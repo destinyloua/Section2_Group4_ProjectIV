@@ -17,6 +17,7 @@ public class View_cart_page extends JPanel {
 	 * Create the panel.
 	 */
 	public View_cart_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
+		//TODO Get plant by pID
 		setLayout(null);
     	JLabel lblNewLabel = new JLabel("New label");
     	lblNewLabel.setIcon(new ImageIcon("resources\\images\\logo.png"));
@@ -49,6 +50,10 @@ public class View_cart_page extends JPanel {
 		homeBttn.setBounds(120, 568, 153, 35);
 		add(homeBttn);
 		homeBttn.addActionListener(e->{
+			mainPanel.removeAll();
+			mainPanel.add(new Home_page(mainPanel, cardLayout, a, o), "Home");
+			mainPanel.repaint();
+			mainPanel.revalidate();
 			cardLayout.show(mainPanel, "Home");
 		});
 		
@@ -85,12 +90,12 @@ public class View_cart_page extends JPanel {
 			Vector<Integer> pId = o.GetPId();
 			Vector<Integer> quantity = o.GetQuantity();
 			for (int i=0; i<o.GetPId().size();i++) {
+				Plant p = ResponseHandler.GetPlant(pId.get(i));
 			    JPanel orderCard = new JPanel();
 			    orderCard.setLayout(null);
 			    orderCard.setPreferredSize(new Dimension(600, 100)); // Fixed size
 			    orderCard.setBackground(new Color(85, 169, 85));
-
-			    JLabel plantId = new JLabel("Plant " + pId.get(i));
+			    JLabel plantId = new JLabel("Plant " + p.GetName());
 			    plantId.setFont(new Font("Segoe UI", Font.BOLD, 20));
 			    plantId.setBounds(10, 9, 485, 27);
 			    JLabel price = new JLabel("Quantity: " + quantity.get(i));
