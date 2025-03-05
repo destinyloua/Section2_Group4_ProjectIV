@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 import back_end.ResponseHandler;
 import back_end.SocketHandler;
-import objects.Order;
+import objects.*;
 
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
@@ -21,6 +21,8 @@ public class Leafs_Laugh_Love extends JFrame {
     private JPanel contentPane;
     private CardLayout cardLayout;
     private JPanel mainPanel;
+    private Account a = new Account();
+    private Order o = new Order();
 
 	/**
 	 * Launch the application.
@@ -47,6 +49,7 @@ public class Leafs_Laugh_Love extends JFrame {
 			public void windowClosing(WindowEvent e) {
 				ResponseHandler.TerminateConnection();
 				System.out.println("Closed");
+				System.exit(1);
 			}
 		});
 		setTitle("Leaf, Laugh, Love shop");
@@ -64,15 +67,10 @@ public class Leafs_Laugh_Love extends JFrame {
 
         //Connect to server
         if(SocketHandler.MakeConnection()) {
-            mainPanel.add(new Log_in_page(mainPanel, cardLayout), "Log In");
-            mainPanel.add(new Sign_up_page(mainPanel, cardLayout), "Sign Up");
-            mainPanel.add(new Home_page(mainPanel, cardLayout), "Home");
-            mainPanel.add(new Sign_up_success_page(mainPanel, cardLayout), "Sign Up Success");
-        	mainPanel.add(new Error_page(mainPanel, cardLayout), "Error");
-        	//mainPanel.add(new Cart_page(mainPanel, cardLayout, o), "Cart");
+            mainPanel.add(new Log_in_page(mainPanel, cardLayout,a,o), "Log In");
         }
         else {
-        	mainPanel.add(new Error_page(mainPanel, cardLayout), "Error");
+        	mainPanel.add(new Error_page(mainPanel, cardLayout, a, o), "Error");
         }
 
 	}

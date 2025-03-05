@@ -82,21 +82,15 @@ public class Leaf_laugh_love extends JFrame {
         }
 	}
 	
-	public static void StartServer() {
-//		SocketHandler.MakeConnection(27000);
-//        Thread requestHandlingThread = new Thread(new RequestHandler());
-//        requestHandlingThread.start();
-		
+	public static void StartServer() {		
 	    while (true) {  // Keep listening for new connections
 	        try {
-//	        	SocketHandler.CloseServer();
 	            SocketHandler.MakeConnection(27000);  // Wait for a client connection
 	            
 	            Thread requestHandlingThread = new Thread(new RequestHandler());
 	            requestHandlingThread.start();
 	            
 	            System.out.println("Client connected, handling requests...");
-
 	            // Wait for the client to disconnect
 	            requestHandlingThread.join();  
 	            

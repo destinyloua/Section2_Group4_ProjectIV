@@ -16,18 +16,21 @@ public class Home_page extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Home_page(JPanel mainPanel, CardLayout cardLayout) {
-setLayout(null);
+	public Home_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
+		//TODO add all the available page here
+		mainPanel.add(new Orders_history_page(mainPanel, cardLayout, a, o), "Orders history");
+
+		setLayout(null);
     	
     	JLabel lblNewLabel = new JLabel("New label");
-    	lblNewLabel.setIcon(new ImageIcon("resources/images/logo.png"));
-    	lblNewLabel.setBounds(251, 33, 60, 60);
+    	lblNewLabel.setIcon(new ImageIcon("resources\\images\\logo.png"));
+    	lblNewLabel.setBounds(10, 20, 60, 60);
     	add(lblNewLabel);
     	
-    	JLabel TitleLabel = new JLabel("Leaf, Laugh, Love");
+    	JLabel TitleLabel = new JLabel("Leaf, Laugh, Love | Hi " + a.GetFName());
     	TitleLabel.setForeground(new Color(85, 169, 85));
     	TitleLabel.setFont(new Font("Segoe UI Black", Font.BOLD, 32));
-    	TitleLabel.setBounds(316, 43, 290, 39);
+    	TitleLabel.setBounds(75, 28, 736, 39);
     	add(TitleLabel);
     	
     	JPanel plantsList = new JPanel();
@@ -48,16 +51,30 @@ setLayout(null);
 		orderBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 		orderBttn.setBounds(262, 568, 153, 35);
 		add(orderBttn);
+		orderBttn.addActionListener(e->{		
+			cardLayout.show(mainPanel, "Orders history");
+		});
 		
 		JButton helpBttn = new JButton("Help");
 		helpBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 		helpBttn.setBounds(425, 568, 153, 35);
 		add(helpBttn);
+		helpBttn.addActionListener(e->{
+			ResponseHandler.StartChat();
+			new Help_window(a);
+		});
 		
 		JButton cartBttn = new JButton("View cart");
 		cartBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 		cartBttn.setBounds(588, 568, 153, 35);
 		add(cartBttn);
+		cartBttn.addActionListener(e->{
+			mainPanel.removeAll();
+			mainPanel.add(new View_cart_page(mainPanel, cardLayout, a, o), "Cart");
+			mainPanel.repaint();
+			mainPanel.revalidate();
+			cardLayout.show(mainPanel, "Cart");
+		});
 		
 		JButton logOutBttn = new JButton("Log out");
 		
@@ -95,6 +112,10 @@ setLayout(null);
 			addBttn.setForeground(new Color(0, 0, 0));
 			addBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 			addBttn.setBounds(105, 63, 150, 30);
+			addBttn.addActionListener(e->{
+				o.AddPlant(p.GetId(), 1);
+				
+			});
 			
 			JButton detailBttn = new JButton("See details");
 			detailBttn.setForeground(new Color(0, 0, 0));

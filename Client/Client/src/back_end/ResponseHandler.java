@@ -6,6 +6,7 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.Vector;
 
+import leaf_laugh_love.Help_window;
 import objects.*;
 
 public class ResponseHandler {	
@@ -13,18 +14,92 @@ public class ResponseHandler {
 	private static ByteBuffer read;
 	private static byte[] data;
 	
-	public static Vector<Plant> GetPlantsList(){
-		packet.SetHeader(3, 2);
+	public static void ChatTerminate() {
+		Message m = new Message("");
+		SocketHandler.SendMessage(m);
+		SocketHandler.CloseChatConnection();
+	}
+	
+	public static Boolean StartChat() {
+		//TODO send request to chat
+		//TODO connect to chat
+		packet.SetHeader(4, 1);
 		packet.SetContent(0);
 		SocketHandler.SendData(packet);
 		
 		read = ByteBuffer.wrap(SocketHandler.ReceiveData());
-		if(read.getInt() == 0) {
+		System.out.println("Waiting for connecting from server");
+		if(read.getInt() == 1) {
+			try {
+				Thread.sleep(500);
+			}
+			catch (Exception e){
+				
+			}
+//			Message m = SocketHandler.ReceiveMessage();
+//			System.out.println(m.GetMessage());
+			
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public static Boolean SendMessage(String message) {
+		Message m = new Message (message);
+		SocketHandler.SendMessage(m);
+		return true;
+	}
+	
+	public static Account GetAccount(Account a) {
+		packet.SetHeader(1, 3);
+		packet.SetContent(a);
+		SocketHandler.SendData(packet);
+		read = ByteBuffer.wrap(SocketHandler.ReceiveData());
+		if(read.getInt()==0) {
 			return null;
 		}
 		else {
+			byte[] accountData = new byte[read.remaining()];
+			read.get(accountData);
+			a = new Account(accountData);
+			System.out.println(a.GetEmail());
+			return a;
+		}
+	}
+	
+	public static Vector<Order> GetOrdersList(Account a){
+		packet.SetHeader(2, 2);
+		packet.SetContent(a);
+		SocketHandler.SendData(packet);
+		read = ByteBuffer.wrap(SocketHandler.ReceiveData());
+		Vector<Order> ordersList = new Vector<>();
+		if(read.getInt() == 0) {
+			return ordersList;
+		}
+		else {
+			int numberOfOrders = read.getInt();
+			System.out.println("Receiving " + numberOfOrders + " orders");
+			for(int i=0; i<numberOfOrders;i++) {
+				Order o = new Order(SocketHandler.ReceiveData());
+				ordersList.add(o);
+			}
+			return ordersList;
+		}
+	}
+	
+	public static Vector<Plant> GetPlantsList(){
+		packet.SetHeader(3, 2);
+		packet.SetContent(0);
+		SocketHandler.SendData(packet);
+		Vector<Plant> plantsList = new Vector<>();
+		read = ByteBuffer.wrap(SocketHandler.ReceiveData());
+		if(read.getInt() == 0) {
+			return plantsList;
+		}
+		else {
 			int numberOfPlants = read.getInt();
-			Vector<Plant> plantsList = new Vector<>();
 			System.out.println("Receiving " + numberOfPlants + " plants");
 			for(int i=0;i<numberOfPlants;i++) {
 				Plant p = new Plant(SocketHandler.ReceiveData());
@@ -39,6 +114,26 @@ public class ResponseHandler {
 		}
 		
 		//TODO receive plant into / make a class to process image
+	}
+	
+	public static Plant GetPlant(int id) {
+		packet.SetHeader(3, 1);
+		packet.SetContent(id);
+		SocketHandler.SendData(packet);
+		read = ByteBuffer.wrap(SocketHandler.ReceiveData());
+		if(read.getInt() == 0) {
+			return null;
+		}
+		else {
+			byte[] plantData = new byte[read.remaining()];
+			read.get(plantData);
+			Plant p = new Plant(plantData);
+			//Set ImageName
+			p.SetImage(new String(SocketHandler.ReceiveData()));
+			ReceiveImage(p.GetImagePath());
+			System.out.println(p.GetName() + " received with image");
+			return p;	
+		}
 	}
 	
 	public static void ReceiveImage(String savedFile) {

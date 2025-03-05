@@ -17,7 +17,7 @@ public class Log_in_page extends JPanel {
 	/**
 	 * Create the panel.
 	 */
-	public Log_in_page(JPanel mainPanel, CardLayout cardLayout) {
+	public Log_in_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Please log in to continue");
@@ -53,6 +53,13 @@ public class Log_in_page extends JPanel {
 				// Send data to server
 				Account a = new Account(login_email.getText(), login_password.getText());
 				if(ResponseHandler.AuthenticateLogin(a)) {
+					System.out.println("Auth ok");
+					Account newAcc = ResponseHandler.GetAccount(a);
+					a.SetAccount(newAcc.GetFName(), newAcc.GetLName(), newAcc.GetEmail(), newAcc.GetPassword());
+					mainPanel.removeAll();
+					mainPanel.add(new Home_page(mainPanel, cardLayout, a, o), "Home");
+					mainPanel.repaint();
+					mainPanel.revalidate();
 					cardLayout.show(mainPanel, "Home");
 				}
 				else {
@@ -69,6 +76,10 @@ public class Log_in_page extends JPanel {
 		signUp.addMouseListener(new MouseAdapter() {
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				mainPanel.removeAll();
+				mainPanel.add(new Sign_up_page(mainPanel, cardLayout, a, o), "Sign up");
+				mainPanel.repaint();
+				mainPanel.revalidate();
 				cardLayout.show(mainPanel, "Sign Up");
 			}
 		});

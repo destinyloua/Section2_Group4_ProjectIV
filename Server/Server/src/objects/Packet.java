@@ -16,6 +16,12 @@ public class Packet {
 			this.header = ByteBuffer.allocate(4).putInt(0).array();
 		}
 	}
+	
+	public void SetHeader(int size) {
+		this.header = ByteBuffer.allocate(4).putInt(size).array();
+
+	}
+	
 	public void SetContent(Objects object) {
 		this.content = object.Serialize();
 	}
@@ -27,6 +33,10 @@ public class Packet {
 		else {
 			this.content = ByteBuffer.allocate(4).putInt(0).array();
 		}
+	}
+	
+	public void SetContent(String message) {
+		this.content = message.getBytes();
 	}
 	
 	public void SetContent(int value) {

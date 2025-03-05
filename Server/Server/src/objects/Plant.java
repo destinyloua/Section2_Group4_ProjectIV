@@ -37,7 +37,7 @@ public class Plant implements Objects{
 		this.name = name;
 		this.price = price;
 		this.quantity = quantity;
-		this.imagePath = name.toLowerCase().replace(" ", "_") + imgFormat;
+		this.imagePath = name.toLowerCase().replace(" ", "_") + "."+ imgFormat;
 	}
 	
 	public Plant(byte[] data) {

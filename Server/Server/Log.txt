@@ -244,6 +244,123 @@
 02/25/25-00:28:25: Server stopped
 02/25/25-00:31:21: Server started
 02/25/25-00:31:24: Server stopped
+<<<<<<< HEAD
+02/26/25-17:29:20: Server started
+02/26/25-17:31:55: Server started
+02/26/25-17:31:57: Server stopped
+02/26/25-17:32:01: Server stopped
+02/26/25-17:32:06: Server started
+02/26/25-17:34:34: Server stopped
+02/26/25-17:34:56: Server started
+02/26/25-17:36:39: Server started
+02/26/25-17:38:50: Server started
+02/26/25-18:41:32: Server stopped
+02/27/25-00:14:34: Server started
+02/27/25-00:15:44: Server started
+02/27/25-00:16:51: Server started
+02/27/25-00:17:58: Server started
+02/27/25-00:18:45: Server stopped
+02/27/25-00:20:41: Server started
+02/27/25-22:36:47: Server started
+02/28/25-14:13:26: Server started
+02/28/25-14:13:51: Server started
+02/28/25-14:25:55: Server started
+02/28/25-14:28:54: Server started
+02/28/25-14:30:41: Server stopped
+02/28/25-14:31:37: Server started
+02/28/25-14:31:45: Server started
+02/28/25-14:31:52: Server stopped
+02/28/25-14:31:53: Server stopped
+02/28/25-14:31:59: Server started
+02/28/25-14:32:14: Server stopped
+02/28/25-14:32:27: Server started
+02/28/25-14:32:42: Server stopped
+02/28/25-14:37:48: Server started
+02/28/25-14:38:14: Server stopped
+02/28/25-14:38:23: Server started
+02/28/25-14:44:03: Server started
+02/28/25-14:46:04: Server started
+02/28/25-14:47:47: Server stopped
+02/28/25-14:56:22: Server started
+02/28/25-15:49:55: Server started
+02/28/25-15:50:18: Authentication success
+02/28/25-15:51:07: Server stopped
+02/28/25-16:06:40: Server started
+02/28/25-16:07:05: Authentication success
+02/28/25-16:07:12: Server stopped
+02/28/25-16:10:25: Server started
+02/28/25-16:11:03: Authentication success
+02/28/25-16:12:43: Server started
+02/28/25-16:14:04: Server stopped
+02/28/25-16:14:10: Server started
+02/28/25-16:15:21: Server started
+02/28/25-16:28:56: Server stopped
+02/28/25-16:29:17: Server started
+02/28/25-16:30:05: Server started
+02/28/25-16:32:32: Server stopped
+02/28/25-16:39:14: Server started
+02/28/25-16:39:43: Server stopped
+02/28/25-16:40:19: Server started
+02/28/25-16:41:15: Server stopped
+02/28/25-17:01:18: Server started
+02/28/25-17:04:46: Server stopped
+02/28/25-17:04:57: Server started
+02/28/25-17:08:05: Server stopped
+02/28/25-17:09:30: Server started
+02/28/25-17:10:55: Server stopped
+02/28/25-17:11:08: Server started
+02/28/25-17:13:11: Server stopped
+02/28/25-17:13:15: Server started
+02/28/25-17:13:42: Server started
+02/28/25-17:17:16: Server started
+02/28/25-17:22:39: Server started
+02/28/25-17:22:50: Server stopped
+02/28/25-17:22:56: Server started
+02/28/25-17:23:03: Server stopped
+02/28/25-17:23:06: Server started
+02/28/25-18:12:11: Server started
+02/28/25-18:13:38: Server started
+02/28/25-18:15:54: Server started
+02/28/25-18:16:13: Server stopped
+02/28/25-18:16:17: Server started
+02/28/25-18:16:41: Server started
+02/28/25-18:19:20: Server started
+02/28/25-18:20:34: Server started
+02/28/25-18:21:47: Server started
+02/28/25-18:23:33: Server started
+02/28/25-18:23:36: Server stopped
+02/28/25-18:24:19: Server started
+02/28/25-18:29:45: Server started
+02/28/25-18:33:35: Server started
+02/28/25-18:35:44: Server started
+02/28/25-18:38:04: Server started
+02/28/25-18:38:47: Server started
+02/28/25-19:05:12: Server started
+02/28/25-19:06:05: Server started
+02/28/25-19:06:24: Server stopped
+02/28/25-19:32:18: Server started
+02/28/25-19:32:41: Server stopped
+02/28/25-19:32:53: Server started
+02/28/25-19:34:07: Server started
+02/28/25-19:35:07: Server stopped
+02/28/25-19:35:10: Server started
+02/28/25-19:36:27: Server started
+02/28/25-19:37:36: Server started
+02/28/25-19:40:13: Server started
+02/28/25-19:42:04: Server started
+02/28/25-19:44:18: Server started
+02/28/25-19:45:09: Server started
+02/28/25-19:47:06: Server stopped
+02/28/25-19:47:30: Server started
+02/28/25-19:48:36: Server started
+02/28/25-19:50:10: Server started
+02/28/25-19:56:20: Server started
+02/28/25-19:59:00: Server started
+02/28/25-20:04:47: Server started
+02/28/25-20:06:17: Server started
+02/28/25-20:08:43: Server started
+02/28/25-20:09:33: Server stopped
+=======
 02/28/25-18:03:09: Server started
 02/28/25-18:05:32: Server started
 02/28/25-18:08:42: Server started
@@ -267,3 +384,146 @@
 02/28/25-20:17:17: Server started
 02/28/25-20:18:31: Server started
 02/28/25-20:20:47: Server started
+>>>>>>> Destiny_Client
+03/02/25-15:23:42: Server started
+03/02/25-15:24:17: Server started
+03/02/25-15:33:30: Failed to authenticate
+03/02/25-15:33:35: Authentication success
+03/02/25-22:24:55: Authentication success
+03/02/25-22:44:43: Authentication success
+03/02/25-22:46:55: Server started
+03/02/25-22:47:44: Authentication success
+03/02/25-22:47:44: Failed to send account data to client
+03/02/25-22:47:52: Authentication success
+03/02/25-22:47:52: Failed to send account data to client
+03/02/25-22:51:34: Authentication success
+03/02/25-22:51:34: Failed to send account data to client
+03/02/25-22:52:35: Authentication success
+03/02/25-22:52:35: Failed to send account data to client
+03/02/25-22:53:04: Server started
+03/02/25-22:53:18: Authentication success
+03/02/25-22:53:18: Failed to send account data to client
+03/02/25-22:54:49: Authentication success
+03/02/25-22:54:49: Failed to send account data to client
+03/02/25-22:56:01: Server stopped
+03/02/25-22:56:05: Server started
+03/02/25-22:56:23: Authentication success
+03/02/25-22:56:23: Failed to send account data to client
+03/02/25-22:56:34: Authentication success
+03/02/25-22:56:34: Failed to send account data to client
+03/02/25-22:56:35: Authentication success
+03/02/25-22:56:35: Failed to send account data to client
+03/02/25-22:59:22: Server started
+03/02/25-22:59:55: Authentication success
+03/02/25-22:59:55: Failed to send account data to client
+03/02/25-23:00:42: Server started
+03/02/25-23:01:08: Authentication success
+03/02/25-23:01:08: Failed to send account data to client
+03/02/25-23:05:03: Server started
+03/02/25-23:05:23: Authentication success
+03/02/25-23:05:23: Failed to send account data to client
+03/02/25-23:06:26: Authentication success
+03/02/25-23:06:26: Failed to send account data to client
+03/02/25-23:07:38: Server started
+03/02/25-23:07:49: Authentication success
+03/02/25-23:07:49: Failed to send account data to client
+03/02/25-23:08:40: Server started
+03/02/25-23:08:51: Authentication success
+03/02/25-23:08:51: Failed to send account data to client
+03/02/25-23:13:15: Server started
+03/02/25-23:13:27: Authentication success
+03/02/25-23:13:27: Failed to send account data to client
+03/02/25-23:14:30: Server started
+03/02/25-23:14:40: Authentication success
+03/02/25-23:14:40: Account 5 data sent to client
+03/02/25-23:16:16: Server started
+03/02/25-23:16:27: Authentication success
+03/02/25-23:16:27: Account 5 data sent to client
+03/02/25-23:17:19: Server stopped
+03/03/25-14:55:59: Server started
+03/03/25-15:35:39: Authentication success
+03/03/25-15:35:39: Account 5 data sent to client
+03/03/25-15:36:41: Server started
+03/03/25-15:37:01: Authentication success
+03/03/25-15:37:01: Account 5 data sent to client
+03/03/25-15:39:31: Server started
+03/03/25-15:40:05: Authentication success
+03/03/25-15:40:05: Account 5 data sent to client
+03/03/25-15:40:59: Server started
+03/03/25-15:41:12: Authentication success
+03/03/25-15:41:12: Account 5 data sent to client
+03/03/25-15:44:53: Server started
+03/03/25-15:45:06: Authentication success
+03/03/25-15:45:06: Account 5 data sent to client
+03/03/25-15:45:50: Server started
+03/03/25-15:45:59: Authentication success
+03/03/25-15:45:59: Account 5 data sent to client
+03/03/25-15:46:56: Server started
+03/03/25-15:47:23: Authentication success
+03/03/25-15:47:23: Account 5 data sent to client
+03/03/25-15:49:20: Server started
+03/03/25-15:50:13: Authentication success
+03/03/25-15:50:13: Account 5 data sent to client
+03/03/25-15:51:18: Server started
+03/03/25-15:51:32: Authentication success
+03/03/25-15:51:32: Account 5 data sent to client
+03/03/25-15:52:17: Server started
+03/03/25-15:52:28: Authentication success
+03/03/25-15:52:28: Account 5 data sent to client
+03/03/25-15:53:29: Server started
+03/03/25-15:53:40: Authentication success
+03/03/25-15:53:40: Account 5 data sent to client
+03/03/25-15:55:16: Server started
+03/03/25-15:55:25: Authentication success
+03/03/25-15:55:25: Account 5 data sent to client
+03/03/25-15:55:30: Orders list of account #0 sent to client
+03/03/25-15:57:11: Authentication success
+03/03/25-15:57:11: Account 5 data sent to client
+03/03/25-15:57:18: Orders list of account #0 sent to client
+03/03/25-15:58:35: Authentication success
+03/03/25-15:58:35: Account 5 data sent to client
+03/03/25-15:58:40: Orders list of account #0 sent to client
+03/03/25-16:03:27: Authentication success
+03/03/25-16:03:27: Account 5 data sent to client
+03/03/25-16:03:44: Orders list of account #0 sent to client
+03/03/25-16:05:45: Authentication success
+03/03/25-16:05:45: Account 5 data sent to client
+03/03/25-16:05:45: Orders list of account #0 sent to client
+03/03/25-16:12:36: Authentication success
+03/03/25-16:12:36: Account 5 data sent to client
+03/03/25-16:12:36: Orders list of account #0 sent to client
+03/03/25-16:13:49: Authentication success
+03/03/25-16:13:49: Account 5 data sent to client
+03/03/25-16:13:49: Orders list of account #0 sent to client
+03/03/25-16:14:56: Authentication success
+03/03/25-16:14:56: Account 5 data sent to client
+03/03/25-16:14:56: Orders list of account #0 sent to client
+03/03/25-16:29:25: Server started
+03/03/25-16:29:46: Authentication success
+03/03/25-16:29:46: Account 5 data sent to client
+03/03/25-16:29:46: Orders list of account #0 sent to client
+03/03/25-16:31:27: Authentication success
+03/03/25-16:31:27: Account 5 data sent to client
+03/03/25-16:31:27: Orders list of account #0 sent to client
+03/03/25-16:33:03: Authentication success
+03/03/25-16:33:03: Account 5 data sent to client
+03/03/25-16:33:03: Orders list of account #0 sent to client
+03/03/25-16:43:19: Authentication success
+03/03/25-16:43:19: Account 5 data sent to client
+03/03/25-16:43:19: Orders list of account #0 sent to client
+03/03/25-16:45:23: Server started
+03/03/25-16:45:45: Authentication success
+03/03/25-16:45:45: Account 5 data sent to client
+03/03/25-16:45:45: Orders list of account #0 sent to client
+03/03/25-16:47:37: Server started
+03/03/25-16:47:53: Authentication success
+03/03/25-16:47:53: Account 5 data sent to client
+03/03/25-16:47:53: Orders list of account #0 sent to client
+03/03/25-16:48:00: Plant 3data sent to client
+03/03/25-16:49:22: Authentication success
+03/03/25-16:49:22: Account 5 data sent to client
+03/03/25-16:49:22: Orders list of account #0 sent to client
+03/03/25-16:49:31: Plant 1data sent to client
+03/03/25-16:49:32: Orders list of account #0 sent to client
+03/03/25-16:49:43: Plant 1data sent to client
+03/03/25-16:55:14: Server stopped

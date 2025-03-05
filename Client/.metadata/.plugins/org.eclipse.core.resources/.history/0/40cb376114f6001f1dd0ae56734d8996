@@ -1,0 +1,143 @@
+package back_end;
+
+import java.nio.ByteBuffer;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Vector;
+
+import objects.*;
+
+public class ResponseHandler {	
+	private static Packet packet = new Packet();
+	private static ByteBuffer read;
+	private static byte[] data;
+	
+	public static void ChatTerminate() {
+		packet.SetHeader(4, -1);
+		packet.SetContent(0);
+		SocketHandler.SendData(packet);
+	}
+	
+	public static void SendMessage(String message) {
+		packet.SetHeader(4, message.length());
+		packet.SetContent(message);
+		SocketHandler.SendData(packet);
+		return true;
+	}
+	
+	public static Vector<Plant> GetPlantsList(){
+		packet.SetHeader(3, 2);
+		packet.SetContent(0);
+		SocketHandler.SendData(packet);
+		
+		read = ByteBuffer.wrap(SocketHandler.ReceiveData());
+		if(read.getInt() == 0) {
+			return null;
+		}
+		else {
+			int numberOfPlants = read.getInt();
+			Vector<Plant> plantsList = new Vector<>();
+			System.out.println("Receiving " + numberOfPlants + " plants");
+			for(int i=0;i<numberOfPlants;i++) {
+				Plant p = new Plant(SocketHandler.ReceiveData());
+				//Set ImageName
+				p.SetImage(new String(SocketHandler.ReceiveData()));
+				ReceiveImage(p.GetImagePath());
+				System.out.println(p.GetName() + " received with image");
+				plantsList.add(p);
+				System.out.println();
+			}
+			return plantsList;
+		}
+		
+		//TODO receive plant into / make a class to process image
+	}
+	
+	public static void ReceiveImage(String savedFile) {
+	    try {
+	        // Get image size
+	        byte[] receivedImgSize = SocketHandler.ReceiveData();
+	        ByteBuffer read = ByteBuffer.wrap(receivedImgSize);
+	        int imageSize = read.getInt();
+	        System.out.println("Image will be sent: " + imageSize + " bytes");
+
+	        int chunkSize = 32768;
+	        int dataSize = chunkSize - 4;
+	        int totalChunk = (imageSize + dataSize - 1) / dataSize; // Correct chunk calculation
+
+	        byte[] imgData = new byte[imageSize];
+
+	        for (int i = 0; i < totalChunk; i++) {
+	            byte[] receivedChunk = SocketHandler.ReceiveData();
+	            read = ByteBuffer.wrap(receivedChunk);
+	            int chunkNumber = read.getInt(); // Read the chunk number
+
+	            System.out.println("Chunk #" + chunkNumber + ": " + receivedChunk.length + " bytes");
+
+	            // Corrected index calculation
+	            int start = chunkNumber * dataSize;
+	            int length = Math.min(receivedChunk.length - 4, imageSize - start); // Prevent overflow
+
+	            System.arraycopy(receivedChunk, 4, imgData, start, length);
+	            System.out.println(length + " bytes copied into imgData");
+	        }
+
+	        // Save received image
+	        Path imagePath = Paths.get(savedFile);
+	        Files.write(imagePath, imgData);
+	        System.out.println("Image received: " + imageSize + " bytes");
+	        System.out.println("Image is saved at " + savedFile);
+	    } catch (Exception e) {
+	        e.printStackTrace(); // Print error properly
+	    }
+	}
+	public static Boolean CreateAccount(Account a){
+		packet.SetHeader(1, 1);
+		packet.SetContent(a);
+		SocketHandler.SendData(packet);
+		
+		data = SocketHandler.ReceiveData();
+		ByteBuffer read = ByteBuffer.wrap(data);
+		int response;
+		response = read.getInt();
+		if(response == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public static Boolean AuthenticateLogin(Account a) {
+		packet.SetHeader(1, 2);
+		packet.SetContent(a);
+		SocketHandler.SendData(packet);
+
+		data = SocketHandler.ReceiveData();
+		ByteBuffer read = ByteBuffer.wrap(data);
+		int header;
+		header = read.getInt();
+		if(header == 1) {
+			int content = read.getInt();
+			if(content == 1) {
+				return true;
+			}
+			else {
+				return false;
+			}
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public static Boolean TerminateConnection() {
+		packet.SetHeader(-1, -1);
+		packet.SetContent(0);
+		SocketHandler.SendData(packet);
+		data = SocketHandler.ReceiveData();
+		return true;
+	}
+	
+}

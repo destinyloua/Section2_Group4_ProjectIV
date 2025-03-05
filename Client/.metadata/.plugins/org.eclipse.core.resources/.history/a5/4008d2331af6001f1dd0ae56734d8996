@@ -1,0 +1,21 @@
+package objects;
+
+import java.nio.ByteBuffer;
+
+public class Message {
+	private String message;
+	private int length;
+	
+	public Message(byte[] data){
+		ByteBuffer read = ByteBuffer.wrap(data);
+		this.length = read.getInt();
+		byte[] messageData = new byte[length];
+		read.get(messageData);
+		this.message = new String(messageData);
+	}
+	
+	public Message(String message) {
+		this.message = message;
+		this.length = message.length();
+	}
+}

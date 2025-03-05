@@ -20,6 +20,8 @@ import javax.swing.border.EmptyBorder;
 import back_end.DatabaseHandler;
 import back_end.ImageProcessor;
 import objects.Plant;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
 
 public class Plants_list_window extends JFrame {
 

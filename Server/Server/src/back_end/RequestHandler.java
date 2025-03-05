@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.text.*;
 import java.util.*;
 
+import leaf_laugh_love.Message_window;
 import objects.*;
 
 public class RequestHandler implements Runnable {
@@ -19,6 +20,7 @@ public class RequestHandler implements Runnable {
 	public static Boolean Processing() {
 		while(SocketHandler.CheckConnection()) {
 			data = SocketHandler.ReceiveData();
+			System.out.println(data.length);
 			System.out.println("Request received");
 			read = ByteBuffer.wrap(data);
 			object = read.getInt();
@@ -32,6 +34,7 @@ public class RequestHandler implements Runnable {
 				if(read.remaining() > 0) {
 					data = new byte[read.remaining()];
 					read.get(data);
+					read = ByteBuffer.wrap(data);
 				}
 				//Account
 				if(object == 1) {
@@ -41,6 +44,9 @@ public class RequestHandler implements Runnable {
 					else if(action == 2) {
 						Authenticate();
 					}
+					else if(action == 3) {
+						GetAccountByEmail();
+					}
 				}
 				
 				//Order
@@ -49,7 +55,7 @@ public class RequestHandler implements Runnable {
 						PlaceOrder();
 					}
 					else if(action ==2) {
-						
+						GetOrdersListByAId();
 					}
 				}
 				
@@ -64,31 +70,72 @@ public class RequestHandler implements Runnable {
 						GetPlantsList();
 					}
 				}
+				
+				//Message
 				else if (object == 4) {
-					
+					if(action == 1) {      
+			    		//TODO Thread make connection ok
+						//TODO message window ok
+						//TODO response back to client to connect ok
+						
+						//Open message window
+			            packet.SetHeader(true);
+			            packet.SetContent(0);
+			            SocketHandler.SendData(packet);
+			            System.out.println("Sent");
+			            SocketHandler.MakeChatConnection(27001);
+		            	System.out.println("Client chat connected");
+			 
+			            new Message_window();
+					}
 				}
 			}
 		}
 		return true;
 	}
 	
-	public static Boolean GetOrderByAId() {
-		int id = read.getInt();
-		Order o = DatabaseHandler.FetchOrderByAId(id);
-		if(o == null) {
+	public static Boolean GetAccountByEmail() {
+		Account a = DatabaseHandler.FetchAccountByEmail(new Account(data).GetEmail());
+		if(a == null) {
 			packet.SetHeader(false);
 			packet.SetContent(false);
 			SocketHandler.SendData(packet);
 			
-	        FileHandler.SaveLog("Failed to send order data to client");
+			FileHandler.SaveLog("Failed to send account data to client");
+			return false;
+		}
+		else {
+			packet.SetHeader(true);
+			packet.SetContent(a);
+			SocketHandler.SendData(packet);
+			
+			FileHandler.SaveLog("Account " + a.GetId() + " data sent to client");
+			return true;
+		}
+	}
+	
+	public static Boolean GetOrdersListByAId() {
+//		read = ByteBuffer.wrap(data);
+		System.out.println("Coppied: " + data.length);
+		int aId = read.getInt();
+		Vector<Order> orders = DatabaseHandler.FetchOrdersListByAId(aId);
+		if(orders.isEmpty()) {
+			packet.SetHeader(true);
+			packet.SetContent(false);
+			SocketHandler.SendData(packet);
+			FileHandler.SaveLog("Orders list of account #"+ aId +" sent to client");
 	        return false;
 		}
 		else {
 			packet.SetHeader(true);
-			packet.SetContent(o);
+			packet.SetContent(orders.size());
 			SocketHandler.SendData(packet);
-			
-	        FileHandler.SaveLog("Order #" + o.GetId() + "data sent to client");
+			for(int i=0;i<orders.size();i++) {
+				packet.SetHeader(true);
+				packet.SetContent(orders.get(i));
+				SocketHandler.SendData(packet);
+			}
+			FileHandler.SaveLog("Orders list of account #"+ aId +" sent to client");
 	        return true;
 		}
 	}
@@ -113,15 +160,9 @@ public class RequestHandler implements Runnable {
 		}
 	}
 	
-	//Haven done NEED IMAGE
 	public static Boolean GetPlantsList() {
 		Vector<Plant> plants;
 		plants = DatabaseHandler.FetchPlantsList();
-		
-		for(Plant p : plants) {
-			System.out.println(p.GetImagePath());
-		}
-		
 		if(plants.isEmpty()) {
 			packet.SetHeader(false);
 			packet.SetContent(false);
@@ -187,7 +228,6 @@ public class RequestHandler implements Runnable {
 		}
 	}
 	
-	//Haven done NEED IMAGE
 	public static Boolean GetPlantById() {
 		int id = read.getInt();
 		Plant p = DatabaseHandler.FetchPlant(id);
@@ -203,6 +243,10 @@ public class RequestHandler implements Runnable {
 			packet.SetHeader(true);
 			packet.SetContent(p);
 			SocketHandler.SendData(packet);
+			
+			SocketHandler.SendData(p.GetImagePath().getBytes());
+			//TODO SEND IMAGE
+			SendImage(p.GetImagePath());
 			
 	        FileHandler.SaveLog("Plant " + p.GetId() + "data sent to client");
 	        return true;

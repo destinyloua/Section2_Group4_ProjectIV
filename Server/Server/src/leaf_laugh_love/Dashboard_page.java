@@ -56,7 +56,10 @@ public class Dashboard_page extends JPanel {
         JButton btnChat = new JButton("Chat");
         btnChat.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
         btnChat.setBounds(620, 567, 100, 40);
-        add(btnChat);
+        //add(btnChat);
+//        btnChat.addActionListener(e->{
+//        	new Message_window();
+//        });
         
         JLabel lblTotalCompleted = new JLabel("Total completed:" + DatabaseHandler.GetNumberOfOrder(2));
         lblTotalCompleted.setForeground(new Color(85, 169, 85));
@@ -88,7 +91,7 @@ public class Dashboard_page extends JPanel {
         add(panel);
         panel.setLayout(null);
         
-        Vector<Order> orders = new Vector<>(DatabaseHandler.FecthOrdersList());
+        Vector<Order> orders = new Vector<>(DatabaseHandler.FetchOrdersList());
         
         JLabel lblNewLabel_1 = new JLabel("Total orders: " + DatabaseHandler.GetNumberOfOrder());
         lblNewLabel_1.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 24));
@@ -118,7 +121,7 @@ public class Dashboard_page extends JPanel {
      */
     private void loadOrders() {
         orderList.removeAll(); // Clear the existing orders
-        Vector<Order> orders = new Vector<>(DatabaseHandler.FecthOrdersList()); // Fetch updated order list
+        Vector<Order> orders = new Vector<>(DatabaseHandler.FetchOrdersList()); // Fetch updated order list
 
         GridBagConstraints gbc = new GridBagConstraints();
         gbc.gridx = 0;

@@ -101,6 +101,26 @@ public class DatabaseHandler {
 		return false;
 	}
 	
+	public static Boolean InsertNewPlant(Plant p) {
+		String query = "INSERT INTO Plants (name, price, quantity, imagePath) VALUES (?, ?, ?, ?)";
+		try {
+			pstm=connection.prepareStatement(query);
+			pstm.setString(1, p.GetName());
+			pstm.setFloat(2, p.GetPrice());
+			pstm.setInt(3, p.GetQuantity());
+			pstm.setString(4, p.GetImagePath());
+			int rowInserted = pstm.executeUpdate();
+			if(rowInserted>0) {
+				System.out.println("New plant inserted");
+				return true;
+			}
+		}
+		catch(Exception e) {
+			e.getStackTrace();
+		}
+		return false;
+	}
+	
 	public static Boolean InsertNewAccount(Account a) {
 		String query = "Insert into Accounts (fName, lName, email, password) values (?,?,?,?)";
 		try {
@@ -178,7 +198,7 @@ public class DatabaseHandler {
 		return plantsList;
 	}
 	
-	public static Vector<Order> FecthOrdersList(){
+	public static Vector<Order> FetchOrdersList(){
 		Vector<Order> ordersList = new Vector<>();
 		String query = "Select * from Orders";
 		try {
@@ -199,7 +219,7 @@ public class DatabaseHandler {
 		return ordersList;
 	}
 	
-	public static Order FecthOrder(int id){
+	public static Order FetchOrderById(int id){
 		String query1 = "Select * from Orders Where id = ?";
 		int oId;
 		int aId;
@@ -306,6 +326,30 @@ public class DatabaseHandler {
 		return a;
 	}
 	
+	public static Account FetchAccountByEmail(String email){
+		String query1 = "SELECT * from Accounts WHERE email = ?";
+		int aId;
+		String fName;
+		String lName;
+		int password;
+		try {
+			pstm = connection.prepareStatement(query1);
+			pstm.setString(1, email);
+			resultSet = pstm.executeQuery();
+			resultSet.next();
+			aId = resultSet.getInt(1);
+			fName = resultSet.getString(2);
+			lName = resultSet.getString(3);
+			password = resultSet.getInt(5);
+		}
+		catch(Exception e) {
+			System.out.println("Error: " + e.getMessage());
+			return null;
+		}
+		Account a = new Account(aId, fName, lName, email, password);
+		return a;
+	}
+	
 	public static Plant FetchPlant(int id) {
 		String query = "SELECT * FROM Plants WHERE id = ?";
 		try {
@@ -326,44 +370,28 @@ public class DatabaseHandler {
 		}
 	}
 	
-	public static Order FetchOrderByAId(int accountId) {
+	public static Vector<Order> FetchOrdersListByAId(int accountId) {
 		String query1 = "Select * from Orders Where aId = ?";
 		int oId;
 		int aId;
 		float totalPrice;
 		int status;
-		Vector<Integer> pId = new Vector<>();
-		Vector<Integer> quantity = new Vector<>();
+		Vector<Order> orders = new Vector<>();
 		try {
 			pstm = connection.prepareStatement(query1);
 			pstm.setInt(1, accountId);
 			resultSet = pstm.executeQuery();
-			resultSet.next();
-			oId = resultSet.getInt(1);
-			aId = resultSet.getInt(2);
-			totalPrice = resultSet.getFloat(3);
-			status = resultSet.getInt(4);
-		}
-		catch(Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			return null;
-		}
-		String query2 = "SELECT p.id, oi.quantity, o.id FROM Order_items oi JOIN Plants p ON oi.pId = p.id JOIN Orders o ON o.id = oi.oId WHERE o.aId = ?";
-		try {
-			pstm = connection.prepareStatement(query2);
-			pstm.setInt(1, accountId);
-			resultSet = pstm.executeQuery();
 			while(resultSet.next()) {
-				pId.add(resultSet.getInt(1));
-				quantity.add(resultSet.getInt(1));
+				oId = resultSet.getInt(1);
+				Order o = FetchOrderById(oId);
+				orders.add(o);
 			}
+			return orders;
 		}
 		catch(Exception e) {
 			System.out.println("Error: " + e.getMessage());
 			return null;
 		}
-		Order order = new Order(oId, aId, totalPrice, status, pId, quantity);
-		return order;
 	}
 	
 	public static Boolean InsertNewOrder(Order o) {

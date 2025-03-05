@@ -13,6 +13,10 @@ public class Account implements Objects{
 	private int password;
 	private byte[] data;
 	
+	public Account() {
+
+	}
+	
 	public Account(String fName, String lName, String email, String password) {
 		this.fName = fName;
 		this.lName = lName;
@@ -38,6 +42,27 @@ public class Account implements Objects{
 	    this.fName = splitArray[0];
 	    this.lName = splitArray[1];
 	    this.email = splitArray[2];
+	}
+	
+	public void SetAccount(String fName, String lName, String email, String password) {
+		this.fName = fName;
+		this.lName = lName;
+		this.email = email;
+		this.password = password.hashCode();
+	}
+	
+	public void SetAccount(String fName, String lName, String email, int password) {
+		this.fName = fName;
+		this.lName = lName;
+		this.email = email;
+		this.password = password;
+	}
+	
+	public void SetAccount(String email, String password) {
+		this.fName = "Null";
+		this.lName = "Null";
+		this.email = email;
+		this.password = password.hashCode();
 	}
 	
 //	public Boolean Authenticate() {
