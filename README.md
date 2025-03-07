@@ -1,5 +1,5 @@
 # Section2_Group4_ProjectIV
-# E-Commerce Server-Client System
+# Leaf Laugh Love 🪴
 
 ## Overview
 This project is a server-client application designed for an e-commerce system. The **server** handles interactions with the database, manages orders and plants, and processes client requests. The **client** is responsible for placing orders for products, which are then processed by the server.
