@@ -39,3 +39,7 @@ We recommend you to re-add the Database Connector library again to avoid any iss
 5. Choose `mysql-connector-j-9.2.0.jar file, then click apply
 
 ## Authors
+1. [Tyler Dao](https://github.com/TylerDdao)
+2. [Destiny Loungsombath](https://github.com/destinyloua)
+3. Arvin Akbari
+4. Hui-Ying Huang
