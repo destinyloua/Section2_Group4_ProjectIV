@@ -18,8 +18,7 @@ public class Home_page extends JPanel {
 	 */
 	public Home_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
 		//TODO add all the available page here
-		mainPanel.add(new Orders_history_page(mainPanel, cardLayout, a, o), "Orders history");
-
+		
 		setLayout(null);
     	
     	JLabel lblNewLabel = new JLabel("New label");
@@ -46,12 +45,23 @@ public class Home_page extends JPanel {
 		accountBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 		accountBttn.setBounds(99, 568, 153, 35);
 		add(accountBttn);
+		accountBttn.addActionListener(e->{
+			mainPanel.removeAll();
+			mainPanel.add(new Account_setting_page(mainPanel, cardLayout, a, o), "Account");
+			mainPanel.repaint();
+			mainPanel.revalidate();
+			cardLayout.show(mainPanel, "Account");
+		});
 		
 		JButton orderBttn = new JButton("Orders");
 		orderBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 		orderBttn.setBounds(262, 568, 153, 35);
 		add(orderBttn);
-		orderBttn.addActionListener(e->{		
+		orderBttn.addActionListener(e->{	
+			mainPanel.removeAll();
+			mainPanel.add(new Orders_history_page(mainPanel, cardLayout, a, o), "Orders history");
+			mainPanel.repaint();
+			mainPanel.revalidate();
 			cardLayout.show(mainPanel, "Orders history");
 		});
 		

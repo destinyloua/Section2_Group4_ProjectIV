@@ -47,6 +47,10 @@ public class RequestHandler implements Runnable {
 					else if(action == 3) {
 						GetAccountByEmail();
 					}
+					else if(action == 4) {
+						//TODO Update account
+						UpdateAccount();
+					}
 				}
 				
 				//Order
@@ -94,6 +98,25 @@ public class RequestHandler implements Runnable {
 		return true;
 	}
 	
+	public static Boolean UpdateAccount() {
+		System.out.println("Request received update");
+		Account a = new Account(data);
+		a.Display();
+		if(DatabaseHandler.UpdateAccount(a)) {
+			packet.SetHeader(true);
+			packet.SetContent(true);
+			System.out.println("True");
+		}
+		else {
+			packet.SetHeader(false);
+			packet.SetContent(false);
+			System.out.println("False");
+		}
+		SocketHandler.SendData(packet);
+		System.out.println("Sent resposne");
+		return true;
+	}
+	
 	public static Boolean GetAccountByEmail() {
 		Account a = DatabaseHandler.FetchAccountByEmail(new Account(data).GetEmail());
 		if(a == null) {
@@ -115,12 +138,11 @@ public class RequestHandler implements Runnable {
 	}
 	
 	public static Boolean GetOrdersListByAId() {
-//		read = ByteBuffer.wrap(data);
-		System.out.println("Coppied: " + data.length);
 		int aId = read.getInt();
 		Vector<Order> orders = DatabaseHandler.FetchOrdersListByAId(aId);
+		System.out.println("Order sent: "+ orders.size());
 		if(orders.isEmpty()) {
-			packet.SetHeader(true);
+			packet.SetHeader(false);
 			packet.SetContent(false);
 			SocketHandler.SendData(packet);
 			FileHandler.SaveLog("Orders list of account #"+ aId +" sent to client");
@@ -129,11 +151,10 @@ public class RequestHandler implements Runnable {
 		else {
 			packet.SetHeader(true);
 			packet.SetContent(orders.size());
+			System.out.println("Sending "+ orders.size()+" orders");
 			SocketHandler.SendData(packet);
 			for(int i=0;i<orders.size();i++) {
-				packet.SetHeader(true);
-				packet.SetContent(orders.get(i));
-				SocketHandler.SendData(packet);
+				SocketHandler.SendData(orders.get(i).Serialize());
 			}
 			FileHandler.SaveLog("Orders list of account #"+ aId +" sent to client");
 	        return true;
@@ -142,6 +163,7 @@ public class RequestHandler implements Runnable {
 	
 	public static Boolean PlaceOrder() {
 		Order o = new Order(data);
+		System.out.println(o.GetAId());
 		if(DatabaseHandler.InsertNewOrder(o)) {
 			packet.SetHeader(true);
 			packet.SetContent(true);
@@ -219,7 +241,6 @@ public class RequestHandler implements Runnable {
 				
 				//Send chunk
 				SocketHandler.SendData(chunk);
-				System.out.println("Chunk " + i+": " +sentChunkSize+" bytes sent");
 			}
 			System.out.println("Image " + filePath + "is sent: " + totalSize + " bytes sent");
 		}

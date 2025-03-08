@@ -46,6 +46,26 @@ public class DatabaseHandler {
 	    }
 	}
 	
+	public static Boolean UpdateAccount(Account a) {
+		String query = "UPDATE Accounts SET fName = ?, lName = ?, email = ?, password = ? WHERE id = ?";
+		try {
+			pstm = connection.prepareStatement(query);
+			pstm.setString(1, a.GetFName());
+			pstm.setString(2, a.GetLName());
+			pstm.setString(3, a.GetEmail());
+			pstm.setInt(4, a.GetPassword());
+			pstm.setInt(5, a.GetId());
+			
+			int rowsUpdated = pstm.executeUpdate(); // Correct method for UPDATE
+			System.out.println("rowsUpdated: "+ rowsUpdated);
+			return true;
+		}
+		catch(Exception e) {
+			System.out.println(e.getMessage());
+			return false;
+		}
+	}
+	
 	public static int GetNumberOfOrder() {
 		String query = "Select count(*) from Orders";
 		try {
@@ -205,12 +225,12 @@ public class DatabaseHandler {
 			pstm = connection.prepareStatement(query);
 			resultSet = pstm.executeQuery();
 			while(resultSet.next()) {
-			int id = resultSet.getInt(1);
-			int aId = resultSet.getInt(2);
-			float totalPrice = resultSet.getFloat(3);
-			int status = resultSet.getInt(4);
-			Order newOrder = new Order(id, aId, totalPrice, status);
-			ordersList.add(newOrder);
+				int id = resultSet.getInt(1);
+				int aId = resultSet.getInt(2);
+				float totalPrice = resultSet.getFloat(3);
+				int status = resultSet.getInt(4);
+				Order newOrder = new Order(id, aId, totalPrice, status);
+				ordersList.add(newOrder);
 			}
 		}
 		catch(Exception e) {
@@ -225,8 +245,6 @@ public class DatabaseHandler {
 		int aId;
 		float totalPrice;
 		int status;
-		Vector<Integer> pId = new Vector<>();
-		Vector<Integer> quantity = new Vector<>();
 		try {
 			pstm = connection.prepareStatement(query1);
 			pstm.setInt(1, id);
@@ -241,6 +259,8 @@ public class DatabaseHandler {
 			System.out.println("Error: " + e.getMessage());
 			return null;
 		}
+		Vector<Integer> pId = new Vector<>();
+		Vector<Integer> quantity = new Vector<>();
 		String query2 = "SELECT p.id, oi.quantity FROM Order_items oi JOIN Plants p ON oi.pId = p.id WHERE oi.oId = ?";
 		try {
 			pstm = connection.prepareStatement(query2);
@@ -370,49 +390,114 @@ public class DatabaseHandler {
 		}
 	}
 	
-	public static Vector<Order> FetchOrdersListByAId(int accountId) {
-		String query1 = "Select * from Orders Where aId = ?";
-		int oId;
-		int aId;
-		float totalPrice;
-		int status;
-		Vector<Order> orders = new Vector<>();
-		try {
-			pstm = connection.prepareStatement(query1);
-			pstm.setInt(1, accountId);
-			resultSet = pstm.executeQuery();
-			while(resultSet.next()) {
-				oId = resultSet.getInt(1);
-				Order o = FetchOrderById(oId);
-				orders.add(o);
-			}
-			return orders;
-		}
-		catch(Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			return null;
-		}
-	}
-	
-	public static Boolean InsertNewOrder(Order o) {
-		String query = "INSERT INTO Orders (aID, totalPrice, status) VALUES (?,?,?)";
+	public static Vector<Order> FetchOrdersListByAId(int aId){
+		Vector<Order> ordersList = new Vector<>();
+		String query = "Select * from Orders Where aId = ?";
 		try {
 			pstm = connection.prepareStatement(query);
-			pstm.setInt(1, o.GetAId());
-			pstm.setFloat(2, o.GetTotalPrice());
-			pstm.setInt(3, o.GetStatus());
-			
-			int rowInserted = pstm.executeUpdate();
-			
-			if(rowInserted > 0 && InsertItems(o)) {
-				System.out.println("Inserted successfully");
-				return true;
+			pstm.setInt(1, aId);
+			resultSet = pstm.executeQuery();
+			while(resultSet.next()) {
+				int id = resultSet.getInt(1);
+				float totalPrice = resultSet.getFloat(3);
+				int status = resultSet.getInt(4);
+				Order newOrder = new Order(id, aId, totalPrice, status);
+				ordersList.add(newOrder);
 			}
 		}
 		catch(Exception e) {
 			System.out.println("Error: " + e.getMessage());
 		}
-		return false;
+		return ordersList;
+	}
+	
+//	public static Vector<Order> FetchOrdersListByAId(int accountId) {
+//		Vector<Order> ordersList = new Vector<>();
+//		String query = "Select * from Orders where aId = ?";
+//		try {
+//			pstm = connection.prepareStatement(query);
+//			pstm.setInt(1, accountId);
+//			resultSet = pstm.executeQuery();
+//			while(resultSet.next()) {
+//				int id = resultSet.getInt(1);
+//				int aId = resultSet.getInt(2);
+//				float total = resultSet.getFloat(3);
+//				int status = resultSet.getInt(4);
+//				System.out.println("Order ID: " + id);
+//				Vector<Integer> pId = new Vector<>();
+//				Vector<Integer> quantity = new Vector<>();
+//				String query2 = "SELECT p.id, oi.quantity FROM Order_items oi JOIN Plants p ON oi.pId = p.id WHERE oi.oId = ?";
+//				try {
+//					pstm = connection.prepareStatement(query2);
+//					pstm.setInt(1, id);
+//					resultSet = pstm.executeQuery();
+//					while(resultSet.next()) {
+//						pId.add(resultSet.getInt(1));
+//						quantity.add(resultSet.getInt(1));
+//					}
+//				}
+//				catch(Exception e) {
+//					System.out.println("Error: " + e.getMessage());
+//					return null;
+//				}
+//				Order o = new Order(id, aId, total, status, pId, quantity);
+//				ordersList.add(o);
+//			}
+//		}
+//		catch(Exception e) {
+//			System.out.println("Error: " + e.getMessage());
+//		}
+//		return ordersList;
+//	}
+	
+//	public static Boolean InsertNewOrder(Order o) {
+//		String query = "INSERT INTO Orders (aID, totalPrice, status) VALUES (?,?,?)";
+//		try {
+//			pstm = connection.prepareStatement(query);
+//			pstm.setInt(1, o.GetAId());
+//			pstm.setFloat(2, o.GetTotalPrice());
+//			pstm.setInt(3, o.GetStatus());
+//			
+//			int rowInserted = pstm.executeUpdate();
+//			
+//			if(rowInserted > 0 && InsertItems(o)) {
+//				System.out.println("Inserted successfully");
+//				return true;
+//			}
+//		}
+//		catch(Exception e) {
+//			e.getStackTrace();
+//		}
+//		return false;
+//	}
+	
+	public static Boolean InsertNewOrder(Order o) {
+	    String query = "INSERT INTO Orders (aID, totalPrice, status) VALUES (?,?,?)";
+	    try {
+	        pstm = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
+	        pstm.setInt(1, o.GetAId());
+	        pstm.setFloat(2, o.GetTotalPrice());
+	        pstm.setInt(3, o.GetStatus());
+
+	        int rowInserted = pstm.executeUpdate();
+	        
+	        if (rowInserted > 0) {
+	            ResultSet rs = pstm.getGeneratedKeys();
+	            if (rs.next()) {
+	                int generatedId = rs.getInt(1);
+	                o.SetId(generatedId);  // Ensure your Order class has SetId() method
+	                System.out.println(o.GetId());
+	            }
+
+	            if (InsertItems(o)) {
+	                System.out.println("Inserted successfully");
+	                return true;
+	            }
+	        }
+	    } catch (Exception e) {
+	        System.out.println("Error: " + e.getMessage());
+	    }
+	    return false;
 	}
 	
 	public static Boolean InsertItems(Order o) {

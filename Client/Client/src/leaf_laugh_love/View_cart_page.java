@@ -17,7 +17,13 @@ public class View_cart_page extends JPanel {
 	 * Create the panel.
 	 */
 	public View_cart_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
-		//TODO Get plant by pID
+		//TODO CALCULATE TOTAL PRICE
+		int totalPrice =0;
+		for(int i=0;i<o.GetPId().size();i++) {
+			Plant p = ResponseHandler.GetPlant(o.GetPId().get(i));
+			totalPrice+= p.GetPrice()*o.GetQuantity().get(i);
+		}
+		o.SetTotalPrice(totalPrice);
 		setLayout(null);
     	JLabel lblNewLabel = new JLabel("New label");
     	lblNewLabel.setIcon(new ImageIcon("resources\\images\\logo.png"));
@@ -41,7 +47,7 @@ public class View_cart_page extends JPanel {
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.gridx = 1;
 		gbc_lblNewLabel_1.gridy = 1;
-		scrollPane.setBounds(120, 105, 600, 450);
+		scrollPane.setBounds(120, 105, 600, 350);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		add(scrollPane);
 		
@@ -75,6 +81,26 @@ public class View_cart_page extends JPanel {
 		logOutBttn.addActionListener(e->{
 			ResponseHandler.TerminateConnection();
 			System.exit(0);
+		});
+		
+		JLabel totalPriceLabel = new JLabel("Cart total: $" + o.GetTotalPrice());
+		totalPriceLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 30));
+		totalPriceLabel.setBounds(120, 466, 600, 39);
+		add(totalPriceLabel);
+		
+		JButton placeBttn = new JButton("Place order");
+		placeBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		placeBttn.setBackground(UIManager.getColor("Button.shadow"));
+		placeBttn.setBounds(120, 516, 153, 35);
+		add(placeBttn);
+		placeBttn.addActionListener(e->{
+			System.out.println(a.GetId());
+			if(ResponseHandler.PlaceOrder(o)) {
+				System.out.println("Order placed");
+			}
+			else {
+				System.out.println("Order is not placed");
+			}
 		});
 		
 		GridBagConstraints gbc = new GridBagConstraints();
