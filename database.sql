@@ -110,5 +110,3 @@ Select * from Accounts;
 
 Select * from Orders Where aId = 5;
 UPDATE Accounts SET fName = "Tyler2", lName = "Dao", email = "tyler", password = 110840180 WHERE id = 5;
-
-ALTER USER 'root'@'localhost' IDENTIFIED BY 'Tyler123';
