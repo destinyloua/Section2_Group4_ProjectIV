@@ -29,9 +29,10 @@ This project is a server-client application designed for an e-commerce system. T
 ### Steps to Set Up the Database:
 1. Open MySQL and log into your MySQL server.
 3. Run the SQL file `database.sql` to create the required tables and schema in your database.
+4. Open `leaf_laugh_love.java` in Server and replace the current MySQL information with your MySQL information.
 
 ### Note
-We recommend you to re-add the Database Connector library again to avoid any issue. The external library file is named `mysql-connector-j-9.2.0.jar` (Included in this repository).
+- We recommend you to re-add the Database Connector library again to avoid any issue. The external library file is named `mysql-connector-j-9.2.0.jar` (Included in this repository).
 #### To add external library in Eclipse
 1. Rught-click to the project folder's icon
 2. Click to Build Path -> Config Build Path
