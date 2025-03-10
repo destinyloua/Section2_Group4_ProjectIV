@@ -57,6 +57,7 @@ public class Leaf_laugh_love extends JFrame {
 			}
 		});
 		String url = "jdbc:mysql://localhost:3306/project4";
+		//Change these!!
         String user = "root";
         String password = "Tyler123";
 		setTitle("Leaf, Laugh, Love Dashboard");
