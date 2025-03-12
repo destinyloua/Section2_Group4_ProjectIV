@@ -37,7 +37,7 @@ public class Orders_history_page extends JPanel {
 
 		JScrollPane scrollPane = new JScrollPane(ordersList);
 		
-		JLabel noOrdersLabel = new JLabel("No order");
+		JLabel noOrdersLabel = new JLabel("No orders to view. Let's shop!");
 		noOrdersLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 32));
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.gridx = 1;
@@ -103,9 +103,14 @@ public class Orders_history_page extends JPanel {
 			    JLabel price = new JLabel("$"+ or.GetTotalPrice());
 			    price.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 			    price.setBounds(10, 36, 485, 27);
+			    // pick up date - hard coded for now 
+			    JLabel pickup = new JLabel("Pickup Date: 03-16-2025");
+			    pickup.setFont(new Font("Segoe UI", Font.PLAIN, 18));
+			    pickup.setBounds(10, 63, 485, 27);
 
 			    orderCard.add(plantId);
 			    orderCard.add(price);
+			    orderCard.add(pickup);
 			    
 			    ordersList.add(orderCard, gbc);
 			    gbc.gridy++;   // Move to the next row
