@@ -1,6 +1,7 @@
 package leaf_laugh_love;
 
 import java.awt.*;
+
 import java.util.Vector;
 
 import javax.swing.*;
@@ -8,7 +9,7 @@ import back_end.*;
 import objects.*;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
-
+import java.time.LocalDate;
 public class View_cart_page extends JPanel {
 
 	private static final long serialVersionUID = 1L;
@@ -97,8 +98,10 @@ public class View_cart_page extends JPanel {
 			System.out.println(a.GetId());
 			if(ResponseHandler.PlaceOrder(o)) {
 				System.out.println("Order placed");
+	        	JOptionPane.showMessageDialog(this, "Order is placed!\nEstimated pickup date: " + LocalDate.now().plusDays(7));
 			}
 			else {
+	        	JOptionPane.showMessageDialog(this, "Order is not placed!");
 				System.out.println("Order is not placed");
 			}
 		});
