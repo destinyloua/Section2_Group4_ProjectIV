@@ -32,19 +32,34 @@ public class Order implements Objects{
 	
 	public Order(byte[] data) {
 		ByteBuffer read = ByteBuffer.wrap(data, 0, data.length);
+		read.order(ByteOrder.LITTLE_ENDIAN);
 		this.id = read.getInt();
+		System.out.println("oId: "+ id);
 		this.aId = read.getInt();
-//		this.plantsQuantity = read.getInt();
+		System.out.println("aId: "+ aId);
 		this.totalPrice = read.getFloat();
+		System.out.println("total: "+ totalPrice);
 		this.status = read.getInt();
+		System.out.println("Status: "+ status);
 		while(read.hasRemaining()) {
-			pId.add(read.getInt());
-			quantity.add(read.getInt());
+			int pid = read.getInt();
+			int qty = read.getInt();
+			System.out.println("PlantID: "+ pid);
+			System.out.println("Quantity: "+ qty);
+			pId.add(pid);
+			quantity.add(qty);
 		}
 	}
 	
 	public void SetQuantity(int pId, int quantity) {
 		this.quantity.set(this.pId.indexOf(pId), this.quantity.get(this.pId.indexOf(pId)) + quantity);
+	}
+	
+	public void SetAccountAssociated(Account a) {
+		this.aId = a.GetId();
+	}
+	public void SetTotalPrice(float total) {
+		this.totalPrice = total;
 	}
 	
 	public void AddPlant(int pId, int quantity) {
@@ -55,6 +70,10 @@ public class Order implements Objects{
 			this.pId.add(pId);
 			this.quantity.add(quantity);
 		}
+	}
+	
+	public int GetAId() {
+		return aId;
 	}
 	
 	public int GetId() {
@@ -75,18 +94,34 @@ public class Order implements Objects{
 	
 
 	public byte[] Serialize() {
-		int size = (pId.size()*4) + (quantity.size()*4)+16;
-		ByteBuffer read = ByteBuffer.allocate(size);
-		read.putInt(id);
-		read.putInt(aId);
-//		read.putInt(plantsQuantity);
-		read.putFloat(totalPrice);
-		read.putInt(status);
-		for(int i=0 ; i<pId.size();i++) {
-			read.putInt(pId.get(i));
-			read.putInt(quantity.get(i));
-		}
-		this.data = read.array();
-		return data;
+//		int size = 4 + 4 + 4 + 4 + (pId.size() * 4) + (quantity.size() * 4); 
+//		ByteBuffer read = ByteBuffer.allocate(size);
+//		read.order(ByteOrder.LITTLE_ENDIAN);
+//		read.putInt(id);
+//		read.putInt(aId);
+//		read.putFloat(totalPrice);
+//		read.putInt(status);
+//		for(int i=0 ; i<pId.size();i++) {
+//			read.putInt(pId.get(i));
+//			read.putInt(quantity.get(i));
+//		}
+//		this.data = read.array();
+//		return data;
+		
+	    int size = 4 + 4 + 4 + 4 + (pId.size() * 4) + (quantity.size() * 4);
+	    ByteBuffer read = ByteBuffer.allocate(size);
+	    read.order(ByteOrder.LITTLE_ENDIAN);
+	    read.putInt(id);
+	    read.putInt(aId);
+	    read.putFloat(totalPrice);
+	    read.putInt(status);
+
+	    for (int i = 0; i < pId.size(); i++) {
+	        read.putInt(pId.get(i));
+	        read.putInt(quantity.get(i));
+	    }
+
+	    this.data = read.array();
+	    return data;
 	} 
 }

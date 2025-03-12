@@ -48,14 +48,16 @@ INSERT INTO Accounts (fName, lName, email, password) VALUES
 ("Avrin", "Akbari", "avrin@gmail.com", 123456789),
 ("Destiny", "Louangsombath", "destiny@gmail.com", 123456789),
 ("Hui-Ying", "Huang", "ying@gmail.com", 123456789),
-("Tyler", "Dao", "tyler@gmail.com", 123456789);
+("Tyler", "Dao", "tyler@gmail.com", 123456789),
+("Tyler", "Dao", "tyler", 110840180);
 
 -- Step 5: Create Two Orders for the Account (Assume John has id=1)
 INSERT INTO Orders (aID, totalPrice, status) VALUES
 (1, 99.99, 0),  -- First Order
 (2, 99.99, 1), -- Second Order
 (3, 99.99, 2), -- Third Order
-(4, 99.99, -1); -- Fourth Order
+(4, 99.99, -1), -- Fourth Order
+(5, 99.99, -1); -- Fourth Order
 
 -- Step 6: Add Items to the Orders
 -- First Order (ID: 1)
@@ -78,13 +80,20 @@ INSERT INTO Order_items (oId, pId, quantity) VALUES
 (4, 2, 5),
 (4, 3, 2);
 
+-- Second Order (ID: 5)
+INSERT INTO Order_items (oId, pId, quantity) VALUES
+(5, 2, 5),
+(5, 3, 2);
+
 -- Step 7: Retrieve Items from the First Order
 SELECT p.id, oi.quantity FROM Order_items oi JOIN Plants p ON oi.pId = p.id WHERE oi.oId = 1;
 
-SELECT p.id, oi.quantity, o.id FROM Order_items oi JOIN Plants p ON oi.pId = p.id JOIN Orders o ON o.id = oi.oId WHERE o.aId = 1;
+SELECT p.id as plant_id, oi.quantity, o.id as order_id FROM Order_items oi JOIN Plants p ON oi.pId = p.id JOIN Orders o ON o.id = oi.oId WHERE o.aId = 5;
 
 
-Select * from Orders Where aId = 1;
+Select * from Orders Where aId = 5;
+
+SELECT p.id as Plant_id, oi.quantity as qty FROM Order_items oi JOIN Plants p ON oi.pId = p.id WHERE oi.oId = 5;
 
 -- Step 8: Verify Data
 SELECT * FROM Orders;
@@ -96,4 +105,8 @@ SELECT * FROM Plants;
 Delete from Plants where id=6;
 
 Select * from Accounts where email = "baonam6a3@gmail.com";
-SELECT * from Accounts WHERE email = "baonam6a3@gmail.com";
+
+Select * from Accounts;
+
+Select * from Orders Where aId = 5;
+UPDATE Accounts SET fName = "Tyler2", lName = "Dao", email = "tyler", password = 110840180 WHERE id = 5;

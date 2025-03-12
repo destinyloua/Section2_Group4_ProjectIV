@@ -20,6 +20,22 @@ public class ResponseHandler {
 		SocketHandler.CloseChatConnection();
 	}
 	
+	public static Boolean UpdateAccount(Account a) {
+		packet.SetHeader(1, 4);
+		packet.SetContent(a);
+		SocketHandler.SendData(packet);
+		System.out.println("Sent request");
+		
+		read = ByteBuffer.wrap(SocketHandler.ReceiveData());
+		System.out.println("Received resposne");
+		if(read.getInt() == 0) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+	
 	public static Boolean StartChat() {
 		//TODO send request to chat
 		//TODO connect to chat
@@ -155,14 +171,11 @@ public class ResponseHandler {
 	            read = ByteBuffer.wrap(receivedChunk);
 	            int chunkNumber = read.getInt(); // Read the chunk number
 
-	            System.out.println("Chunk #" + chunkNumber + ": " + receivedChunk.length + " bytes");
-
 	            // Corrected index calculation
 	            int start = chunkNumber * dataSize;
 	            int length = Math.min(receivedChunk.length - 4, imageSize - start); // Prevent overflow
 
 	            System.arraycopy(receivedChunk, 4, imgData, start, length);
-	            System.out.println(length + " bytes copied into imgData");
 	        }
 
 	        // Save received image
@@ -184,6 +197,27 @@ public class ResponseHandler {
 		int response;
 		response = read.getInt();
 		if(response == 1) {
+			return true;
+		}
+		else {
+			return false;
+		}
+	}
+	
+	public static Boolean PlaceOrder(Order o) {
+		float totalPrice =0;
+		for(int i=0;i<o.GetPId().size();i++) {
+			Plant p = GetPlant(o.GetPId().get(i));
+			totalPrice += p.GetPrice() * o.GetQuantity().get(i);
+		}
+		o.SetTotalPrice(totalPrice);
+		System.out.println(o.GetTotalPrice());
+		packet.SetHeader(2, 1);
+		packet.SetContent(o);
+		SocketHandler.SendData(packet);
+		
+		read = ByteBuffer.wrap(SocketHandler.ReceiveData());
+		if(read.getInt()==1) {
 			return true;
 		}
 		else {

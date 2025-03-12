@@ -44,11 +44,31 @@ public class Account implements Objects{
 	    this.email = splitArray[2];
 	}
 	
+	public int GetId() {
+		return id;
+	}
+	
+	public void SetId(int id) {
+		this.id=id;
+	}
+	
 	public void SetAccount(String fName, String lName, String email, String password) {
 		this.fName = fName;
 		this.lName = lName;
 		this.email = email;
 		this.password = password.hashCode();
+	}
+	
+	public void UpdateAccount(String fName, String lName, String email, String password) {
+		this.fName = fName;
+		this.lName = lName;
+		this.email = email;
+		this.password = password.hashCode();
+	}
+	public void UpdateAccount(String fName, String lName, String email) {
+		this.fName = fName;
+		this.lName = lName;
+		this.email = email;
 	}
 	
 	public void SetAccount(String fName, String lName, String email, int password) {

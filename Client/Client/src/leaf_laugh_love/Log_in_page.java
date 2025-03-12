@@ -56,6 +56,9 @@ public class Log_in_page extends JPanel {
 					System.out.println("Auth ok");
 					Account newAcc = ResponseHandler.GetAccount(a);
 					a.SetAccount(newAcc.GetFName(), newAcc.GetLName(), newAcc.GetEmail(), newAcc.GetPassword());
+					a.SetId(newAcc.GetId());
+					o.SetAccountAssociated(a);
+					System.out.println(o.GetAId());
 					mainPanel.removeAll();
 					mainPanel.add(new Home_page(mainPanel, cardLayout, a, o), "Home");
 					mainPanel.repaint();

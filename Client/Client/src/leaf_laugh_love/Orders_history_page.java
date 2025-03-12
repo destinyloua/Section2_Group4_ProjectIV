@@ -12,6 +12,8 @@ import java.awt.event.ActionEvent;
 public class Orders_history_page extends JPanel {
 
 	private static final long serialVersionUID = 1L;
+	
+	//TODO Order fetch not working
 
 	/**
 	 * Create the panel.
@@ -49,6 +51,10 @@ public class Orders_history_page extends JPanel {
 		homeBttn.setBounds(120, 568, 153, 35);
 		add(homeBttn);
 		homeBttn.addActionListener(e->{
+			mainPanel.removeAll();
+			mainPanel.add(new Home_page(mainPanel,cardLayout, a, o), "Home");
+			mainPanel.revalidate();
+			mainPanel.repaint();
 			cardLayout.show(mainPanel, "Home");
 		});
 		

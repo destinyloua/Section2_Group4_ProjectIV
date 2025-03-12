@@ -106,4 +106,13 @@ public class Account extends SocketHandler implements Objects{
 		System.arraycopy(combined.getBytes(), 0, data, 8, combined.length());
 		return data;
 	}
+	
+	public void Display() {
+		System.out.println("ID: " + id);
+		System.out.println("First name: " + fName);
+		System.out.println("Last name: " + lName);
+		System.out.println("Email: " + email);
+		System.out.println("Password: " + password);
+		System.out.println("------------");
+	}
 }

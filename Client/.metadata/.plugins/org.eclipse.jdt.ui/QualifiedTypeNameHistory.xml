@@ -6,4 +6,5 @@
     <fullyQualifiedTypeName name="back_end.SocketHandler"/>
     <fullyQualifiedTypeName name="back_end.ResponseHandler"/>
     <fullyQualifiedTypeName name="java.nio.ByteBuffer"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
 </qualifiedTypeNameHistroy>
