@@ -123,8 +123,7 @@ public class Home_page extends JPanel {
 			addBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
 			addBttn.setBounds(105, 63, 150, 30);
 			addBttn.addActionListener(e->{
-				o.AddPlant(p.GetId(), 1);
-				
+				o.AddPlant(p.GetId(), 1);			
 			});
 			
 			JButton detailBttn = new JButton("See details");

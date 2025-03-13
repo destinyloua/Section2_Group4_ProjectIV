@@ -19,7 +19,7 @@ public class View_cart_page extends JPanel {
 	 */
 	public View_cart_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
 		//TODO CALCULATE TOTAL PRICE
-		int totalPrice =0;
+		float totalPrice =0;
 		for(int i=0;i<o.GetPId().size();i++) {
 			Plant p = ResponseHandler.GetPlant(o.GetPId().get(i));
 			totalPrice+= p.GetPrice()*o.GetQuantity().get(i);
@@ -127,7 +127,7 @@ public class View_cart_page extends JPanel {
 			    JLabel plantId = new JLabel("Plant " + p.GetName());
 			    plantId.setFont(new Font("Segoe UI", Font.BOLD, 20));
 			    plantId.setBounds(10, 9, 485, 27);
-			    JLabel price = new JLabel("Quantity: " + quantity.get(i));
+			    JLabel price = new JLabel("$" + p.GetPrice() + " x Quantity: " + quantity.get(i));
 			    price.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 			    price.setBounds(10, 36, 485, 27);
 
