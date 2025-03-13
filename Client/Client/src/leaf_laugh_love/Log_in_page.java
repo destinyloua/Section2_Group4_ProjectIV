@@ -66,6 +66,14 @@ public class Log_in_page extends JPanel {
 					cardLayout.show(mainPanel, "Home");
 				}
 				else {
+					JLabel loginFail = new JLabel("Invalid Email or Password Please Try Again");
+					loginFail.setHorizontalAlignment(SwingConstants.CENTER);
+					loginFail.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+					loginFail.setBounds(10, 208, 820, 43);
+					loginFail.setForeground(Color.red);
+					add(loginFail);
+					mainPanel.repaint();
+					mainPanel.revalidate();
 					System.out.println("Log in failed");
 				}
 			}

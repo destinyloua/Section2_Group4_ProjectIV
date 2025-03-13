@@ -476,3 +476,84 @@
 03/12/25-15:20:04: Authentication success
 03/12/25-15:20:04: Account 6 data sent to client
 03/12/25-15:20:09: Orders list of account #6 sent to client
+03/12/25-20:23:54: Server started
+03/12/25-20:24:28: New account created
+03/12/25-20:24:35: Authentication success
+03/12/25-20:24:35: Account 6 data sent to client
+03/12/25-20:27:02: Authentication success
+03/12/25-20:27:02: Account 6 data sent to client
+03/12/25-20:27:26: New account created
+03/12/25-20:27:33: Authentication success
+03/12/25-20:27:33: Account 7 data sent to client
+03/12/25-20:41:49: Server stopped
+03/12/25-20:42:31: Server started
+03/12/25-20:42:38: Server stopped
+03/12/25-20:42:46: Server started
+03/12/25-20:42:48: Server stopped
+03/12/25-20:42:52: Server started
+03/12/25-21:15:47: Authentication success
+03/12/25-21:15:47: Account 6 data sent to client
+03/12/25-21:16:30: Orders list of account #6 sent to client
+03/12/25-21:16:49: Plant 4data sent to client
+03/12/25-21:16:49: Plant 3data sent to client
+03/12/25-21:16:49: Plant 2data sent to client
+03/12/25-21:16:49: Plant 4data sent to client
+03/12/25-21:16:49: Plant 3data sent to client
+03/12/25-21:16:49: Plant 2data sent to client
+03/12/25-21:16:54: Plant 4data sent to client
+03/12/25-21:16:54: Plant 3data sent to client
+03/12/25-21:16:54: Plant 2data sent to client
+03/12/25-21:16:54: Plant 4data sent to client
+03/12/25-21:16:54: Plant 3data sent to client
+03/12/25-21:16:54: Plant 2data sent to client
+03/12/25-21:17:03: Plant 4data sent to client
+03/12/25-21:17:03: Plant 3data sent to client
+03/12/25-21:17:03: Plant 2data sent to client
+03/12/25-21:17:03: Plant 4data sent to client
+03/12/25-21:17:03: Plant 3data sent to client
+03/12/25-21:17:03: Plant 2data sent to client
+03/12/25-21:20:31: Plant 4data sent to client
+03/12/25-21:20:31: Plant 3data sent to client
+03/12/25-21:20:31: Plant 2data sent to client
+03/12/25-21:20:31: Plant 5data sent to client
+03/12/25-21:20:31: Plant 4data sent to client
+03/12/25-21:20:31: Plant 3data sent to client
+03/12/25-21:20:31: Plant 2data sent to client
+03/12/25-21:20:31: Plant 5data sent to client
+03/12/25-21:30:04: Authentication success
+03/12/25-21:30:04: Account 6 data sent to client
+03/12/25-21:30:37: Authentication success
+03/12/25-21:30:37: Account 6 data sent to client
+03/12/25-21:30:50: Plant 3data sent to client
+03/12/25-21:30:50: Plant 3data sent to client
+03/12/25-21:31:03: Plant 3data sent to client
+03/12/25-21:31:03: Plant 3data sent to client
+03/12/25-21:31:17: Plant 3data sent to client
+03/12/25-21:31:17: Plant 1data sent to client
+03/12/25-21:31:17: Plant 3data sent to client
+03/12/25-21:31:17: Plant 1data sent to client
+03/12/25-21:39:32: Authentication success
+03/12/25-21:39:32: Account 6 data sent to client
+03/12/25-21:39:41: Plant 3data sent to client
+03/12/25-21:39:41: Plant 2data sent to client
+03/12/25-21:39:41: Plant 4data sent to client
+03/12/25-21:39:41: Plant 3data sent to client
+03/12/25-21:39:41: Plant 2data sent to client
+03/12/25-21:39:41: Plant 4data sent to client
+03/12/25-21:40:02: Failed to authenticate
+03/12/25-21:40:45: Failed to create new account
+03/12/25-21:46:00: Failed to authenticate
+03/12/25-21:46:16: Failed to authenticate
+03/12/25-21:46:50: Failed to authenticate
+03/12/25-21:47:19: Failed to authenticate
+03/12/25-21:47:35: Failed to authenticate
+03/12/25-21:47:46: Failed to authenticate
+03/12/25-21:48:04: Failed to authenticate
+03/12/25-21:48:18: Failed to authenticate
+03/12/25-21:50:09: Failed to authenticate
+03/12/25-21:52:57: Failed to authenticate
+03/12/25-21:53:53: Failed to authenticate
+03/12/25-21:54:06: Failed to authenticate
+03/12/25-21:54:35: Failed to authenticate
+03/12/25-21:55:43: Failed to authenticate
+03/12/25-22:01:07: Server stopped

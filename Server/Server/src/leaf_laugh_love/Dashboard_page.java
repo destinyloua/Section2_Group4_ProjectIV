@@ -104,7 +104,7 @@ public class Dashboard_page extends JPanel {
         	revenue += o.GetTotalPrice();
         }
         
-        JLabel lblNewLabel_1_2 = new JLabel("Total revenue: $" + revenue);
+        JLabel lblNewLabel_1_2 = new JLabel("Total revenue: $" + String.format("%.02f", revenue));
         lblNewLabel_1_2.setHorizontalAlignment(SwingConstants.LEFT);
         lblNewLabel_1_2.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 24));
         lblNewLabel_1_2.setBounds(10, 42, 571, 32);

@@ -38,27 +38,43 @@ public class Sign_up_page extends JPanel {
 		JLabel lblNewLabel = new JLabel("Sign Up");
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD, 32));
-		lblNewLabel.setBounds(10, 132, 820, 43);
+		lblNewLabel.setBounds(10, 62, 820, 43);
 		add(lblNewLabel);
 		
+		JLabel fNameLabel = new JLabel("First Name");
+		fNameLabel.setFont(new Font("Segoge UI", Font.PLAIN, 20));
+		fNameLabel.setBounds(220, 102, 820, 43);
+		add(fNameLabel);
 		fName = new JTextField();
 		fName.setBounds(new Rectangle(0, 0, 400, 40));
-		fName.setBounds(220, 201, 400, 40);
+		fName.setBounds(220, 141, 400, 40);
 		add(fName);
 		fName.setColumns(10);
 		
+		JLabel lNameLabel = new JLabel("Last Name");
+		lNameLabel.setFont(new Font("Segoge UI", Font.PLAIN, 20));
+		lNameLabel.setBounds(220, 191, 820, 43);
+		add(lNameLabel);
 		lName = new JTextField();
 		lName.setColumns(10);
 		lName.setBounds(new Rectangle(0, 0, 400, 40));
-		lName.setBounds(220, 270, 400, 40);
+		lName.setBounds(220, 230, 400, 40);
 		add(lName);
 		
+		JLabel emailLabel = new JLabel("Email");
+		emailLabel.setFont(new Font("Segoge UI", Font.PLAIN, 20));
+		emailLabel.setBounds(220, 280, 820, 43);
+		add(emailLabel);
 		email = new JTextField();
 		email.setColumns(10);
 		email.setBounds(new Rectangle(0, 0, 400, 40));
-		email.setBounds(220, 339, 400, 40);
+		email.setBounds(220, 319, 400, 40);
 		add(email);
 		
+		JLabel passLabel = new JLabel("Password");
+		passLabel.setFont(new Font("Segoge UI", Font.PLAIN, 20));
+		passLabel.setBounds(220, 369, 820, 43);
+		add(passLabel);
 		password = new JPasswordField();
 		password.setBounds(220, 408, 400, 40);
 		add(password);
