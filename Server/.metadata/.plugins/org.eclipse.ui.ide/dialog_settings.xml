@@ -6,14 +6,15 @@
 		<item key="SmartImportRootWizardPage.STORE_NESTED_PROJECTS" value="true"/>
 		<item key="SmartImportRootWizardPage.STORE_CONFIGURE_NATURES" value="true"/>
 		<list key="org.eclipse.ui.internal.wizards.datatransfer.SmartImportRootWizardPage.knownSources">
+			<item value="C:\Users\huiyi\OneDrive - Conestoga College\Documents\Mobile and Networked Environment\Live,Laugh,Love\Section2_Group4_ProjectIV\Server\Server"/>
 			<item value="C:\Users\baona\Desktop\School\Project 4\Section2_Group4_ProjectIV\Server\Server"/>
 		</list>
 		<section name="SmartImportWizard.dialogBounds">
 			<item key="DIALOG_X_ORIGIN" value="526"/>
 			<item key="DIALOG_Y_ORIGIN" value="105"/>
-			<item key="DIALOG_WIDTH" value="885"/>
-			<item key="DIALOG_HEIGHT" value="629"/>
-			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-12|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
+			<item key="DIALOG_WIDTH" value="999"/>
+			<item key="DIALOG_HEIGHT" value="726"/>
+			<item key="DIALOG_FONT_NAME" value="1|Segoe UI|9.0|0|WINDOWS|1|-15|0|0|0|400|0|0|0|1|0|0|0|0|Segoe UI"/>
 		</section>
 	</section>
 </section>

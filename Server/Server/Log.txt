@@ -410,3 +410,15 @@
 03/10/25-09:39:25: Authentication success
 03/10/25-09:39:25: Account 5 data sent to client
 03/10/25-09:39:32: Orders list of account #5 sent to client
+03/10/25-14:01:06: Server started
+03/10/25-14:01:08: Server stopped
+03/10/25-14:01:42: Server started
+03/10/25-14:03:50: Server started
+03/10/25-14:04:09: Server started
+03/12/25-18:00:13: Server started
+03/12/25-18:01:33: New account created
+03/12/25-18:01:49: Authentication success
+03/12/25-18:01:49: Account 6 data sent to client
+03/12/25-18:02:02: Orders list of account #6 sent to client
+03/12/25-18:02:46: Plant 1data sent to client
+03/12/25-18:02:46: Plant 1data sent to client
