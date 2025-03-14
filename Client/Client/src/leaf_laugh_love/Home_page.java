@@ -126,10 +126,10 @@ public class Home_page extends JPanel {
 				o.AddPlant(p.GetId(), 1);			
 			});
 			
-			JButton detailBttn = new JButton("See details");
-			detailBttn.setForeground(new Color(0, 0, 0));
-			detailBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
-			detailBttn.setBounds(265, 63, 150, 30);
+//			JButton detailBttn = new JButton("See details");
+//			detailBttn.setForeground(new Color(0, 0, 0));
+//			detailBttn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+//			detailBttn.setBounds(265, 63, 150, 30);
 			
 			JLabel image = new JLabel(ImageProcessor.Resize(plants.get(i).GetImagePath(), 100, 100));
 			image.setBounds(0, 0, 100, 100);

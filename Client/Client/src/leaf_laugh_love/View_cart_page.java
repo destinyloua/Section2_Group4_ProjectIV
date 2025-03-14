@@ -126,11 +126,15 @@ public class View_cart_page extends JPanel {
 			    orderCard.setBackground(new Color(85, 169, 85));
 			    JLabel plantId = new JLabel("Plant " + p.GetName());
 			    plantId.setFont(new Font("Segoe UI", Font.BOLD, 20));
-			    plantId.setBounds(10, 9, 485, 27);
+			    plantId.setBounds(105, 9, 485, 27);
 			    JLabel price = new JLabel("$" + p.GetPrice() + " x Quantity: " + quantity.get(i));
 			    price.setFont(new Font("Segoe UI", Font.PLAIN, 18));
-			    price.setBounds(10, 36, 485, 27);
+			    price.setBounds(105, 36, 485, 27);
 
+				JLabel image = new JLabel(ImageProcessor.Resize(p.GetImagePath(), 100, 100));
+				image.setBounds(0, 0, 100, 100);
+			    
+				orderCard.add(image);
 			    orderCard.add(plantId);
 			    orderCard.add(price);
 			    
