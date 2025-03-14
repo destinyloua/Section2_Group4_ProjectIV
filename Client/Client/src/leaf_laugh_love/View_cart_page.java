@@ -19,11 +19,7 @@ public class View_cart_page extends JPanel {
 	 */
 	public View_cart_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
 		//TODO CALCULATE TOTAL PRICE
-<<<<<<< HEAD
 		 float totalPrice =0;
-=======
-		int totalPrice =0;
->>>>>>> parent of fb7601c (fix the wrong calculation of total price of order in view cart page)
 		for(int i=0;i<o.GetPId().size();i++) {
 			Plant p = ResponseHandler.GetPlant(o.GetPId().get(i));
 			totalPrice+= p.GetPrice()*o.GetQuantity().get(i);
@@ -130,13 +126,8 @@ public class View_cart_page extends JPanel {
 			    orderCard.setBackground(new Color(85, 169, 85));
 			    JLabel plantId = new JLabel("Plant " + p.GetName());
 			    plantId.setFont(new Font("Segoe UI", Font.BOLD, 20));
-<<<<<<< HEAD
 			    plantId.setBounds(105, 9, 485, 27);
 			    JLabel price = new JLabel("$" + p.GetPrice() + " x Quantity: " + quantity.get(i));
-=======
-			    plantId.setBounds(10, 9, 485, 27);
-			    JLabel price = new JLabel("Quantity: " + quantity.get(i));
->>>>>>> parent of fb7601c (fix the wrong calculation of total price of order in view cart page)
 			    price.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 			    price.setBounds(105, 36, 485, 27);
 

@@ -1,7 +1,12 @@
 [ {
 <<<<<<< HEAD
+<<<<<<< HEAD
   "version" : "8.14-20250314014003+0000",
   "buildTime" : "20250314014003+0000",
+=======
+  "version" : "8.14-20250311021311+0000",
+  "buildTime" : "20250311021311+0000",
+>>>>>>> parent of fb7601c (fix the wrong calculation of total price of order in view cart page)
 =======
   "version" : "8.14-20250311021311+0000",
   "buildTime" : "20250311021311+0000",
@@ -15,6 +20,7 @@
   "milestoneFor" : "",
   "broken" : false,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "downloadUrl" : "https://services.gradle.org/distributions-snapshots/gradle-8.14-20250314014003+0000-bin.zip",
   "checksumUrl" : "https://services.gradle.org/distributions-snapshots/gradle-8.14-20250314014003+0000-bin.zip.sha256",
   "wrapperChecksumUrl" : "https://services.gradle.org/distributions-snapshots/gradle-8.14-20250314014003+0000-wrapper.jar.sha256"
@@ -22,12 +28,17 @@
   "version" : "9.0-20250314010046+0000",
   "buildTime" : "20250314010046+0000",
 =======
+=======
+>>>>>>> parent of fb7601c (fix the wrong calculation of total price of order in view cart page)
   "downloadUrl" : "https://services.gradle.org/distributions-snapshots/gradle-8.14-20250311021311+0000-bin.zip",
   "checksumUrl" : "https://services.gradle.org/distributions-snapshots/gradle-8.14-20250311021311+0000-bin.zip.sha256",
   "wrapperChecksumUrl" : "https://services.gradle.org/distributions-snapshots/gradle-8.14-20250311021311+0000-wrapper.jar.sha256"
 }, {
   "version" : "9.0-20250311002730+0000",
   "buildTime" : "20250311002730+0000",
+<<<<<<< HEAD
+>>>>>>> parent of fb7601c (fix the wrong calculation of total price of order in view cart page)
+=======
 >>>>>>> parent of fb7601c (fix the wrong calculation of total price of order in view cart page)
   "current" : false,
   "snapshot" : true,
@@ -38,9 +49,15 @@
   "milestoneFor" : "",
   "broken" : false,
 <<<<<<< HEAD
+<<<<<<< HEAD
   "downloadUrl" : "https://services.gradle.org/distributions-snapshots/gradle-9.0-20250314010046+0000-bin.zip",
   "checksumUrl" : "https://services.gradle.org/distributions-snapshots/gradle-9.0-20250314010046+0000-bin.zip.sha256",
   "wrapperChecksumUrl" : "https://services.gradle.org/distributions-snapshots/gradle-9.0-20250314010046+0000-wrapper.jar.sha256"
+=======
+  "downloadUrl" : "https://services.gradle.org/distributions-snapshots/gradle-9.0-20250311002730+0000-bin.zip",
+  "checksumUrl" : "https://services.gradle.org/distributions-snapshots/gradle-9.0-20250311002730+0000-bin.zip.sha256",
+  "wrapperChecksumUrl" : "https://services.gradle.org/distributions-snapshots/gradle-9.0-20250311002730+0000-wrapper.jar.sha256"
+>>>>>>> parent of fb7601c (fix the wrong calculation of total price of order in view cart page)
 =======
   "downloadUrl" : "https://services.gradle.org/distributions-snapshots/gradle-9.0-20250311002730+0000-bin.zip",
   "checksumUrl" : "https://services.gradle.org/distributions-snapshots/gradle-9.0-20250311002730+0000-bin.zip.sha256",
