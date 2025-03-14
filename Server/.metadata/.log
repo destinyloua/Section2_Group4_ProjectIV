@@ -9459,6 +9459,7 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+<<<<<<< HEAD
 !SESSION 2025-03-12 21:28:25.547 -----------------------------------------------
 eclipse.buildId=4.34.0.20241128-0756
 java.version=23.0.2
@@ -9560,3 +9561,5 @@ user global configuration and to define the default location to store repositori
 not correct please set the HOME environment variable and restart Eclipse. Otherwise Git for Windows and
 EGit might behave differently since they see different configuration options.
 This warning can be switched off on the Team > Git > Confirmations and Warnings preference page.
+=======
+>>>>>>> parent of fb7601c (fix the wrong calculation of total price of order in view cart page)

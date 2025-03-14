@@ -2907,6 +2907,7 @@
 2025-03-12 01:49:59,064 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:420) - Stopping all threads monitoring thread
 2025-03-12 01:49:59,065 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:425) - Closing ThreadHolder
 2025-03-12 01:49:59,067 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier
+<<<<<<< HEAD
 2025-03-12 14:47:13,428 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
 2025-03-12 14:47:13,431 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
 
@@ -3103,3 +3104,5 @@
 2025-03-14 00:54:00,775 [main] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
 2025-03-14 00:54:00,918 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.4970571 seconds
 2025-03-14 00:54:06,618 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+=======
+>>>>>>> parent of fb7601c (fix the wrong calculation of total price of order in view cart page)

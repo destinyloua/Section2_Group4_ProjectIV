@@ -1,4 +1,10 @@
+<<<<<<< HEAD
 #Fri Mar 14 00:32:16 EDT 2025
 host=MSI
 process-id=21932
+=======
+#Tue Mar 11 16:47:57 EDT 2025
+host=MSI
+process-id=24024
+>>>>>>> parent of fb7601c (fix the wrong calculation of total price of order in view cart page)
 user=baona
