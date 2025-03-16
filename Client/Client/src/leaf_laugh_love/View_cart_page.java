@@ -99,6 +99,7 @@ public class View_cart_page extends JPanel {
 			if(ResponseHandler.PlaceOrder(o)) {
 				System.out.println("Order placed");
 	        	JOptionPane.showMessageDialog(this, "Order is placed!\nEstimated pickup date: " + LocalDate.now().plusDays(7));
+	        	FileHandler.SaveLog("Client placed an order");
 			}
 			else {
 	        	JOptionPane.showMessageDialog(this, "Order is not placed!");

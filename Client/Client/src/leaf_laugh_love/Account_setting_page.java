@@ -79,6 +79,7 @@ public class Account_setting_page extends JPanel {
 			}
 			if(ResponseHandler.UpdateAccount(a)) {
 				JOptionPane.showMessageDialog(this, "Account information is updated!");
+				FileHandler.SaveLog("Client updated account information");
 			}
 			else {
 				JOptionPane.showMessageDialog(this, "Account information is not updated!");

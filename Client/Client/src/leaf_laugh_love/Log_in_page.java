@@ -64,6 +64,7 @@ public class Log_in_page extends JPanel {
 					mainPanel.repaint();
 					mainPanel.revalidate();
 					cardLayout.show(mainPanel, "Home");
+					FileHandler.SaveLog("Client account authenticated");
 				}
 				else {
 					System.out.println("Log in failed");

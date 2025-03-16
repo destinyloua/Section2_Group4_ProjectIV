@@ -37,6 +37,7 @@ public class Help_window {
 	        endBttn.addActionListener(e->{
 	        	//TODO send termination signal to server
 	        	Terminate();
+	        	FileHandler.SaveLog("Client ended chat");
 	        	frame.setVisible(false);
 	        });
 	        
@@ -60,6 +61,7 @@ public class Help_window {
 	    }
 	    
 	    private void connectToServer() {
+	    	FileHandler.SaveLog("Client is requesting help via chat");
 	    	//new Thread(this::receiveMessages).start();
 	        if (SocketHandler.MakeChatConnecion()) {
 	            chatArea.append("Connected to server\n");
@@ -78,6 +80,7 @@ public class Help_window {
 	            if (SocketHandler.SendMessage(p)) {
 	                chatArea.append(a.GetFName()+": " + message + "\n");
 	                messageField.setText("");
+	                FileHandler.SaveLog("Message sent to server");
 	            } else {
 	                chatArea.append("Failed to send message\n");
 	            }
@@ -99,6 +102,7 @@ public class Help_window {
 	            	read.get(messageData);
 	            	String m = new String(messageData);
 	            	chatArea.append("Server: " + m + "\n");
+	            	FileHandler.SaveLog("Message received from server");
                 }
 	        }
 	    }
