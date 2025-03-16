@@ -14,7 +14,7 @@ import java.nio.ByteBuffer;
 
 public class Help_window {
 	 private JFrame frame;
-	    private JTextArea chatArea;
+	    private JPanel chatArea;
 	    private JTextField messageField, serverField, portField;
 	    private JButton sendButton, connectButton;
 	    private JButton endBttn;
@@ -27,8 +27,8 @@ public class Help_window {
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frame.getContentPane().setLayout(new BorderLayout());
 	        
-	        chatArea = new JTextArea();
-	        chatArea.setEditable(false);
+	        chatArea = new JPanel();
+	        chatArea.setLayout(new BoxLayout(chatArea, BoxLayout.Y_AXIS));
 	        JScrollPane scrollPane = new JScrollPane(chatArea);
 	        frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 	        
@@ -64,10 +64,11 @@ public class Help_window {
 	    	FileHandler.SaveLog("Client is requesting help via chat");
 	    	//new Thread(this::receiveMessages).start();
 	        if (SocketHandler.MakeChatConnecion()) {
-	            chatArea.append("Connected to server\n");
+	            //chatArea.append("Connected to server\n");
+	        	displaySystemMessage("Thanks for connecting with Customer Service. How can we help?");
 	            new Thread(this::receiveMessages).start();
 	        } else {
-	            chatArea.append("Failed to connect\n");
+	        	displaySystemMessage("Failed to connect to Customer Service");
 	        }
 	    }
 	    
@@ -78,11 +79,11 @@ public class Help_window {
 		        p.SetHeader(message.length());
 		        p.SetContent(message);
 	            if (SocketHandler.SendMessage(p)) {
-	                chatArea.append(a.GetFName()+": " + message + "\n");
+	            	displayClientMessage(a.GetFName()+": " + message);
 	                messageField.setText("");
 	                FileHandler.SaveLog("Message sent to server");
 	            } else {
-	                chatArea.append("Failed to send message\n");
+		        	displaySystemMessage("Failed to send message");
 	            }
 	        }
 	    }
@@ -101,7 +102,7 @@ public class Help_window {
 	            	byte[] messageData = new byte[read.remaining()];
 	            	read.get(messageData);
 	            	String m = new String(messageData);
-	            	chatArea.append("Server: " + m + "\n");
+                    SwingUtilities.invokeLater(() -> displaySystemMessage("Customer Service: " + m));
 	            	FileHandler.SaveLog("Message received from server");
                 }
 	        }
@@ -114,5 +115,34 @@ public class Help_window {
 	    	SocketHandler.SendMessage(p);
 	    	messageField.setText("");
 	    }
+	    
+	    // display the client message with the sent indicator together
+	    private void displayClientMessage(String message) {
+	    	JPanel msgPanel = new JPanel(); 
+	    	msgPanel.setLayout(new BoxLayout(msgPanel, BoxLayout.Y_AXIS));
+	    	
+	    	JLabel msgLabel = new JLabel(message);
+	    	JLabel sentLabel = new JLabel("Sent"); // REQ-LOG-050
+	    	
+	    	sentLabel.setFont(new Font("SansSerif", Font.ITALIC, 10));
+	    	sentLabel.setForeground(Color.LIGHT_GRAY);
+	    	
+	    	msgPanel.add(msgLabel); 
+	    	msgPanel.add(sentLabel); 
+	    	
+	    	chatArea.add(msgPanel); 
+	    	chatArea.revalidate();
+	    	chatArea.repaint(); 
+	    	
+	    }
+	    
+	    // for displaying additional messages to the client
+	    private void displaySystemMessage(String message) {
+	    	JLabel msgLabel = new JLabel(message); 
+	    	chatArea.add(msgLabel);
+	    	chatArea.revalidate();
+	    	chatArea.repaint(); 
+	    }
+	    
 }
 
