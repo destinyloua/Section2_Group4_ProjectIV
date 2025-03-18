@@ -2907,10 +2907,9 @@
 2025-03-12 01:49:59,064 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:420) - Stopping all threads monitoring thread
 2025-03-12 01:49:59,065 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:425) - Closing ThreadHolder
 2025-03-12 01:49:59,067 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier
-<<<<<<< HEAD
-<<<<<<< HEAD
-2025-03-12 14:47:13,428 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
-2025-03-12 14:47:13,431 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
+2025-03-17 22:32:26,979 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-03-17 22:33:08,415 [Worker-23: Configuring project Client] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
+2025-03-17 22:33:08,420 [Worker-23: Configuring project Client] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
 
 	Configuration values for static components:
 
@@ -3002,13 +3001,20 @@
 			6000
 
 
-2025-03-12 14:47:13,434 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
-2025-03-12 14:47:13,434 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
-2025-03-12 14:47:13,441 [main] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
-2025-03-12 14:47:13,474 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.170539 seconds
-2025-03-12 14:47:17,800 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
-2025-03-14 00:54:00,700 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
-2025-03-14 00:54:00,718 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
+2025-03-17 22:33:08,425 [Worker-23: Configuring project Client] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
+2025-03-17 22:33:08,427 [Worker-23: Configuring project Client] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
+2025-03-17 22:33:08,432 [Worker-23: Configuring project Client] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
+2025-03-17 22:33:08,506 [Worker-23: Configuring project Client] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.2047803 seconds
+2025-03-17 22:34:13,308 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:391) - ... Waiting for all tasks ending
+2025-03-17 22:34:13,313 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:397) - Closing all component containers
+2025-03-17 22:34:13,316 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:403) - Closing FileSystemHelper
+2025-03-17 22:34:13,318 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:409) - ... Waiting for all tasks ending before shutting down the BackgroundExecutor
+2025-03-17 22:34:13,319 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:414) - Shutting down BackgroundExecutor
+2025-03-17 22:34:13,321 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:420) - Stopping all threads monitoring thread
+2025-03-17 22:34:13,322 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:425) - Closing ThreadHolder
+2025-03-17 22:34:13,323 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier
+2025-03-17 22:34:31,819 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
+2025-03-17 22:34:31,821 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
 
 	Configuration values for static components:
 
@@ -3100,216 +3106,16 @@
 			6000
 
 
-2025-03-14 00:54:00,737 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
-2025-03-14 00:54:00,749 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
-2025-03-14 00:54:00,775 [main] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
-2025-03-14 00:54:00,918 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.4970571 seconds
-2025-03-14 00:54:06,618 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
-=======
->>>>>>> parent of fb7601c (fix the wrong calculation of total price of order in view cart page)
-=======
->>>>>>> parent of fb7601c (fix the wrong calculation of total price of order in view cart page)
-2025-03-14 16:08:57,871 [Worker-6: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
-2025-03-14 16:08:59,349 [Java indexing] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
-2025-03-14 16:08:59,356 [Java indexing] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
-
-	Configuration values for static components:
-
-		background-executor.all-tasks-monitoring.enabled=\
-			true
-		background-executor.all-tasks-monitoring.interval=\
-			30000
-		background-executor.all-tasks-monitoring.logger.enabled=\
-			false
-		background-executor.all-tasks-monitoring.minimum-elapsed-time-to-consider-a-task-as-probable-dead-locked=\
-			300000
-		background-executor.all-tasks-monitoring.probable-dead-locked-tasks-handling.policy=\
-			log only
-		background-executor.queued-task-executor[0].name=\
-			Low priority tasks
-		background-executor.queued-task-executor[0].priority=\
-			1
-		background-executor.queued-task-executor[1].name=\
-			Normal priority tasks
-		background-executor.queued-task-executor[1].priority=\
-			5
-		background-executor.queued-task-executor[2].name=\
-			High priority tasks
-		background-executor.queued-task-executor[2].priority=\
-			10
-		background-executor.task-creation-tracking.enabled=\
-			${background-executor.all-tasks-monitoring.enabled}
-		banner.additonal-informations=\
-			${Implementation-Title} ${Implementation-Version}
-		banner.additonal-informations.retrieve-from-manifest-file-with-implementation-title=\
-			Burningwave Core
-		banner.file=\
-			org/burningwave/banner.bwb
-		banner.hide=\
-			true
-		buffer-handler.default-allocation-mode=\
-			ByteBuffer::allocateDirect
-		buffer-handler.default-buffer-size=\
-			1024
-		group-name-for-named-elements=\
-			Burningwave
-		iterable-object-helper.default-values-separator=\
-			;
-		iterable-object-helper.parallel-iteration.applicability.default-minimum-collection-size=\
-			2
-		iterable-object-helper.parallel-iteration.applicability.max-runtime-thread-count-threshold=\
-			autodetect
-		iterable-object-helper.parallel-iteration.applicability.output-collection-enabled-types=\
-			java.util.concurrent.ConcurrentHashMap$CollectionView;\
-			java.util.Collections$SynchronizedCollection;\
-			java.util.concurrent.CopyOnWriteArrayList;\
-			java.util.concurrent.CopyOnWriteArraySet;\
-			java.util.concurrent.BlockingQueue;\
-			java.util.concurrent.ConcurrentSkipListSet;\
-			java.util.concurrent.ConcurrentSkipListMap$EntrySet;\
-			java.util.concurrent.ConcurrentSkipListMap$KeySet;\
-			java.util.concurrent.ConcurrentSkipListMap$Values;
-		jvm.driver.init=\
-			false
-		managed-logger.repository=\
-			autodetect
-		managed-logger.repository.enabled=\
-			true
-		managed-logger.repository.logging.warn.disabled-for=\
-			org.burningwave.core.assembler.ComponentContainer$ClassLoader;\
-			org.burningwave.core.classes.MemoryClassLoader;\
-			org.burningwave.core.classes.PathScannerClassLoader;
-		modules.export-all-to-all=\
-			true
-		resource-releaser.enabled=\
-			true
-		synchronizer.all-threads-monitoring.enabled=\
-			false
-		synchronizer.all-threads-monitoring.interval=\
-			90000
-		thread-supplier.default-daemon-flag-value=\
-			true
-		thread-supplier.default-thread-priority=\
-			5
-		thread-supplier.max-detached-thread-count=\
-			${thread-supplier.max-poolable-thread-count}
-		thread-supplier.max-detached-thread-count.elapsed-time-threshold-from-last-increase-for-gradual-decreasing-to-initial-value=\
-			30000
-		thread-supplier.max-detached-thread-count.increasing-step=\
-			autodetect
-		thread-supplier.max-poolable-thread-count=\
-			autodetect
-		thread-supplier.poolable-thread-request-timeout=\
-			6000
-
-
-2025-03-14 16:08:59,367 [Java indexing] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
-2025-03-14 16:08:59,372 [Java indexing] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
-2025-03-14 16:08:59,392 [Java indexing] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
-2025-03-14 16:08:59,548 [Java indexing] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.5381343 seconds
-2025-03-14 16:18:33,722 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
-2025-03-14 16:19:16,551 [Worker-15: Configuring project Client] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
-2025-03-14 16:19:16,553 [Worker-15: Configuring project Client] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
-
-	Configuration values for static components:
-
-		background-executor.all-tasks-monitoring.enabled=\
-			true
-		background-executor.all-tasks-monitoring.interval=\
-			30000
-		background-executor.all-tasks-monitoring.logger.enabled=\
-			false
-		background-executor.all-tasks-monitoring.minimum-elapsed-time-to-consider-a-task-as-probable-dead-locked=\
-			300000
-		background-executor.all-tasks-monitoring.probable-dead-locked-tasks-handling.policy=\
-			log only
-		background-executor.queued-task-executor[0].name=\
-			Low priority tasks
-		background-executor.queued-task-executor[0].priority=\
-			1
-		background-executor.queued-task-executor[1].name=\
-			Normal priority tasks
-		background-executor.queued-task-executor[1].priority=\
-			5
-		background-executor.queued-task-executor[2].name=\
-			High priority tasks
-		background-executor.queued-task-executor[2].priority=\
-			10
-		background-executor.task-creation-tracking.enabled=\
-			${background-executor.all-tasks-monitoring.enabled}
-		banner.additonal-informations=\
-			${Implementation-Title} ${Implementation-Version}
-		banner.additonal-informations.retrieve-from-manifest-file-with-implementation-title=\
-			Burningwave Core
-		banner.file=\
-			org/burningwave/banner.bwb
-		banner.hide=\
-			true
-		buffer-handler.default-allocation-mode=\
-			ByteBuffer::allocateDirect
-		buffer-handler.default-buffer-size=\
-			1024
-		group-name-for-named-elements=\
-			Burningwave
-		iterable-object-helper.default-values-separator=\
-			;
-		iterable-object-helper.parallel-iteration.applicability.default-minimum-collection-size=\
-			2
-		iterable-object-helper.parallel-iteration.applicability.max-runtime-thread-count-threshold=\
-			autodetect
-		iterable-object-helper.parallel-iteration.applicability.output-collection-enabled-types=\
-			java.util.concurrent.ConcurrentHashMap$CollectionView;\
-			java.util.Collections$SynchronizedCollection;\
-			java.util.concurrent.CopyOnWriteArrayList;\
-			java.util.concurrent.CopyOnWriteArraySet;\
-			java.util.concurrent.BlockingQueue;\
-			java.util.concurrent.ConcurrentSkipListSet;\
-			java.util.concurrent.ConcurrentSkipListMap$EntrySet;\
-			java.util.concurrent.ConcurrentSkipListMap$KeySet;\
-			java.util.concurrent.ConcurrentSkipListMap$Values;
-		jvm.driver.init=\
-			false
-		managed-logger.repository=\
-			autodetect
-		managed-logger.repository.enabled=\
-			true
-		managed-logger.repository.logging.warn.disabled-for=\
-			org.burningwave.core.assembler.ComponentContainer$ClassLoader;\
-			org.burningwave.core.classes.MemoryClassLoader;\
-			org.burningwave.core.classes.PathScannerClassLoader;
-		modules.export-all-to-all=\
-			true
-		resource-releaser.enabled=\
-			true
-		synchronizer.all-threads-monitoring.enabled=\
-			false
-		synchronizer.all-threads-monitoring.interval=\
-			90000
-		thread-supplier.default-daemon-flag-value=\
-			true
-		thread-supplier.default-thread-priority=\
-			5
-		thread-supplier.max-detached-thread-count=\
-			${thread-supplier.max-poolable-thread-count}
-		thread-supplier.max-detached-thread-count.elapsed-time-threshold-from-last-increase-for-gradual-decreasing-to-initial-value=\
-			30000
-		thread-supplier.max-detached-thread-count.increasing-step=\
-			autodetect
-		thread-supplier.max-poolable-thread-count=\
-			autodetect
-		thread-supplier.poolable-thread-request-timeout=\
-			6000
-
-
-2025-03-14 16:19:16,556 [Worker-15: Configuring project Client] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
-2025-03-14 16:19:16,559 [Worker-15: Configuring project Client] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
-2025-03-14 16:19:16,562 [Worker-15: Configuring project Client] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
-2025-03-14 16:19:16,583 [Worker-15: Configuring project Client] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.1350755 seconds
-2025-03-15 01:57:25,555 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:391) - ... Waiting for all tasks ending
-2025-03-15 01:57:25,563 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:397) - Closing all component containers
-2025-03-15 01:57:25,567 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:403) - Closing FileSystemHelper
-2025-03-15 01:57:25,570 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:409) - ... Waiting for all tasks ending before shutting down the BackgroundExecutor
-2025-03-15 01:57:25,571 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:414) - Shutting down BackgroundExecutor
-2025-03-15 01:57:25,573 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:420) - Stopping all threads monitoring thread
-2025-03-15 01:57:25,576 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:425) - Closing ThreadHolder
-2025-03-15 01:57:25,577 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier
+2025-03-17 22:34:31,823 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
+2025-03-17 22:34:31,824 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
+2025-03-17 22:34:31,828 [main] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
+2025-03-17 22:34:31,856 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.1049642 seconds
+2025-03-17 22:34:34,212 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-03-17 23:03:21,541 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:391) - ... Waiting for all tasks ending
+2025-03-17 23:03:21,543 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:397) - Closing all component containers
+2025-03-17 23:03:21,546 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:403) - Closing FileSystemHelper
+2025-03-17 23:03:21,548 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:409) - ... Waiting for all tasks ending before shutting down the BackgroundExecutor
+2025-03-17 23:03:21,549 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:414) - Shutting down BackgroundExecutor
+2025-03-17 23:03:21,551 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:420) - Stopping all threads monitoring thread
+2025-03-17 23:03:21,552 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:425) - Closing ThreadHolder
+2025-03-17 23:03:21,555 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier
