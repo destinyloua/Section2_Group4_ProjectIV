@@ -23,7 +23,8 @@ class Client_Account_Tests {
 	void setUp(){
 		app = new Leafs_Laugh_Love(); 
 		testAccount = new Account("test", "user", "test@user.com", "password");
-		boolean connected = SocketHandler.MakeConnection(27000); 
+		SocketHandler.MakeConnection(27000); 
+		boolean connected = SocketHandler.CheckConnection();
 		assertTrue(connected); 
 		
 	}
@@ -41,7 +42,8 @@ class Client_Account_Tests {
 	
 	@AfterEach
 	void tearDown() {
-		SocketHandler.CloseChatConnection(); 
+		SocketHandler.CloseChatConnection();
+		
 	}
 	
 	

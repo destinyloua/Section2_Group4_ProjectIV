@@ -539,3 +539,5 @@
 03/16/25-14:40:53: Server started
 03/16/25-14:41:09: Authentication success
 03/16/25-14:41:09: Account 6 data sent to client
+03/17/25-22:38:08: Client failed to connect to database
+03/17/25-22:38:08: Server started
