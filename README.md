@@ -17,7 +17,7 @@ This project is a server-client application designed for an e-commerce system. T
 ## Technology Stack
 - **Frontend:** Java Swing (for the client-side interface)  
 - **Backend:** Java (server-side logic)  
-- **Database:** MySQL (or any other database system you're using)  
+- **Database:** MySQL
 - **Communication:** Socket programming (for server-client interaction)
 
 ## Installation & Setup  
