@@ -422,3 +422,59 @@
 03/12/25-18:02:02: Orders list of account #6 sent to client
 03/12/25-18:02:46: Plant 1data sent to client
 03/12/25-18:02:46: Plant 1data sent to client
+03/14/25-16:04:53: Server started
+03/14/25-16:05:18: Failed to authenticate
+03/14/25-16:05:24: Failed to authenticate
+03/14/25-16:05:34: Failed to authenticate
+03/14/25-16:05:46: Failed to authenticate
+03/14/25-16:06:11: Failed to authenticate
+03/14/25-16:06:12: Failed to authenticate
+03/14/25-16:06:12: Failed to authenticate
+03/14/25-16:06:12: Failed to authenticate
+03/14/25-16:06:12: Failed to authenticate
+03/14/25-16:06:12: Failed to authenticate
+03/14/25-16:06:13: Failed to authenticate
+03/14/25-16:06:13: Failed to authenticate
+03/14/25-16:06:13: Failed to authenticate
+03/14/25-16:06:13: Failed to authenticate
+03/14/25-16:06:13: Failed to authenticate
+03/14/25-16:06:14: Failed to authenticate
+03/14/25-16:06:14: Failed to authenticate
+03/14/25-16:06:14: Failed to authenticate
+03/14/25-16:06:14: Failed to authenticate
+03/14/25-16:06:14: Failed to authenticate
+03/14/25-16:06:15: Failed to authenticate
+03/14/25-16:06:15: Failed to authenticate
+03/14/25-16:06:15: Failed to authenticate
+03/14/25-16:06:15: Failed to authenticate
+03/14/25-16:06:15: Failed to authenticate
+03/14/25-16:06:16: Failed to authenticate
+03/14/25-16:06:16: Failed to authenticate
+03/14/25-16:06:16: Failed to authenticate
+03/14/25-16:06:16: Failed to authenticate
+03/14/25-16:06:16: Failed to authenticate
+03/14/25-16:06:17: Failed to authenticate
+03/14/25-16:06:17: Failed to authenticate
+03/14/25-16:06:17: Failed to authenticate
+03/14/25-16:06:17: Failed to authenticate
+03/14/25-16:06:17: Failed to authenticate
+03/14/25-16:06:18: Failed to authenticate
+03/14/25-16:06:18: Failed to authenticate
+03/14/25-16:06:18: Failed to authenticate
+03/14/25-16:06:18: Failed to authenticate
+03/14/25-16:06:18: Failed to authenticate
+03/14/25-16:06:19: Failed to authenticate
+03/14/25-16:06:19: Failed to authenticate
+03/14/25-16:06:19: Failed to authenticate
+03/14/25-16:06:19: Failed to authenticate
+03/14/25-16:06:19: Failed to authenticate
+03/14/25-16:06:20: Failed to authenticate
+03/14/25-16:07:12: Server stopped
+03/14/25-16:07:15: Server stopped
+03/14/25-16:07:24: Server started
+03/14/25-16:07:46: Authentication success
+03/14/25-16:07:46: Account 6 data sent to client
+03/14/25-16:11:12: Plant 1data sent to client
+03/14/25-16:11:12: Plant 1data sent to client
+03/14/25-16:11:15: Plant 1data sent to client
+03/14/25-16:11:15: New order placed

@@ -16,6 +16,27 @@ public class View_cart_page extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+	
+	
+	private int calculateTotalPrice(Order o) {
+	int totalPrice = 0;
+	for (int i = 0; i < o.GetPId().size(); i++) {
+	    Plant p = ResponseHandler.GetPlant(o.GetPId().get(i));
+	    totalPrice += p.GetPrice() * o.GetQuantity().get(i);
+	}
+	return totalPrice;
+	}
+
+	//Enhanced order confirmation on successful order placement
+	placeBttn.addActionListener(e -> {
+	boolean isOrderPlaced = ResponseHandler.PlaceOrder(o);
+	if (isOrderPlaced) {
+	    JOptionPane.showMessageDialog(this, "Order placed successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+	} else {
+	    JOptionPane.showMessageDialog(this, "Failed to place order. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+	}
+	});
+	
 	public View_cart_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
 		//TODO CALCULATE TOTAL PRICE
 		int totalPrice =0;
@@ -93,6 +114,12 @@ public class View_cart_page extends JPanel {
 		placeBttn.setBackground(UIManager.getColor("Button.shadow"));
 		placeBttn.setBounds(120, 516, 153, 35);
 		add(placeBttn);
+		
+		JButton deleteBtn = new JButton("Delete order");
+		deleteBtn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		deleteBtn.setBackground(UIManager.getColor("Button.shadow"));
+		deleteBtn.setBounds(283, 515, 153, 35);
+		add(deleteBtn);
 		placeBttn.addActionListener(e->{
 			System.out.println(a.GetId());
 			if(ResponseHandler.PlaceOrder(o)) {
@@ -128,6 +155,35 @@ public class View_cart_page extends JPanel {
 			    price.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 			    price.setBounds(10, 36, 485, 27);
 
+			    
+			  JButton deleteButton = new JButton("Delete");
+                deleteButton.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+                deleteButton.setBounds(490, 35, 100, 30);
+                deleteButton.addActionListener(new ActionListener() {
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        // Remove the plant from the cart
+                        o.GetPId().remove(i);
+                        o.GetQuantity().remove(i);
+
+                        // Recalculate total price
+                        totalPrice = 0;
+                        for (int j = 0; j < o.GetPId().size(); j++) {
+                            Plant p = ResponseHandler.GetPlant(o.GetPId().get(j));
+                            totalPrice += p.GetPrice() * o.GetQuantity().get(j);
+                        }
+                        o.SetTotalPrice(totalPrice);
+
+                        // Remove the orderCard and update the UI
+                        ordersList.remove(orderCard);
+                        ordersList.revalidate();
+                        ordersList.repaint();
+
+                        // Update total price label
+                        totalPriceLabel.setText("Cart total: $" + o.GetTotalPrice());
+                    }
+                });
+			    
 			    orderCard.add(plantId);
 			    orderCard.add(price);
 			    
@@ -137,3 +193,5 @@ public class View_cart_page extends JPanel {
 		}
     }
 }
+
+
