@@ -15,7 +15,7 @@ public class Message_window {
 	    private JTextArea chatArea;
 	    private JTextField messageField;
 	    private JButton sendButton;
-	    
+	  
 	    public Message_window() {
 	        frame = new JFrame("Chat Client");
 	        frame.setSize(400, 400);
@@ -79,6 +79,8 @@ public class Message_window {
 	    public static void main(String[] args) {
 	        SwingUtilities.invokeLater(Message_window::new);
 	    }
+	    
+	    
 }
 
 

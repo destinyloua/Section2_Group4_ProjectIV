@@ -7,7 +7,7 @@ import objects.Message;
 import objects.Packet;
 
 public class MessageHandler{	
-	
+
 	public static String ReceiveMessage() {
 		byte[] data = SocketHandler.ReceiveData();
 		System.out.println("New message");

@@ -1,0 +1,22 @@
+03/16/25-13:49:11: From Client: hello server
+
+03/16/25-13:49:17: From Server: hello client
+
+03/16/25-13:49:21: From Client: help me
+
+03/16/25-13:49:24: From Server: okay
+
+03/16/25-14:14:02: From Client: hi
+
+03/16/25-14:18:26: From Server: hello
+
+03/16/25-14:18:40: From Client: hello
+
+03/16/25-14:34:55: From Client: hello
+
+03/16/25-14:35:22: From Server: hello
+
+03/16/25-14:36:18: From Client: help
+
+03/16/25-14:41:45: From Client: help me pls
+

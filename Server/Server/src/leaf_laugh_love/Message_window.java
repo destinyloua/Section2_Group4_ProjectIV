@@ -2,6 +2,7 @@ package leaf_laugh_love;
 
 import javax.swing.*;
 
+import back_end.FileHandler;
 import back_end.MessageHandler;
 import back_end.SocketHandler;
 import objects.Message;
@@ -21,6 +22,9 @@ public class Message_window {
     private JTextField messageField;
     private JButton sendButton;
     private JButton endBttn;
+    
+	private static String fileName = "ChatHistory.txt"; // REQ-LOG-040
+	private static String msgContent;
 
     public Message_window() {
         frame = new JFrame("Server Chat");
@@ -79,6 +83,10 @@ public class Message_window {
     			read.get(messageData);
     			String m = new String(messageData);
     			chatArea.append("Client: "+ m + "\n");
+    			
+    			// Log chat history
+    			msgContent = "From Client: " + m + "\n";
+    			FileHandler.SaveChatHistory(fileName, msgContent);
     		}
     	}
 	}
@@ -93,6 +101,10 @@ public class Message_window {
             SocketHandler.SendMessage(p);
             System.out.println("Message sent");
             messageField.setText("");
+            
+            //Log chat history
+            msgContent = "From Server: " + message + "\n";
+			FileHandler.SaveChatHistory(fileName, msgContent);
         }
     }
     

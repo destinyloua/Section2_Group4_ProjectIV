@@ -2909,8 +2909,14 @@
 2025-03-12 01:49:59,067 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 2025-03-12 14:47:13,428 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
 2025-03-12 14:47:13,431 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
+=======
+2025-03-17 22:32:26,979 [Worker-4: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+2025-03-17 22:33:08,415 [Worker-23: Configuring project Client] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
+2025-03-17 22:33:08,420 [Worker-23: Configuring project Client] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
+>>>>>>> Destiny_Client
 
 	Configuration values for static components:
 
@@ -3002,6 +3008,7 @@
 			6000
 
 
+<<<<<<< HEAD
 2025-03-12 14:47:13,434 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
 2025-03-12 14:47:13,434 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
 2025-03-12 14:47:13,441 [main] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
@@ -3009,6 +3016,22 @@
 2025-03-12 14:47:17,800 [Worker-7: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
 2025-03-14 00:54:00,700 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
 2025-03-14 00:54:00,718 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
+=======
+2025-03-17 22:33:08,425 [Worker-23: Configuring project Client] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
+2025-03-17 22:33:08,427 [Worker-23: Configuring project Client] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
+2025-03-17 22:33:08,432 [Worker-23: Configuring project Client] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
+2025-03-17 22:33:08,506 [Worker-23: Configuring project Client] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.2047803 seconds
+2025-03-17 22:34:13,308 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:391) - ... Waiting for all tasks ending
+2025-03-17 22:34:13,313 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:397) - Closing all component containers
+2025-03-17 22:34:13,316 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:403) - Closing FileSystemHelper
+2025-03-17 22:34:13,318 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:409) - ... Waiting for all tasks ending before shutting down the BackgroundExecutor
+2025-03-17 22:34:13,319 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:414) - Shutting down BackgroundExecutor
+2025-03-17 22:34:13,321 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:420) - Stopping all threads monitoring thread
+2025-03-17 22:34:13,322 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:425) - Closing ThreadHolder
+2025-03-17 22:34:13,323 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier
+2025-03-17 22:34:31,819 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
+2025-03-17 22:34:31,821 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
+>>>>>>> Destiny_Client
 
 	Configuration values for static components:
 
@@ -3100,6 +3123,7 @@
 			6000
 
 
+<<<<<<< HEAD
 2025-03-14 00:54:00,737 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
 2025-03-14 00:54:00,749 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
 2025-03-14 00:54:00,775 [main] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
@@ -3207,3 +3231,10 @@
 2025-03-14 16:08:59,372 [Java indexing] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
 2025-03-14 16:08:59,392 [Java indexing] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
 2025-03-14 16:08:59,548 [Java indexing] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.5381343 seconds
+=======
+2025-03-17 22:34:31,823 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:127) - default buffer size: 1024 bytes
+2025-03-17 22:34:31,824 [main] INFO  o.b.core.jvm.BufferHandler - (BufferHandler.java:141) - default allocation mode: ByteBuffer::allocateDirect
+2025-03-17 22:34:31,828 [main] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
+2025-03-17 22:34:31,856 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.1049642 seconds
+2025-03-17 22:34:34,212 [Worker-5: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is up-to-date. Trying to read.
+>>>>>>> Destiny_Client
