@@ -36,3 +36,31 @@
 03/16/25-14:41:12: Client account authenticated
 03/16/25-14:41:38: Client is requesting help via chat
 03/16/25-14:41:45: Message sent to server
+03/21/25-00:50:40: Client failed to connect to server
+03/21/25-00:50:40: Client failed to connect to server
+03/21/25-00:50:40: Client failed to connect to server
+03/21/25-00:50:40: Client failed to connect to server
+03/21/25-01:52:33: Client failed to connect to server
+03/21/25-01:52:33: Client failed to connect to server
+03/21/25-01:52:34: Client failed to connect to server
+03/21/25-01:52:34: Client failed to connect to server
+03/21/25-01:52:35: Client failed to connect to server
+03/21/25-01:52:35: Client failed to connect to server
+03/21/25-01:52:36: Client failed to connect to server
+03/21/25-01:52:36: Client failed to connect to server
+03/21/25-01:53:02: Client failed to connect to server
+03/21/25-01:53:02: Client failed to connect to server
+03/21/25-01:53:03: Client failed to connect to server
+03/21/25-01:53:03: Client failed to connect to server
+03/21/25-01:53:04: Client failed to connect to server
+03/21/25-01:53:04: Client failed to connect to server
+03/21/25-20:20:00: Client connection closed
+03/21/25-20:20:36: Client failed to connect to server
+03/21/25-20:20:36: Client failed to connect to server
+03/21/25-20:20:37: Error closing client connection 
+03/21/25-20:21:11: Client connection closed
+03/21/25-20:23:37: Client connection closed
+03/21/25-20:27:36: Client connection closed
+03/21/25-22:10:33: New client account created
+03/21/25-22:10:41: Client account authenticated
+03/21/25-22:10:47: New order placed

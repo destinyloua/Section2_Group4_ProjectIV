@@ -43,7 +43,7 @@ public class View_cart_page extends JPanel {
 
 		JScrollPane scrollPane = new JScrollPane(ordersList);
 		
-		JLabel noOrdersLabel = new JLabel("No item in cart");
+		JLabel noOrdersLabel = new JLabel("No items in cart");
 		noOrdersLabel.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 32));
 		GridBagConstraints gbc_lblNewLabel_1 = new GridBagConstraints();
 		gbc_lblNewLabel_1.gridx = 1;
@@ -97,9 +97,11 @@ public class View_cart_page extends JPanel {
 		placeBttn.addActionListener(e->{
 			System.out.println(a.GetId());
 			if(ResponseHandler.PlaceOrder(o)) {
-				System.out.println("Order placed");
-	        	JOptionPane.showMessageDialog(this, "Order is placed!\nEstimated pickup date: " + LocalDate.now().plusDays(7));
-	        	FileHandler.SaveLog("Client placed an order");
+				mainPanel.removeAll();
+				mainPanel.add(new Order_Confirmation_page(mainPanel, cardLayout, a, o), "Order Confirmation");
+				mainPanel.repaint();
+				mainPanel.revalidate();
+				cardLayout.show(mainPanel, "Order Confirmation");
 			}
 			else {
 	        	JOptionPane.showMessageDialog(this, "Order is not placed!");
