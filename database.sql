@@ -108,5 +108,9 @@ Select * from Accounts where email = "baonam6a3@gmail.com";
 
 Select * from Accounts;
 
+delete from Accounts where email = "tyler@gmail.com";
+delete from Accounts where email = "svr004@gmail.com";
+
 Select * from Orders Where aId = 5;
 UPDATE Accounts SET fName = "Tyler2", lName = "Dao", email = "tyler", password = 110840180 WHERE id = 5;
+select * from Accounts;

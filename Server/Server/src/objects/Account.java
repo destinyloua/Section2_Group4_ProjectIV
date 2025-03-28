@@ -48,6 +48,11 @@ public class Account extends SocketHandler implements Objects{
 	    this.email = splitArray[2];
 	}
 	
+	public void SetId(int id) {
+		this.id = id;
+		
+	}
+	
 //	public Boolean Authenticate() {
 //		SocketHandler.SendData(Serialize());
 //		byte[] receivedData = SocketHandler.ReceiveData();

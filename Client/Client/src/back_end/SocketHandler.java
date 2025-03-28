@@ -25,7 +25,7 @@ public class SocketHandler {
 	
 	public static Boolean MakeChatConnecion() {
 		 try {
-			 	chatSocket = new Socket("localhost", 27001);
+			 	chatSocket = new Socket("localhost", 27000);
 	            System.out.println("Connected to chat server");
 	            return true;
 	        } catch (IOException e) {
