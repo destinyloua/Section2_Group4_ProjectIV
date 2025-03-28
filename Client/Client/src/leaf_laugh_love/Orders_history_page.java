@@ -7,6 +7,8 @@ import javax.swing.*;
 import back_end.*;
 import objects.*;
 import java.awt.event.ActionListener;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.awt.event.ActionEvent;
 
 public class Orders_history_page extends JPanel {
@@ -103,8 +105,18 @@ public class Orders_history_page extends JPanel {
 			    JLabel price = new JLabel("$"+ or.GetTotalPrice());
 			    price.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 			    price.setBounds(10, 36, 485, 27);
-			    // pick up date - hard coded for now 
-			    JLabel pickup = new JLabel("Pickup Date: 03-16-2025");
+			    // pick up date 
+			    
+			    // generate the pickup date (today + 1 week)
+			    LocalDate today = LocalDate.now();
+			    LocalDate pickupDate = today.plusWeeks(1);
+
+			    // format date 
+			    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
+			    String formattedDate = pickupDate.format(formatter);
+			   
+			    // add date 
+			    JLabel pickup = new JLabel("Pickup Date: " + formattedDate);
 			    pickup.setFont(new Font("Segoe UI", Font.PLAIN, 18));
 			    pickup.setBounds(10, 63, 485, 27);
 

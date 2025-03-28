@@ -9,6 +9,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import back_end.SocketHandler;
 import objects.Account;
 import objects.Order;
 
@@ -37,7 +38,7 @@ class Client_UnitTests {
 		assertTrue(a.GetPassword() != 0);
 	}
 	
-	// TEST-CLT-002 (DL)
+	// TEST-CLT-002 (DL) - INTEGRATION
 	// Verify that an account is not created when receiving account data that already exists. 
 	
 	// TEST-CLT-003 (HH)
@@ -52,13 +53,14 @@ class Client_UnitTests {
 	// TEST-CLT-006 (HH)
 	// Verify "add to cart" button successfully adds plant item to cart. 
 	
-	// TEST-CLT-007 (DL)
+	// TEST-CLT-007 (DL) - INTEGRATION
 	// Verify "place order" button redirects client to "order confirmation" page. 
 	
 	// TEST-CLT-008 (DL)
 	// Verify cart items are accurately displayed when selecting "view cart."
 	
-	// TEST-CLT-009 (DL)
+	
+	// TEST-CLT-009 (DL) - INTEGRATION
 	// Verify client message is displayed in the chat box to confirm delivery to server. 
 	
 	// TEST-CLT-010 (HH)
@@ -67,10 +69,16 @@ class Client_UnitTests {
 	// TEST-CLT-011 (HH)
 	// Verify client is able to terminate connection to server by logging out. 
 	
-	// TEST-CLT-012 (DL)
+	// TEST-CLT-012 (DL) - server must be running 
 	// Verify order contents are accurately constructed into a packet to be transmitted to the server. 
+	@Test
+	void TEST011_Order_Serialization() {
+		assertTrue(SocketHandler.MakeConnection());
+		assertTrue(SocketHandler.SendData(o));
+		assertTrue(SocketHandler.CloseConnection());
+	}
 	
-	// TEST-CLT-013 (DL)
+	// TEST-CLT-013 (DL) - INTEGRATION
 	// Verify that a visual indicator is present to notify client of message delivery to server. 
 
 }

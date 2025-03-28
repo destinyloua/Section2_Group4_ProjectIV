@@ -3,12 +3,16 @@ package leaf_laugh_love;
 import java.awt.CardLayout;
 import java.awt.Color;
 import java.awt.Font;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import back_end.FileHandler;
+import back_end.ResponseHandler;
 import objects.Account;
 import objects.Order;
 
@@ -20,22 +24,39 @@ public class Order_Confirmation_page extends JPanel {
 		FileHandler.SaveLog("New order placed");
 		setLayout(null);
 		
+		// estimated pick up date 
+	    LocalDate today = LocalDate.now();
+	    LocalDate pickupDate = today.plusWeeks(1);
+
+	    // format date 
+	    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("MMMM dd, yyyy");
+	    String formattedDate = pickupDate.format(formatter);
+	   
+		// order number 
+		Vector<Order> orders = ResponseHandler.GetOrdersList(a);
+		Order placedOrder = orders.get(orders.size() -1); 
+		JLabel orderNumber = new JLabel("Order #" + placedOrder.GetId() + ": Pickup for " + formattedDate);
+		orderNumber.setForeground(new Color(0, 128, 0));
+		orderNumber.setFont(new Font("Segoe UI", Font.BOLD, 32));
+		orderNumber.setBounds(110, 111, 620, 43);
+		add(orderNumber);
+		
 		// message to thank client 
 		JLabel thanks = new JLabel("Thanks " + a.GetFName() + "!");
 		thanks.setFont(new Font("Segoe UI", Font.BOLD, 32));
-		thanks.setBounds(110, 91, 620, 43);
+		thanks.setBounds(110, 165, 620, 43);
 		add(thanks);
 		
 		// message confirming order was placed 
 		JLabel orderConfirmed = new JLabel("Your order has been placed.");
 		orderConfirmed.setFont(new Font("Segoe UI", Font.BOLD, 32));
-		orderConfirmed.setBounds(110, 145, 620, 43);
+		orderConfirmed.setBounds(110, 219, 620, 43);
 		add(orderConfirmed);
 		
 		// message to inform client where to find order details
 		JLabel checkHistory = new JLabel("You can view your orders in your Order History. ");
 		checkHistory.setFont(new Font("Segoe UI Light", Font.PLAIN, 20));
-		checkHistory.setBounds(110, 243, 619, 27);
+		checkHistory.setBounds(111, 308, 619, 27);
 		add(checkHistory);
 		
 		
