@@ -17,17 +17,6 @@ public class View_cart_page extends JPanel {
 	 * Create the panel.
 	 */
 	
-	
-	private int calculateTotalPrice(Order o) {
-	int totalPrice = 0;
-	for (int i = 0; i < o.GetPId().size(); i++) {
-	    Plant p = ResponseHandler.GetPlant(o.GetPId().get(i));
-	    totalPrice += p.GetPrice() * o.GetQuantity().get(i);
-	}
-	return totalPrice;
-	}
-
-	
 	public View_cart_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
 		//TODO CALCULATE TOTAL PRICE
 		int totalPrice =0;
