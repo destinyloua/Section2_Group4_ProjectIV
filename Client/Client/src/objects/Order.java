@@ -72,6 +72,11 @@ public class Order implements Objects{
 		}
 	}
 	
+	public void ClearCart() {
+		this.pId.clear();
+		this.quantity.clear();
+	}
+	
 	public int GetAId() {
 		return aId;
 	}
