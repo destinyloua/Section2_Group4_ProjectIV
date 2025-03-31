@@ -133,5 +133,6 @@ public class Message_window {
         SocketHandler.SendMessage(p);
         messageField.setText("");
         System.out.println("Chat terminated.");
+        SocketHandler.EndChat();
     }
 }

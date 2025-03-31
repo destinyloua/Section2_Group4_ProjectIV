@@ -75,13 +75,7 @@ public class Message_window {
 	                chatArea.append("Server: " + receivedMessage + "\n");
 	            }
 	        }
-	    }
-	    
-	    public static void main(String[] args) {
-	        SwingUtilities.invokeLater(Message_window::new);
-	    }
-	    
-	    
+	    }   
 }
 
 
