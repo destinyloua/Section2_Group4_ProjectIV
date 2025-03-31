@@ -478,3 +478,50 @@
 03/14/25-16:11:12: Plant 1data sent to client
 03/14/25-16:11:15: Plant 1data sent to client
 03/14/25-16:11:15: New order placed
+03/27/25-06:41:59: Server started
+03/28/25-15:28:50: Server started
+03/30/25-07:54:45: Server stopped
+03/31/25-09:10:01: Server started
+03/31/25-09:11:26: Authentication success
+03/31/25-09:11:26: Account 6 data sent to client
+03/31/25-11:54:07: Authentication success
+03/31/25-11:54:07: Account 6 data sent to client
+03/31/25-11:56:51: Failed to authenticate
+03/31/25-11:57:16: Failed to authenticate
+03/31/25-11:57:37: Authentication success
+03/31/25-11:57:37: Account 6 data sent to client
+03/31/25-11:58:42: Failed to authenticate
+03/31/25-11:58:47: Authentication success
+03/31/25-11:58:47: Account 6 data sent to client
+03/31/25-12:03:32: Failed to authenticate
+03/31/25-12:03:50: Authentication success
+03/31/25-12:03:50: Account 6 data sent to client
+03/31/25-12:07:48: Plant 1data sent to client
+03/31/25-12:07:48: Plant 4data sent to client
+03/31/25-12:07:48: Plant 1data sent to client
+03/31/25-12:07:48: Plant 4data sent to client
+03/31/25-12:08:48: Plant 1data sent to client
+03/31/25-12:08:48: Plant 4data sent to client
+03/31/25-12:08:48: Plant 1data sent to client
+03/31/25-12:08:48: Plant 4data sent to client
+03/31/25-12:10:01: Plant 1data sent to client
+03/31/25-12:10:01: Plant 4data sent to client
+03/31/25-12:10:02: New order placed
+03/31/25-12:10:02: Plant 1data sent to client
+03/31/25-12:10:02: Plant 4data sent to client
+03/31/25-12:10:02: New order placed
+03/31/25-12:12:05: Plant 1data sent to client
+03/31/25-12:12:05: Plant 4data sent to client
+03/31/25-12:12:06: Plant 1data sent to client
+03/31/25-12:12:06: Plant 4data sent to client
+03/31/25-12:13:58: Plant 1data sent to client
+03/31/25-12:13:58: Plant 4data sent to client
+03/31/25-12:13:58: New order placed
+03/31/25-12:13:58: Plant 1data sent to client
+03/31/25-12:13:58: Plant 4data sent to client
+03/31/25-12:13:58: New order placed
+03/31/25-12:16:01: Orders list of account #6 sent to client
+03/31/25-12:16:27: Orders list of account #6 sent to client
+03/31/25-12:19:27: Server started
+03/31/25-12:20:04: Authentication success
+03/31/25-12:20:04: Account 6 data sent to client

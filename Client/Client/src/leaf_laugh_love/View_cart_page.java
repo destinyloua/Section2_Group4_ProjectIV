@@ -27,15 +27,6 @@ public class View_cart_page extends JPanel {
 	return totalPrice;
 	}
 
-	//Enhanced order confirmation on successful order placement
-	placeBttn.addActionListener(e -> {
-	boolean isOrderPlaced = ResponseHandler.PlaceOrder(o);
-	if (isOrderPlaced) {
-	    JOptionPane.showMessageDialog(this, "Order placed successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
-	} else {
-	    JOptionPane.showMessageDialog(this, "Failed to place order. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
-	}
-	});
 	
 	public View_cart_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
 		//TODO CALCULATE TOTAL PRICE
@@ -114,6 +105,16 @@ public class View_cart_page extends JPanel {
 		placeBttn.setBackground(UIManager.getColor("Button.shadow"));
 		placeBttn.setBounds(120, 516, 153, 35);
 		add(placeBttn);
+		
+		//Enhanced order confirmation on successful order placement
+		placeBttn.addActionListener(e -> {
+		boolean isOrderPlaced = ResponseHandler.PlaceOrder(o);
+		if (isOrderPlaced) {
+		    JOptionPane.showMessageDialog(this, "Order placed successfully!", "Success", JOptionPane.INFORMATION_MESSAGE);
+		} else {
+		    JOptionPane.showMessageDialog(this, "Failed to place order. Please try again.", "Error", JOptionPane.ERROR_MESSAGE);
+		}
+		});
 		
 		JButton deleteBtn = new JButton("Delete order");
 		deleteBtn.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
