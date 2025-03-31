@@ -26,7 +26,7 @@ public class DatabaseHandler {
             statement = connection.createStatement();
             return true;
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            e.getStackTrace();
             return false;
         }
 	}

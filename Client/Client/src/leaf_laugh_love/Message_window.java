@@ -18,7 +18,8 @@ public class Message_window {
 	  
 	    public Message_window() {
 	        frame = new JFrame("Chat Client");
-	        frame.setSize(400, 400);
+	        //frame.setSize(400, 400);
+	        frame.setBounds(400, 0, 400, 400);
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frame.setLayout(new BorderLayout());
 	        

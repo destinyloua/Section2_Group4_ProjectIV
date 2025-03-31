@@ -49,7 +49,7 @@ INSERT INTO Accounts (fName, lName, email, password) VALUES
 ("Destiny", "Louangsombath", "destiny@gmail.com", 123456789),
 ("Hui-Ying", "Huang", "ying@gmail.com", 123456789),
 ("Tyler", "Dao", "tyler@gmail.com", 123456789),
-("Tyler", "Dao", "tyler", 110840180);
+("Tyler2", "Dao", "12345", 110840180);
 
 -- Step 5: Create Two Orders for the Account (Assume John has id=1)
 INSERT INTO Orders (aID, totalPrice, status) VALUES
@@ -109,4 +109,3 @@ Select * from Accounts where email = "baonam6a3@gmail.com";
 Select * from Accounts;
 
 Select * from Orders Where aId = 5;
-UPDATE Accounts SET fName = "Tyler2", lName = "Dao", email = "tyler", password = 110840180 WHERE id = 5;
