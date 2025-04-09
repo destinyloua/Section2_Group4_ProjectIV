@@ -1,770 +1,138 @@
-02/18/25-00:50:11: Server started
-02/18/25-00:51:06: Server stopped
-02/18/25-00:51:46: Server started
-02/18/25-00:51:47: Server stopped
-02/18/25-00:51:52: Server started
-02/18/25-00:53:10: Server started
-02/18/25-00:54:50: Server started
-02/18/25-00:55:48: Server started
-02/18/25-00:55:59: New account created
-02/18/25-00:56:26: Server stopped
-02/18/25-01:08:19: Server started
-02/18/25-01:08:29: Order #3 is cancelled
-02/18/25-01:08:33: Server stopped
-02/18/25-01:10:24: Server started
-02/18/25-01:19:54: Server started
-02/18/25-01:20:35: Server started
-02/18/25-01:21:21: Server stopped
-02/18/25-15:08:04: Server started
-02/18/25-15:08:05: Server stopped
-02/18/25-15:24:20: Server started
-02/18/25-15:24:33: Server stopped
-02/18/25-15:27:58: Server started
-02/18/25-15:29:29: Server stopped
-02/18/25-16:09:05: Server started
-02/18/25-16:09:27: New account created
-02/18/25-16:57:13: Server stopped
-02/19/25-23:22:00: Server started
-02/19/25-23:22:06: Server stopped
-02/20/25-09:36:25: Server started
-02/20/25-09:37:04: Order #2's state changed to Completed
-02/20/25-09:37:51: Server stopped
-02/20/25-09:48:00: Server started
-02/20/25-09:48:35: Order #1's state changed to Ready
-02/20/25-09:48:42: Order #1's state changed to Completed
-02/20/25-12:08:46: Server stopped
-02/20/25-12:08:59: Server started
-02/20/25-12:09:09: Server stopped
-02/20/25-12:09:54: Server started
-02/20/25-12:10:08: Server started
-02/20/25-13:51:51: Server started
-02/20/25-13:52:20: New account create
-02/20/25-13:53:06: Server stopped
-02/20/25-13:53:11: Server started
-02/20/25-13:53:31: New account create
-02/20/25-13:58:21: Server stopped
-02/20/25-14:04:25: Server started
-02/20/25-14:04:45: New account create
-02/20/25-14:05:02: Server stopped
-02/20/25-14:27:36: Server started
-02/20/25-14:30:52: Server stopped
-02/20/25-14:31:02: Server started
-02/20/25-14:31:49: Server stopped
-02/20/25-14:32:36: Server started
-02/20/25-14:33:45: Server stopped
-02/20/25-14:33:52: Server started
-02/20/25-14:34:48: Server stopped
-02/20/25-14:34:57: Server started
-02/20/25-14:35:44: Server stopped
-02/20/25-14:35:51: Server started
-02/20/25-14:36:28: Server started
-02/20/25-14:36:31: Server stopped
-02/20/25-14:36:41: Server stopped
-02/20/25-14:36:45: Server started
-02/20/25-14:38:44: Server stopped
-02/20/25-14:38:57: Server started
-02/20/25-14:39:04: New account create (Failed)
-02/20/25-14:39:08: Server stopped
-02/20/25-17:59:19: Server started
-02/20/25-17:59:58: Server stopped
-02/20/25-18:00:05: Server started
-02/20/25-18:00:44: Server stopped
-02/20/25-18:00:50: Server started
-02/20/25-18:01:02: Authentication success
-02/20/25-18:01:04: Authentication success
-02/20/25-18:01:04: Authentication success
-02/20/25-18:01:04: Authentication success
-02/20/25-18:01:13: Server stopped
-02/20/25-18:02:03: Server started
-02/20/25-18:02:10: New account create (Failed)
-02/20/25-18:07:10: Server stopped
-02/20/25-20:42:51: Server started
-02/20/25-20:43:13: New account create (Failed)
-02/20/25-20:43:40: Order #1's state changed to Ready
-02/20/25-20:43:48: Order #2's state changed to Completed
-02/20/25-20:43:55: Order #1 is cancelled
-02/20/25-22:06:08: Server stopped
-02/21/25-01:57:21: Server started
-02/21/25-01:57:42: Server stopped
-02/21/25-02:02:49: Server started
-02/21/25-02:03:18: Order #2's state changed to Processing
-02/21/25-02:03:24: Order #2's state changed to Ready
-02/21/25-02:03:30: Server stopped
-02/21/25-12:20:10: Server started
-02/21/25-12:31:06: Order #1's state changed to Ready
-02/21/25-12:31:30: Order #3 is cancelled
-02/21/25-12:31:49: Failed to authenticate
-02/21/25-12:35:33: Server stopped
-02/21/25-15:00:54: Server started
-02/21/25-15:01:40: Server stopped
-02/21/25-15:02:27: Server started
-02/21/25-16:05:45: Server started
-02/21/25-16:06:32: Server started
-02/21/25-16:06:34: Server stopped
-02/21/25-16:28:24: Server started
-02/21/25-16:28:29: Server stopped
-02/21/25-16:38:26: Server started
-02/21/25-16:38:57: Order #1's state changed to Ready
-02/21/25-16:39:06: Order #3 is cancelled
-02/21/25-16:39:42: Failed to authenticate
-02/21/25-16:53:53: Failed to authenticate
-02/21/25-16:53:53: Failed to authenticate
-02/21/25-16:53:54: Failed to authenticate
-02/21/25-17:44:37: Server stopped
-02/23/25-15:04:30: Server started
-02/23/25-15:07:16: Server stopped
-02/23/25-15:07:43: Server started
-02/23/25-15:27:10: Server started
-02/23/25-15:27:18: Plants list sent to client
-02/23/25-15:28:55: Server stopped
-02/23/25-15:29:07: Server started
-02/23/25-15:29:19: Plants list sent to client
-02/23/25-15:30:44: Server stopped
-02/23/25-15:30:57: Server started
-02/23/25-15:31:01: Plants list sent to client
-02/23/25-16:50:57: Server started
-02/23/25-16:51:28: Plants list sent to client
-02/23/25-16:52:06: Server started
-02/23/25-16:52:25: Server stopped
-02/23/25-16:52:32: Server started
-02/23/25-16:52:34: Plants list sent to client
-02/23/25-16:54:15: Server started
-02/23/25-16:54:22: Server stopped
-02/23/25-16:54:29: Server stopped
-02/23/25-16:54:32: Server started
-02/23/25-16:54:34: Plants list sent to client
-02/24/25-01:17:51: Server started
-02/24/25-01:19:43: Server stopped
-02/24/25-01:19:54: Server started
-02/24/25-01:22:08: Server started
-02/24/25-01:22:21: Server stopped
-02/24/25-01:22:23: Server stopped
-02/24/25-01:22:28: Server started
-02/24/25-01:24:15: Server stopped
-02/24/25-01:36:48: Server started
-02/24/25-01:37:23: Server started
-02/24/25-01:37:32: Server started
-02/24/25-01:37:44: Server stopped
-02/24/25-01:37:48: Server started
-02/24/25-01:39:50: Server started
-02/24/25-01:39:54: Server stopped
-02/24/25-01:39:56: Server stopped
-02/24/25-01:40:01: Server started
-02/24/25-01:40:30: Server stopped
-02/24/25-01:40:33: Server started
-02/24/25-01:40:47: Server stopped
-02/24/25-01:40:52: Server started
-02/24/25-01:41:38: Server stopped
-02/24/25-01:41:42: Server started
-02/24/25-01:42:33: Server stopped
-02/24/25-01:42:38: Server started
-02/24/25-01:44:01: Server stopped
-02/24/25-01:44:05: Server started
-02/24/25-01:44:36: Server stopped
-02/24/25-01:44:42: Server started
-02/24/25-01:44:57: Server started
-02/24/25-01:45:03: Server stopped
-02/24/25-01:45:06: Server stopped
-02/24/25-02:12:13: Server started
-02/24/25-02:13:06: Server started
-02/24/25-02:15:54: Server stopped
-02/24/25-02:16:10: Server started
-02/24/25-02:18:02: Server started
-02/24/25-02:23:34: Server stopped
-02/24/25-02:25:42: Server started
-02/24/25-02:34:51: Server stopped
-02/24/25-02:34:54: Server started
-02/24/25-02:35:40: Server started
-02/24/25-02:36:30: Server started
-02/24/25-02:37:16: New account created
-02/24/25-02:37:38: Authentication success
-02/24/25-02:56:57: Server started
-02/24/25-02:57:12: Server stopped
-02/24/25-02:57:14: Server stopped
-02/24/25-02:57:18: Server started
-02/24/25-02:57:21: Server stopped
-02/24/25-02:58:26: Server started
-02/24/25-02:59:21: Server started
-02/24/25-02:59:26: Server stopped
-02/24/25-02:59:28: Server stopped
-02/24/25-02:59:32: Server started
-02/24/25-02:59:47: Server stopped
-02/24/25-02:59:51: Server started
-02/24/25-03:00:30: Server started
-02/24/25-03:00:31: Server stopped
-02/24/25-03:00:34: Server stopped
-02/24/25-03:00:38: Server started
-02/24/25-03:01:39: Server stopped
-02/24/25-03:02:18: Server started
-02/24/25-03:04:41: Server stopped
-02/24/25-03:04:47: Server started
-02/24/25-03:06:09: Server started
-02/24/25-03:06:13: Server stopped
-02/24/25-03:06:15: Server stopped
-02/24/25-03:08:33: Server started
-02/24/25-03:45:52: Server stopped
-02/24/25-14:37:24: Server started
-02/24/25-14:37:42: Server started
-02/24/25-14:37:46: Server stopped
-02/24/25-14:56:08: Server stopped
-02/24/25-14:59:55: Server started
-02/24/25-15:00:26: Authentication success
-02/24/25-15:01:30: Authentication success
-02/24/25-16:33:17: Server stopped
-02/24/25-16:38:45: Server started
-02/24/25-17:04:03: Server started
-02/24/25-17:04:07: Server stopped
-02/24/25-17:47:35: Server started
-02/24/25-17:47:43: Server stopped
-02/24/25-17:48:07: Server started
-02/24/25-17:48:12: Server stopped
-02/24/25-17:48:44: Server started
-02/24/25-17:48:56: Server stopped
-02/24/25-23:55:12: Server started
-02/24/25-23:55:17: Server stopped
-02/24/25-23:56:50: Server started
-02/24/25-23:56:52: Server stopped
-02/24/25-23:57:35: Server started
-02/24/25-23:59:10: Server stopped
-02/24/25-23:59:15: Server started
-02/24/25-23:59:22: Server stopped
-02/25/25-00:00:27: Server started
-02/25/25-00:00:31: Server stopped
-02/25/25-00:01:16: Server started
-02/25/25-00:01:42: Server started
-02/25/25-00:01:56: Server stopped
-02/25/25-00:02:07: Server started
-02/25/25-00:12:46: Server stopped
-02/25/25-00:15:27: Server started
-02/25/25-00:16:40: Server started
-02/25/25-00:19:52: Server started
-02/25/25-00:25:59: Server started
-02/25/25-00:26:05: Server stopped
-02/25/25-00:28:21: Server started
-02/25/25-00:28:25: Server stopped
-02/25/25-00:31:21: Server started
-02/25/25-00:31:24: Server stopped
-02/26/25-17:29:20: Server started
-02/26/25-17:31:55: Server started
-02/26/25-17:31:57: Server stopped
-02/26/25-17:32:01: Server stopped
-02/26/25-17:32:06: Server started
-02/26/25-17:34:34: Server stopped
-02/26/25-17:34:56: Server started
-02/26/25-17:36:39: Server started
-02/26/25-17:38:50: Server started
-02/26/25-18:41:32: Server stopped
-02/27/25-00:14:34: Server started
-02/27/25-00:15:44: Server started
-02/27/25-00:16:51: Server started
-02/27/25-00:17:58: Server started
-02/27/25-00:18:45: Server stopped
-02/27/25-00:20:41: Server started
-02/27/25-22:36:47: Server started
-02/28/25-14:13:26: Server started
-02/28/25-14:13:51: Server started
-02/28/25-14:25:55: Server started
-02/28/25-14:28:54: Server started
-02/28/25-14:30:41: Server stopped
-02/28/25-14:31:37: Server started
-02/28/25-14:31:45: Server started
-02/28/25-14:31:52: Server stopped
-02/28/25-14:31:53: Server stopped
-02/28/25-14:31:59: Server started
-02/28/25-14:32:14: Server stopped
-02/28/25-14:32:27: Server started
-02/28/25-14:32:42: Server stopped
-02/28/25-14:37:48: Server started
-02/28/25-14:38:14: Server stopped
-02/28/25-14:38:23: Server started
-02/28/25-14:44:03: Server started
-02/28/25-14:46:04: Server started
-02/28/25-14:47:47: Server stopped
-02/28/25-14:56:22: Server started
-02/28/25-15:49:55: Server started
-02/28/25-15:50:18: Authentication success
-02/28/25-15:51:07: Server stopped
-02/28/25-16:06:40: Server started
-02/28/25-16:07:05: Authentication success
-02/28/25-16:07:12: Server stopped
-02/28/25-16:10:25: Server started
-02/28/25-16:11:03: Authentication success
-02/28/25-16:12:43: Server started
-02/28/25-16:14:04: Server stopped
-02/28/25-16:14:10: Server started
-02/28/25-16:15:21: Server started
-02/28/25-16:28:56: Server stopped
-02/28/25-16:29:17: Server started
-02/28/25-16:30:05: Server started
-02/28/25-16:32:32: Server stopped
-02/28/25-16:39:14: Server started
-02/28/25-16:39:43: Server stopped
-02/28/25-16:40:19: Server started
-02/28/25-16:41:15: Server stopped
-02/28/25-17:01:18: Server started
-02/28/25-17:04:46: Server stopped
-02/28/25-17:04:57: Server started
-02/28/25-17:08:05: Server stopped
-02/28/25-17:09:30: Server started
-02/28/25-17:10:55: Server stopped
-02/28/25-17:11:08: Server started
-02/28/25-17:13:11: Server stopped
-02/28/25-17:13:15: Server started
-02/28/25-17:13:42: Server started
-02/28/25-17:17:16: Server started
-02/28/25-17:22:39: Server started
-02/28/25-17:22:50: Server stopped
-02/28/25-17:22:56: Server started
-02/28/25-17:23:03: Server stopped
-02/28/25-17:23:06: Server started
-02/28/25-18:12:11: Server started
-02/28/25-18:13:38: Server started
-02/28/25-18:15:54: Server started
-02/28/25-18:16:13: Server stopped
-02/28/25-18:16:17: Server started
-02/28/25-18:16:41: Server started
-02/28/25-18:19:20: Server started
-02/28/25-18:20:34: Server started
-02/28/25-18:21:47: Server started
-02/28/25-18:23:33: Server started
-02/28/25-18:23:36: Server stopped
-02/28/25-18:24:19: Server started
-02/28/25-18:29:45: Server started
-02/28/25-18:33:35: Server started
-02/28/25-18:35:44: Server started
-02/28/25-18:38:04: Server started
-02/28/25-18:38:47: Server started
-02/28/25-19:05:12: Server started
-02/28/25-19:06:05: Server started
-02/28/25-19:06:24: Server stopped
-02/28/25-19:32:18: Server started
-02/28/25-19:32:41: Server stopped
-02/28/25-19:32:53: Server started
-02/28/25-19:34:07: Server started
-02/28/25-19:35:07: Server stopped
-02/28/25-19:35:10: Server started
-02/28/25-19:36:27: Server started
-02/28/25-19:37:36: Server started
-02/28/25-19:40:13: Server started
-02/28/25-19:42:04: Server started
-02/28/25-19:44:18: Server started
-02/28/25-19:45:09: Server started
-02/28/25-19:47:06: Server stopped
-02/28/25-19:47:30: Server started
-02/28/25-19:48:36: Server started
-02/28/25-19:50:10: Server started
-02/28/25-19:56:20: Server started
-02/28/25-19:59:00: Server started
-02/28/25-20:04:47: Server started
-02/28/25-20:06:17: Server started
-02/28/25-20:08:43: Server started
-02/28/25-20:09:33: Server stopped
-03/07/25-22:58:37: Authentication success
-03/07/25-22:58:37: Account 5 data sent to client
-03/07/25-23:00:20: Server started
-03/07/25-23:00:32: Authentication success
-03/07/25-23:00:32: Account 5 data sent to client
-03/07/25-23:06:33: Server started
-03/07/25-23:06:43: Authentication success
-03/07/25-23:06:44: Account 5 data sent to client
-03/07/25-23:09:01: Server started
-03/07/25-23:09:16: Authentication success
-03/07/25-23:09:16: Account 5 data sent to client
-03/07/25-23:10:30: Server started
-03/07/25-23:10:44: Authentication success
-03/07/25-23:10:44: Account 5 data sent to client
-03/07/25-23:11:16: Server started
-03/07/25-23:11:29: Authentication success
-03/07/25-23:11:29: Account 5 data sent to client
-03/07/25-23:16:03: Server started
-03/07/25-23:16:19: Authentication success
-03/07/25-23:16:19: Account 5 data sent to client
-03/07/25-23:17:00: Server started
-03/07/25-23:17:19: Authentication success
-03/07/25-23:17:19: Account 5 data sent to client
-03/07/25-23:17:54: Server started
-03/07/25-23:18:01: Authentication success
-03/07/25-23:18:01: Account 5 data sent to client
-03/07/25-23:21:11: Server started
-03/07/25-23:21:18: Authentication success
-03/07/25-23:21:18: Account 5 data sent to client
-03/07/25-23:58:27: Server started
-03/07/25-23:58:38: Authentication success
-03/07/25-23:58:38: Account 5 data sent to client
-03/07/25-23:59:58: Server started
-03/08/25-00:00:06: Authentication success
-03/08/25-00:00:06: Account 5 data sent to client
-03/08/25-00:00:54: Server started
-03/08/25-00:01:01: Authentication success
-03/08/25-00:01:01: Account 5 data sent to client
-03/08/25-00:03:09: Server started
-03/08/25-00:03:17: Authentication success
-03/08/25-00:03:17: Account 5 data sent to client
-03/08/25-00:03:40: Server stopped
-03/08/25-00:58:57: Server started
-03/08/25-00:59:16: Server started
-03/08/25-00:59:17: Server stopped
-03/10/25-08:58:35: Server started
-03/10/25-08:58:37: Server stopped
-03/10/25-09:39:11: Server started
-03/10/25-09:39:25: Authentication success
-03/10/25-09:39:25: Account 5 data sent to client
-03/10/25-09:39:32: Orders list of account #5 sent to client
-03/10/25-11:24:37: Orders list of account #5 sent to client
-03/10/25-18:46:21: Server stopped
-03/11/25-16:49:28: Server started
-03/11/25-16:49:41: Authentication success
-03/11/25-16:49:41: Account 5 data sent to client
-03/11/25-16:49:51: Plant 1data sent to client
-03/11/25-16:49:51: Plant 2data sent to client
-03/11/25-16:49:51: Plant 1data sent to client
-03/11/25-16:49:52: Plant 2data sent to client
-03/11/25-16:49:54: Plant 1data sent to client
-03/11/25-16:49:54: Plant 2data sent to client
-03/11/25-16:49:55: New order placed
-03/11/25-17:04:42: Authentication success
-03/11/25-17:04:42: Account 5 data sent to client
-03/11/25-17:04:51: Plant 1data sent to client
-03/11/25-17:04:51: Plant 1data sent to client
-03/11/25-17:04:53: Plant 1data sent to client
-03/11/25-17:04:53: New order placed
-03/11/25-17:06:26: Authentication success
-03/11/25-17:06:26: Account 5 data sent to client
-03/11/25-17:06:39: Plant 2data sent to client
-03/11/25-17:06:40: Plant 2data sent to client
-03/11/25-17:06:41: Plant 2data sent to client
-03/11/25-17:06:41: New order placed
-03/11/25-17:46:16: Server stopped
-03/12/25-14:51:26: Server started
-03/12/25-14:52:42: Server started
-03/12/25-14:57:09: Server started
-03/12/25-14:57:58: Authentication success
-03/12/25-14:57:58: Account 6 data sent to client
-03/12/25-14:58:24: Orders list of account #6 sent to client
-03/12/25-14:58:29: Plant 3data sent to client
-03/12/25-14:58:29: Plant 2data sent to client
-03/12/25-14:58:29: Plant 3data sent to client
-03/12/25-14:58:29: Plant 2data sent to client
-03/12/25-14:58:32: Plant 3data sent to client
-03/12/25-14:58:33: Plant 2data sent to client
-03/12/25-14:58:33: New order placed
-03/12/25-14:58:56: Order #5's state changed to Ready
-03/12/25-14:59:08: Order #5's state changed to Completed
-03/12/25-15:00:13: Server started
-03/12/25-15:00:41: Authentication success
-03/12/25-15:00:41: Account 6 data sent to client
-03/12/25-15:00:49: Orders list of account #6 sent to client
-03/12/25-15:02:19: Plant 1data sent to client
-03/12/25-15:02:19: Plant 2data sent to client
-03/12/25-15:02:19: Plant 1data sent to client
-03/12/25-15:02:20: Plant 2data sent to client
-03/12/25-15:02:22: Plant 1data sent to client
-03/12/25-15:02:22: Plant 2data sent to client
-03/12/25-15:02:22: New order placed
-03/12/25-15:02:27: Orders list of account #6 sent to client
-03/12/25-15:09:28: Authentication success
-03/12/25-15:09:28: Account 6 data sent to client
-03/12/25-15:09:32: Orders list of account #6 sent to client
-03/12/25-15:10:19: Authentication success
-03/12/25-15:10:19: Account 6 data sent to client
-03/12/25-15:10:24: Orders list of account #6 sent to client
-03/12/25-15:13:29: Authentication success
-03/12/25-15:13:29: Account 6 data sent to client
-03/12/25-15:13:34: Orders list of account #6 sent to client
-03/12/25-15:15:28: Server stopped
-03/12/25-15:19:37: Server started
-03/12/25-15:20:04: Authentication success
-03/12/25-15:20:04: Account 6 data sent to client
-03/12/25-15:20:09: Orders list of account #6 sent to client
-<<<<<<< HEAD
-03/12/25-20:23:54: Server started
-03/12/25-20:24:28: New account created
-03/12/25-20:24:35: Authentication success
-03/12/25-20:24:35: Account 6 data sent to client
-03/12/25-20:27:02: Authentication success
-03/12/25-20:27:02: Account 6 data sent to client
-03/12/25-20:27:26: New account created
-03/12/25-20:27:33: Authentication success
-03/12/25-20:27:33: Account 7 data sent to client
-03/12/25-20:41:49: Server stopped
-03/12/25-20:42:31: Server started
-03/12/25-20:42:38: Server stopped
-03/12/25-20:42:46: Server started
-03/12/25-20:42:48: Server stopped
-03/12/25-20:42:52: Server started
-03/12/25-21:15:47: Authentication success
-03/12/25-21:15:47: Account 6 data sent to client
-03/12/25-21:16:30: Orders list of account #6 sent to client
-03/12/25-21:16:49: Plant 4data sent to client
-03/12/25-21:16:49: Plant 3data sent to client
-03/12/25-21:16:49: Plant 2data sent to client
-03/12/25-21:16:49: Plant 4data sent to client
-03/12/25-21:16:49: Plant 3data sent to client
-03/12/25-21:16:49: Plant 2data sent to client
-03/12/25-21:16:54: Plant 4data sent to client
-03/12/25-21:16:54: Plant 3data sent to client
-03/12/25-21:16:54: Plant 2data sent to client
-03/12/25-21:16:54: Plant 4data sent to client
-03/12/25-21:16:54: Plant 3data sent to client
-03/12/25-21:16:54: Plant 2data sent to client
-03/12/25-21:17:03: Plant 4data sent to client
-03/12/25-21:17:03: Plant 3data sent to client
-03/12/25-21:17:03: Plant 2data sent to client
-03/12/25-21:17:03: Plant 4data sent to client
-03/12/25-21:17:03: Plant 3data sent to client
-03/12/25-21:17:03: Plant 2data sent to client
-03/12/25-21:20:31: Plant 4data sent to client
-03/12/25-21:20:31: Plant 3data sent to client
-03/12/25-21:20:31: Plant 2data sent to client
-03/12/25-21:20:31: Plant 5data sent to client
-03/12/25-21:20:31: Plant 4data sent to client
-03/12/25-21:20:31: Plant 3data sent to client
-03/12/25-21:20:31: Plant 2data sent to client
-03/12/25-21:20:31: Plant 5data sent to client
-03/12/25-21:30:04: Authentication success
-03/12/25-21:30:04: Account 6 data sent to client
-03/12/25-21:30:37: Authentication success
-03/12/25-21:30:37: Account 6 data sent to client
-03/12/25-21:30:50: Plant 3data sent to client
-03/12/25-21:30:50: Plant 3data sent to client
-03/12/25-21:31:03: Plant 3data sent to client
-03/12/25-21:31:03: Plant 3data sent to client
-03/12/25-21:31:17: Plant 3data sent to client
-03/12/25-21:31:17: Plant 1data sent to client
-03/12/25-21:31:17: Plant 3data sent to client
-03/12/25-21:31:17: Plant 1data sent to client
-03/12/25-21:39:32: Authentication success
-03/12/25-21:39:32: Account 6 data sent to client
-03/12/25-21:39:41: Plant 3data sent to client
-03/12/25-21:39:41: Plant 2data sent to client
-03/12/25-21:39:41: Plant 4data sent to client
-03/12/25-21:39:41: Plant 3data sent to client
-03/12/25-21:39:41: Plant 2data sent to client
-03/12/25-21:39:41: Plant 4data sent to client
-03/12/25-21:40:02: Failed to authenticate
-03/12/25-21:40:45: Failed to create new account
-03/12/25-21:46:00: Failed to authenticate
-03/12/25-21:46:16: Failed to authenticate
-03/12/25-21:46:50: Failed to authenticate
-03/12/25-21:47:19: Failed to authenticate
-03/12/25-21:47:35: Failed to authenticate
-03/12/25-21:47:46: Failed to authenticate
-03/12/25-21:48:04: Failed to authenticate
-03/12/25-21:48:18: Failed to authenticate
-03/12/25-21:50:09: Failed to authenticate
-03/12/25-21:52:57: Failed to authenticate
-03/12/25-21:53:53: Failed to authenticate
-03/12/25-21:54:06: Failed to authenticate
-03/12/25-21:54:35: Failed to authenticate
-03/12/25-21:55:43: Failed to authenticate
-03/12/25-22:01:07: Server stopped
-03/14/25-15:31:29: Server started
-03/14/25-15:32:08: Server started
-03/14/25-15:32:11: Server stopped
-03/14/25-16:08:55: Server started
-03/14/25-16:10:58: Authentication success
-03/14/25-16:10:58: Account 5 data sent to client
-=======
-03/12/25-16:06:46: Server started
-03/12/25-16:11:07: Server stopped
-03/14/25-16:01:17: Server started
-03/14/25-16:01:51: Authentication success
-03/14/25-16:01:51: Account 6 data sent to client
-03/14/25-16:02:24: Plant 5data sent to client
-03/14/25-16:02:24: Plant 5data sent to client
-03/14/25-16:04:46: Plant 5data sent to client
-03/14/25-16:04:47: Plant 1data sent to client
-03/14/25-16:04:47: Plant 5data sent to client
-03/14/25-16:04:47: Plant 1data sent to client
-03/14/25-16:04:52: Plant 5data sent to client
-03/14/25-16:04:52: Plant 1data sent to client
-03/14/25-16:04:52: New order placed
-03/14/25-16:05:10: Orders list of account #6 sent to client
-03/14/25-16:53:45: Server stopped
-03/16/25-12:46:48: Server started
-03/16/25-12:47:13: Authentication success
-03/16/25-12:47:13: Account 6 data sent to client
-03/16/25-12:47:33: Server stopped
-03/16/25-12:56:12: Server started
-03/16/25-12:56:37: Authentication success
-03/16/25-12:56:37: Account 6 data sent to client
-03/16/25-12:57:23: Plant 1data sent to client
-03/16/25-12:57:24: Plant 1data sent to client
-03/16/25-12:57:26: Plant 1data sent to client
-03/16/25-12:57:26: New order placed
-03/16/25-12:57:42: Server stopped
-03/16/25-12:58:45: Server started
-03/16/25-12:59:12: Authentication success
-03/16/25-12:59:12: Account 6 data sent to client
-03/16/25-13:01:40: Server stopped
-03/16/25-13:03:11: Server started
-03/16/25-13:03:30: Authentication success
-03/16/25-13:03:30: Account 6 data sent to client
-03/16/25-13:03:59: Plant 2data sent to client
-03/16/25-13:03:59: Plant 1data sent to client
-03/16/25-13:03:59: Plant 2data sent to client
-03/16/25-13:03:59: Plant 1data sent to client
-03/16/25-13:04:01: Plant 2data sent to client
-03/16/25-13:04:01: Plant 1data sent to client
-03/16/25-13:04:01: New order placed
-03/16/25-13:21:42: Server stopped
-03/16/25-13:47:51: Server started
-03/16/25-13:48:10: Server started
-03/16/25-13:48:12: Server stopped
-03/16/25-13:48:48: Authentication success
-03/16/25-13:48:48: Account 6 data sent to client
-03/16/25-14:13:18: Server started
-03/16/25-14:13:34: Authentication success
-03/16/25-14:13:34: Account 6 data sent to client
-03/16/25-14:14:25: Server stopped
-03/16/25-14:17:54: Server started
-03/16/25-14:18:08: Authentication success
-03/16/25-14:18:08: Account 6 data sent to client
-03/16/25-14:18:53: Server stopped
-03/16/25-14:34:15: Server started
-03/16/25-14:34:33: Authentication success
-03/16/25-14:34:33: Account 6 data sent to client
-03/16/25-14:38:11: Server stopped
-03/16/25-14:40:53: Server started
-03/16/25-14:41:09: Authentication success
-03/16/25-14:41:09: Account 6 data sent to client
-<<<<<<< HEAD
-03/21/25-01:42:19: Server started
-03/21/25-01:52:14: Server stopped
-03/21/25-01:53:21: Server started
-03/21/25-01:53:25: Server started
-03/21/25-01:53:31: Server stopped
-03/21/25-01:53:32: Server stopped
-03/21/25-01:53:47: Server started
-03/21/25-01:54:05: Server stopped
-03/21/25-01:56:03: Server started
-03/21/25-01:56:16: Server stopped
-03/21/25-01:59:40: Server started
-03/21/25-01:59:54: Server stopped
-03/21/25-20:17:08: Server started
-03/21/25-20:20:08: Server stopped
-03/21/25-20:20:54: Server started
-03/21/25-20:21:26: Server stopped
-03/21/25-20:23:19: Server started
-03/21/25-20:23:51: Server stopped
-03/21/25-20:27:17: Server started
-03/21/25-20:27:53: Server stopped
-03/21/25-22:10:03: Server started
-03/21/25-22:10:33: New account created
-03/21/25-22:10:38: Authentication success
-03/21/25-22:10:38: Account 7 data sent to client
-03/21/25-22:10:45: Plant 3data sent to client
-03/21/25-22:10:45: Plant 3data sent to client
-03/21/25-22:10:47: Plant 3data sent to client
-03/21/25-22:10:47: New order placed
-03/21/25-22:11:54: Server stopped
-=======
-03/17/25-22:38:08: Client failed to connect to database
-03/17/25-22:38:08: Server started
->>>>>>> dac37d781955309b8f7d7ebbe4c3dfbf5371cb5c
->>>>>>> Destiny_Client
-03/21/25-22:40:15: Client failed to connect to database
-03/21/25-22:40:15: Server started
-03/21/25-22:41:08: Server started
-03/27/25-22:43:16: Server started
-03/27/25-22:43:53: Failed to create new account
-03/27/25-22:49:54: Server stopped
-03/27/25-22:50:06: Server started
-03/27/25-22:51:02: Failed to create new account
-03/27/25-22:52:11: Server stopped
-03/27/25-22:58:11: Server started
-03/27/25-22:59:42: Authentication success
-03/27/25-22:59:42: Account 6 data sent to client
-03/27/25-23:02:09: Plant 2data sent to client
-03/27/25-23:02:10: Plant 2data sent to client
-03/27/25-23:02:22: Plant 2data sent to client
-03/27/25-23:02:22: New order placed
-03/27/25-23:04:37: Orders list of account #6 sent to client
-03/27/25-23:24:58: Authentication success
-03/27/25-23:24:58: Account 6 data sent to client
-03/27/25-23:25:15: Plant 2data sent to client
-03/27/25-23:25:15: Plant 2data sent to client
-03/27/25-23:25:18: Plant 2data sent to client
-03/27/25-23:25:18: New order placed
-03/27/25-23:25:18: Orders list of account #6 sent to client
-03/27/25-23:25:56: Authentication success
-03/27/25-23:25:56: Account 6 data sent to client
-03/27/25-23:26:04: Plant 2data sent to client
-03/27/25-23:26:04: Plant 2data sent to client
-03/27/25-23:26:07: Plant 2data sent to client
-03/27/25-23:26:07: New order placed
-03/27/25-23:26:08: Orders list of account #6 sent to client
-03/27/25-23:27:26: Orders list of account #6 sent to client
-03/27/25-23:36:28: Plant 2data sent to client
-03/27/25-23:36:28: Plant 1data sent to client
-03/27/25-23:36:28: Plant 3data sent to client
-03/27/25-23:36:28: Plant 2data sent to client
-03/27/25-23:36:29: Plant 1data sent to client
-03/27/25-23:36:29: Plant 3data sent to client
-03/27/25-23:54:06: Server started
-03/27/25-23:55:52: Server stopped
-03/27/25-23:56:25: Server started
-03/27/25-23:56:48: Server stopped
-03/31/25-08:29:18: Client failed to connect to database
-03/31/25-08:29:18: Server started
-03/31/25-08:29:38: Client failed to connect to database
-03/31/25-08:29:39: Server started
-03/31/25-08:29:47: Client failed to connect to database
-03/31/25-08:29:47: Server started
-03/31/25-08:30:38: Client failed to connect to database
-03/31/25-08:30:38: Server started
-03/31/25-08:31:11: Client failed to connect to database
-03/31/25-08:31:11: Server started
-03/31/25-08:31:33: Client failed to connect to database
-03/31/25-08:31:33: Server started
-03/31/25-08:32:06: Server started
-03/31/25-08:33:09: Server stopped
-03/31/25-08:33:16: Server started
-03/31/25-08:34:28: Server started
-03/31/25-08:35:03: Failed to authenticate
-03/31/25-08:35:10: Failed to authenticate
-03/31/25-08:35:11: Failed to authenticate
-03/31/25-08:35:16: Failed to authenticate
-03/31/25-08:35:29: Failed to create new account
-03/31/25-08:35:35: Failed to authenticate
-03/31/25-08:37:12: Server started
-03/31/25-08:37:24: Failed to authenticate
-03/31/25-08:52:12: New account created
-03/31/25-08:52:18: Authentication success
-03/31/25-08:52:18: Account 6 data sent to client
-03/31/25-08:59:16: Server started
-03/31/25-08:59:24: Authentication success
-03/31/25-08:59:24: Account 6 data sent to client
-03/31/25-09:16:26: Server stopped
-03/31/25-12:19:44: Server started
-03/31/25-12:20:46: Authentication success
-03/31/25-12:20:46: Account 6 data sent to client
-03/31/25-12:20:56: Plant 1data sent to client
-03/31/25-12:20:57: Plant 2data sent to client
-03/31/25-12:20:57: Plant 1data sent to client
-03/31/25-12:20:58: Plant 2data sent to client
-03/31/25-12:21:48: Authentication success
-03/31/25-12:21:48: Account 6 data sent to client
-03/31/25-12:21:58: Plant 2data sent to client
-03/31/25-12:21:58: Plant 1data sent to client
-03/31/25-12:21:58: Plant 2data sent to client
-03/31/25-12:21:59: Plant 1data sent to client
-03/31/25-12:22:15: Plant 2data sent to client
-03/31/25-12:22:16: Plant 3data sent to client
-03/31/25-12:22:16: Plant 2data sent to client
-03/31/25-12:22:16: Plant 3data sent to client
-03/31/25-12:22:36: Server stopped
-03/31/25-12:24:54: Server started
-03/31/25-12:25:03: Authentication success
-03/31/25-12:25:03: Account 6 data sent to client
-03/31/25-12:27:01: Authentication success
-03/31/25-12:27:01: Account 6 data sent to client
-03/31/25-12:29:00: Server stopped
-03/31/25-12:29:05: Server started
-03/31/25-12:29:25: Server stopped
-03/31/25-12:29:30: Server started
-03/31/25-12:30:00: Server stopped
-03/31/25-12:30:27: Server started
-03/31/25-12:30:46: Authentication success
-03/31/25-12:30:46: Account 6 data sent to client
-03/31/25-12:31:58: Server stopped
+04/04/25-13:17:35: Server started.
+04/04/25-13:17:35: Server connected to database.
+04/04/25-13:17:36: Server is listening on port 27000.
+04/04/25-13:17:41: Client connected.
+04/04/25-13:18:02: Account tyler is authenticated.
+04/04/25-13:22:07: Server is listening for chat on port 27001.
+04/04/25-13:22:07: Client connected to chat socket.
+04/04/25-13:24:08: Chat socket is closed.
+04/04/25-13:40:32: Client disconnected.
+04/04/25-13:40:32: Server closed its connection.
+04/04/25-13:40:32: Server is listening on port 27000.
+04/04/25-13:40:35: Server stopped.
+04/04/25-15:27:49: Server started.
+04/04/25-15:27:50: Server connected to database.
+04/04/25-15:27:51: Server is listening on port 27000.
+04/04/25-15:27:54: Client connected.
+04/04/25-15:30:09: Account  created.
+04/04/25-15:30:58: Account alexiscool@gmailcom created.
+04/04/25-15:31:14: Account alexiscool@gmail.com is not authenticated.
+04/04/25-15:31:33: Account alexiscool@gmail.com is not authenticated.
+04/04/25-15:31:52: Account alex@gmail.com created.
+04/04/25-15:32:06: Account Alex@gmail.com is authenticated.
+04/04/25-15:32:55: Server is listening for chat on port 27001.
+04/04/25-15:32:55: Client connected to chat socket.
+04/04/25-15:33:42: Chat socket is closed.
+04/04/25-15:34:09: New order created
+04/04/25-15:35:33: Account #9 updated.
+04/04/25-15:35:40: Client disconnected.
+04/04/25-15:35:40: Server closed its connection.
+04/04/25-15:35:40: Server is listening on port 27000.
+04/04/25-15:35:47: Client connected.
+04/04/25-15:35:57: Account Alex@gmail.com is not authenticated.
+04/04/25-15:36:11: Account Alex@gmail.com is not authenticated.
+04/04/25-15:36:24: Account Alex@gmail.com is authenticated.
+04/04/25-15:36:46: Server is listening for chat on port 27001.
+04/04/25-15:36:46: Client connected to chat socket.
+04/04/25-15:37:02: Chat socket is closed.
+04/04/25-15:37:09: Server is listening for chat on port 27001.
+04/04/25-15:37:10: Client connected to chat socket.
+04/04/25-15:37:52: Chat socket is closed.
+04/04/25-15:38:39: Server is listening for chat on port 27001.
+04/04/25-15:38:40: Client connected to chat socket.
+04/04/25-15:38:43: Chat socket is closed.
+04/04/25-15:38:58: New order created
+04/04/25-15:39:54: Client disconnected.
+04/04/25-15:39:54: Server closed its connection.
+04/04/25-15:39:54: Server is listening on port 27000.
+04/04/25-15:44:24: Client connected.
+04/04/25-15:44:28: Account tyler is authenticated.
+04/04/25-15:44:37: Account #6 updated.
+04/04/25-15:44:42: Client disconnected.
+04/04/25-15:44:42: Server closed its connection.
+04/04/25-15:44:42: Server is listening on port 27000.
+04/04/25-15:44:44: Client connected.
+04/04/25-15:44:49: Account tyler is not authenticated.
+04/04/25-15:44:53: Account tyler is authenticated.
+04/04/25-15:45:19: Account #6 updated.
+04/04/25-15:45:31: Client disconnected.
+04/04/25-15:45:31: Server closed its connection.
+04/04/25-15:45:31: Server is listening on port 27000.
+04/04/25-15:45:33: Client connected.
+04/04/25-15:45:37: Account tyler is authenticated.
+04/04/25-15:48:58: Account #6 updated.
+04/04/25-16:07:22: Client disconnected.
+04/04/25-16:07:22: Server closed its connection.
+04/04/25-16:07:22: Server is listening on port 27000.
+04/04/25-16:07:32: Server started.
+04/04/25-16:07:33: Server connected to database.
+04/04/25-16:07:37: Server stopped.
+04/04/25-16:07:45: Client connected.
+04/04/25-16:08:30: Account cljhunt@icloud.com created.
+04/04/25-16:08:39: Account cljhunt@icloud.com is authenticated.
+04/04/25-16:09:24: Server is listening for chat on port 27001.
+04/04/25-16:09:24: Client connected to chat socket.
+04/04/25-16:09:38: Chat socket is closed.
+04/04/25-16:09:49: New order created
+04/04/25-16:09:57: Server is listening for chat on port 27001.
+04/04/25-16:09:58: Client connected to chat socket.
+04/04/25-16:11:11: Server started.
+04/04/25-16:11:12: Server connected to database.
+04/04/25-16:11:12: Server is listening on port 27000.
+04/04/25-16:11:17: Client connected.
+04/04/25-16:11:22: Account tyler is authenticated.
+04/04/25-16:11:27: Server is listening for chat on port 27001.
+04/04/25-16:11:28: Client connected to chat socket.
+04/04/25-16:11:39: Chat socket is closed.
+04/04/25-16:25:04: Client disconnected.
+04/04/25-16:25:04: Server closed its connection.
+04/04/25-16:25:04: Server is listening on port 27000.
+04/04/25-16:25:08: Server stopped.
+04/07/25-10:34:57: Server started.
+04/07/25-10:34:59: Server connected to database.
+04/07/25-10:34:59: Server is listening on port 27000.
+04/07/25-10:35:06: Client connected.
+04/07/25-10:36:57: Account ladymidnight_xoxo@gmail.com is not authenticated.
+04/07/25-10:37:45: Account liam created.
+04/07/25-10:37:53: Account liam is authenticated.
+04/07/25-10:39:33: Server is listening for chat on port 27001.
+04/07/25-10:39:33: Client connected to chat socket.
+04/07/25-10:39:55: Chat socket is closed.
+04/07/25-10:41:12: New order created
+04/07/25-10:42:54: New order created
+04/07/25-10:43:44: Client disconnected.
+04/07/25-10:43:44: Server closed its connection.
+04/07/25-10:43:44: Server is listening on port 27000.
+04/07/25-10:43:47: Server stopped.
+04/07/25-10:43:53: Server started.
+04/07/25-10:43:54: Server connected to database.
+04/07/25-10:43:54: Server is listening on port 27000.
+04/07/25-10:44:18: Client connected.
+04/07/25-10:44:23: Account liam is authenticated.
+04/07/25-10:44:50: New order created
+04/07/25-16:01:53: Client disconnected.
+04/07/25-16:01:53: Server failed to close its connection.
+04/07/25-16:01:53: Server is listening on port 27000.
+04/07/25-16:01:57: Server stopped.
+04/07/25-23:27:47: Server started.
+04/07/25-23:27:47: Server connected to database.
+04/07/25-23:27:48: Server is listening on port 27000.
+04/07/25-23:27:51: Client connected.
+04/07/25-23:27:59: Account tyler is authenticated.
+04/07/25-23:28:31: New order created
+04/07/25-23:28:52: Server is listening for chat on port 27001.
+04/07/25-23:28:52: Client connected to chat socket.
+04/07/25-23:31:03: Chat socket is closed.
+04/07/25-23:33:38: Client disconnected.
+04/07/25-23:33:38: Server closed its connection.
+04/07/25-23:33:38: Server is listening on port 27000.
+04/07/25-23:33:48: Server stopped.
+04/09/25-13:53:06: Server started.
+04/09/25-13:53:07: Server connected to database.
+04/09/25-13:53:07: Server is listening on port 27000.
+04/09/25-13:53:58: Client connected.
+04/09/25-13:54:03: Account tyler is authenticated.
+04/09/25-14:32:39: Client disconnected.
+04/09/25-14:32:39: Server failed to close its connection.
+04/09/25-14:32:39: Server is listening on port 27000.
+04/09/25-14:32:40: Server stopped.

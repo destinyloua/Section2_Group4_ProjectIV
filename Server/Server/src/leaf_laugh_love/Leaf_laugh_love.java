@@ -32,9 +32,6 @@ public class Leaf_laugh_love extends JFrame {
 					Leaf_laugh_love frame = new Leaf_laugh_love();
 					frame.setVisible(true);
 					FileHandler.CreateFile("Log.txt");
-					String logMessage = FileHandler.GetTimeStamp() + ": Server started";
-					FileHandler.WriteToFile("Log.txt", logMessage);
-
                     new Thread(new Runnable() {
                         @Override
                         public void run() {
@@ -56,10 +53,10 @@ public class Leaf_laugh_love extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				String logMessage = FileHandler.GetTimeStamp() + ": Server stopped";
-				FileHandler.WriteToFile("Log.txt", logMessage);
+				FileHandler.SaveLog("Server stopped.");
 			}
 		});
+		FileHandler.SaveLog("Server started.");
 		String url = "jdbc:mysql://localhost:3306/project4";
 		//Change these!!
         String user = "root";
@@ -99,10 +96,12 @@ public class Leaf_laugh_love extends JFrame {
 	            // Wait for the client to disconnect
 	            requestHandlingThread.join();  
 	            
+
 	            System.out.println("Client disconnected, waiting for new connection...");
 
 	        } catch (Exception e) {
 	            e.printStackTrace();
+	            FileHandler.SaveLog("Error in connection. Restarting server.");
 	            System.out.println("Error in connection. Restarting server...");
 	        }
 	    }

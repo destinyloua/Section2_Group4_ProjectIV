@@ -35,12 +35,15 @@ public class DatabaseHandler {
 	    try {
 	        if (connection == null || connection.isClosed()) {
 	            System.out.println("Database is NOT connected.");
+				FileHandler.SaveLog("Server failed to connect to database.");
 	            return false;
 	        } else {
+	        	FileHandler.SaveLog("Server connected to database.");
 	            System.out.println("Database is connected.");
 	            return true;
 	        }
 	    } catch (SQLException e) {
+			FileHandler.SaveLog("Server failed to connect to database.");
 	        System.out.println("Error checking connection: " + e.getMessage());
 	        return false;
 	    }
@@ -58,6 +61,7 @@ public class DatabaseHandler {
 			
 			int rowsUpdated = pstm.executeUpdate(); // Correct method for UPDATE
 			System.out.println("rowsUpdated: "+ rowsUpdated);
+			FileHandler.SaveLog("Account #"+ a.GetId() + " updated.");
 			return true;
 		}
 		catch(Exception e) {
@@ -132,10 +136,12 @@ public class DatabaseHandler {
 			int rowInserted = pstm.executeUpdate();
 			if(rowInserted>0) {
 				System.out.println("New plant inserted");
+				FileHandler.SaveLog("Plant "+p.GetName() + " created.");
 				return true;
 			}
 		}
 		catch(Exception e) {
+			FileHandler.SaveLog("Server failed to create plant.");
 			e.getStackTrace();
 		}
 		return false;
@@ -157,10 +163,12 @@ public class DatabaseHandler {
 			int rowInserted = pstm.executeUpdate();
 			if(rowInserted > 0) {
 				System.out.println("Inserted successfully");
+				FileHandler.SaveLog("Account " + a.GetEmail() + " created.");
 				return true;
 			}
 		}
 		catch(Exception e) {
+			FileHandler.SaveLog("Server failed to create account.");
 			System.out.println("Error: " + e.getMessage());
 		}
 		return false;
@@ -177,13 +185,16 @@ public class DatabaseHandler {
 			resultSet.next();
 			int rowReturned = resultSet.getInt(1);
 			if(rowReturned > 0) {
+				FileHandler.SaveLog("Account " + account.GetEmail() + " is authenticated.");
 				return true;
 			}
 			else {
+				FileHandler.SaveLog("Account " + account.GetEmail() + " is not authenticated.");
 				return false;
 			}
 		}
 		catch(Exception e) {
+			FileHandler.SaveLog("Server failed to authenticate account.");
 			System.out.println("Error: " + e.getMessage());
 		}
 		return false;
@@ -292,10 +303,18 @@ public class DatabaseHandler {
             int rowsAffected = pstm.executeUpdate();
 
             // Return true if one or more rows were updated
-            return rowsAffected > 0;
+            if(rowsAffected > 0) {
+                FileHandler.SaveLog("Order #" + orderId + "'s status is updated."); 
+            	return true;
+            }
+            else {
+            	FileHandler.SaveLog("Order #" + orderId + "'s status is not updated."); 
+            	return false;
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
+            FileHandler.SaveLog("Server failed to update order's status."); 
             return false;
         }
     }
@@ -312,10 +331,18 @@ public class DatabaseHandler {
             int rowsAffected = pstm.executeUpdate();
 
             // Return true if one or more rows were updated
-            return rowsAffected > 0;
+            if(rowsAffected > 0) {
+                FileHandler.SaveLog("Order #" + id + " is deleted."); 
+            	return true;
+            }
+            else {
+            	FileHandler.SaveLog("Order #" + id + " is deleted."); 
+            	return false;
+            }
 
         } catch (SQLException e) {
             e.printStackTrace();
+            FileHandler.SaveLog("Server failed to delete order."); 
             return false;
         }
 	}
@@ -490,12 +517,15 @@ public class DatabaseHandler {
 	            }
 
 	            if (InsertItems(o)) {
+	                FileHandler.SaveLog("New order created"); 
 	                System.out.println("Inserted successfully");
 	                return true;
 	            }
 	        }
 	    } catch (Exception e) {
 	        System.out.println("Error: " + e.getMessage());
+            FileHandler.SaveLog("Server failed to create new order."); 
+
 	    }
 	    return false;
 	}

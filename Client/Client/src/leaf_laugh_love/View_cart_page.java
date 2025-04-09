@@ -118,12 +118,14 @@ public class View_cart_page extends JPanel {
 		add(placeBttn);
 		placeBttn.addActionListener(e->{
 			System.out.println(a.GetId());
-			if(ResponseHandler.PlaceOrder(o)) {
-				mainPanel.removeAll();
-				mainPanel.add(new Order_Confirmation_page(mainPanel, cardLayout, a, o), "Order Confirmation");
-				mainPanel.repaint();
-				mainPanel.revalidate();
-				cardLayout.show(mainPanel, "Order Confirmation");
+			if(o.GetPId().size() > 0) {
+				if(ResponseHandler.PlaceOrder(o)) {
+					mainPanel.removeAll();
+					mainPanel.add(new Order_Confirmation_page(mainPanel, cardLayout, a, o), "Order Confirmation");
+					mainPanel.repaint();
+					mainPanel.revalidate();
+					cardLayout.show(mainPanel, "Order Confirmation");
+				}
 			}
 			else {
 	        	JOptionPane.showMessageDialog(this, "Order is not placed!");

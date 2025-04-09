@@ -124,7 +124,6 @@ public class RequestHandler implements Runnable {
 			packet.SetContent(false);
 			SocketHandler.SendData(packet);
 			
-			FileHandler.SaveLog("Failed to send account data to client");
 			return false;
 		}
 		else {
@@ -132,7 +131,6 @@ public class RequestHandler implements Runnable {
 			packet.SetContent(a);
 			SocketHandler.SendData(packet);
 			
-			FileHandler.SaveLog("Account " + a.GetId() + " data sent to client");
 			return true;
 		}
 	}
@@ -145,7 +143,6 @@ public class RequestHandler implements Runnable {
 			packet.SetHeader(false);
 			packet.SetContent(false);
 			SocketHandler.SendData(packet);
-			FileHandler.SaveLog("Orders list of account #"+ aId +" sent to client");
 	        return false;
 		}
 		else {
@@ -156,7 +153,6 @@ public class RequestHandler implements Runnable {
 			for(int i=0;i<orders.size();i++) {
 				SocketHandler.SendData(orders.get(i).Serialize());
 			}
-			FileHandler.SaveLog("Orders list of account #"+ aId +" sent to client");
 	        return true;
 		}
 	}
@@ -169,7 +165,6 @@ public class RequestHandler implements Runnable {
 			packet.SetContent(true);
 			SocketHandler.SendData(packet);
 			
-	        FileHandler.SaveLog("New order placed");
 	        return true;
 		}
 		else {
@@ -177,7 +172,6 @@ public class RequestHandler implements Runnable {
 			packet.SetContent(false);
 			SocketHandler.SendData(packet);
 			
-	        FileHandler.SaveLog("Failed to place new order");
 	        return false;
 		}
 	}
@@ -190,7 +184,6 @@ public class RequestHandler implements Runnable {
 			packet.SetContent(false);
 			SocketHandler.SendData(packet);
 			
-			FileHandler.SaveLog("Failed to send plants list data to client");
 			return false;
 		}
 		else {
@@ -257,7 +250,6 @@ public class RequestHandler implements Runnable {
 			packet.SetContent(false);
 			SocketHandler.SendData(packet);
 			
-	        FileHandler.SaveLog("Failed to send plant data to client");
 	        return false;
 		}
 		else {
@@ -269,7 +261,6 @@ public class RequestHandler implements Runnable {
 			//TODO SEND IMAGE
 			SendImage(p.GetImagePath());
 			
-	        FileHandler.SaveLog("Plant " + p.GetId() + "data sent to client");
 	        return true;
 		}
 	}
@@ -282,8 +273,6 @@ public class RequestHandler implements Runnable {
 			packet.SetHeader(true);
 			packet.SetContent(true);
 			SocketHandler.SendData(packet);
-			
-	        FileHandler.SaveLog("Authentication success");
 	        return true;
 		}
 		else {
@@ -291,7 +280,6 @@ public class RequestHandler implements Runnable {
 			packet.SetContent(false);
 			SocketHandler.SendData(packet);
 			
-	        FileHandler.SaveLog("Failed to authenticate");
 	        return false;
 		}
 	}
@@ -305,7 +293,6 @@ public class RequestHandler implements Runnable {
 			packet.SetContent(true);
 			SocketHandler.SendData(packet);
 			
-	        FileHandler.SaveLog("New account created");
 	        return true;
 		}
 		else {
@@ -313,7 +300,6 @@ public class RequestHandler implements Runnable {
 			packet.SetContent(false);
 			SocketHandler.SendData(packet);
 			
-	        FileHandler.SaveLog("Failed to create new account");
 	        return false;
 		}
 	}
