@@ -268,7 +268,7 @@ public class DatabaseHandler {
 			resultSet = pstm.executeQuery();
 			while(resultSet.next()) {
 				pId.add(resultSet.getInt(1));
-				quantity.add(resultSet.getInt(1));
+				quantity.add(resultSet.getInt(2));
 			}
 		}
 		catch(Exception e) {
