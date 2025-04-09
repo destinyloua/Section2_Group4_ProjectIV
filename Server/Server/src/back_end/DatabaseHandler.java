@@ -46,6 +46,7 @@ public class DatabaseHandler {
 	    }
 	}
 	
+<<<<<<< HEAD
 	public static Boolean UpdateAccount(Account a) {
 		String query = "UPDATE Accounts SET fName = ?, lName = ?, email = ?, password = ? WHERE id = ?";
 		try {
@@ -99,6 +100,8 @@ public class DatabaseHandler {
 		return 0;
 	}
 	
+=======
+>>>>>>> parent of e694fdc (Update)
 	public static Boolean CheckDuplicatedEmail(String email) {
 		String query = "Select count(*) from Accounts where email = ?";
 		try {
@@ -191,7 +194,7 @@ public class DatabaseHandler {
 	
 	public static Vector<Plant> FetchPlantsList(){
 		Vector<Plant> plantsList = new Vector<>();
-		String query = "Select * from Plants ORDER BY name ASC";
+		String query = "Select * from Plants";
 		try {
 			pstm = connection.prepareStatement(query);
 			resultSet = pstm.executeQuery();
@@ -390,6 +393,7 @@ public class DatabaseHandler {
 		}
 	}
 	
+<<<<<<< HEAD
 	public static Vector<Order> FetchOrdersListByAId(int aId){
 		Vector<Order> ordersList = new Vector<>();
 		String query = "Select * from Orders Where aId = ?";
@@ -525,5 +529,7 @@ public class DatabaseHandler {
 		return false;
 	}
 	
+=======
+>>>>>>> parent of e694fdc (Update)
 }
 

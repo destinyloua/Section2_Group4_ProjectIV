@@ -3,9 +3,7 @@ package objects;
 import java.nio.*;
 import java.util.*;
 
-import back_end.Objects;
-
-public class Order implements Objects{
+public class Order {
 	//This is header
 	private int id;
 	private int aId;

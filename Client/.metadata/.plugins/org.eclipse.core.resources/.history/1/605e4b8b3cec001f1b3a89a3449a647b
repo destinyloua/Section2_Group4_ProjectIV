@@ -1,0 +1,117 @@
+package leaf_laugh_love;
+
+import javax.swing.JPanel;
+import javax.swing.JLabel;
+import java.awt.Font;
+import javax.swing.SwingConstants;
+import javax.swing.JTextField;
+import java.awt.Rectangle;
+import javax.swing.JButton;
+
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import javax.swing.JPasswordField;
+
+public class Sign_up_page extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	private JTextField fName;
+	private JTextField lName;
+	private JTextField email;
+	private JPasswordField password;
+
+	/**
+	 * Create the panel.
+	 */
+	public Sign_up_page(JPanel mainPanel, CardLayout cardLayout) {
+		setLayout(null);
+		
+		JLabel lblNewLabel = new JLabel("Sign Up");
+		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
+		lblNewLabel.setFont(new Font("Segoe UI", Font.BOLD, 32));
+		lblNewLabel.setBounds(10, 155, 820, 43);
+		add(lblNewLabel);
+		
+		fName = new JTextField();
+		fName.setText("First Name");
+		fName.setBounds(new Rectangle(0, 0, 400, 40));
+		fName.setBounds(220, 209, 400, 40);
+		add(fName);
+		fName.setColumns(10);
+		
+		lName = new JTextField();
+		lName.setText("Last Name");
+		lName.setColumns(10);
+		lName.setBounds(new Rectangle(0, 0, 400, 40));
+		lName.setBounds(220, 260, 400, 40);
+		add(lName);
+		
+		email = new JTextField();
+		email.setText("Email");
+		email.setColumns(10);
+		email.setBounds(new Rectangle(0, 0, 400, 40));
+		email.setBounds(220, 311, 400, 40);
+		add(email);
+		
+		password = new JPasswordField();
+		password.setBounds(220, 362, 400, 40);
+		add(password);
+		
+		JButton btnNewButton = new JButton("Sign up");
+		btnNewButton.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cardLayout.show(mainPanel, "Error");
+				// Send data to server
+//				Account newAccount = new Account(fName.getText(), lName.getText(), email.getText(), password.getText());
+//				if(newAccount.SignUp()) {
+//					cardLayout.show(mainPanel, "Sign Up Success");
+//				}
+//				else {
+//					cardLayout.show(mainPanel, "Error");
+//				}
+			}
+		});
+		
+		btnNewButton.setForeground(new Color(85, 169, 85));
+		btnNewButton.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		btnNewButton.setBounds(220, 423, 400, 40);
+		add(btnNewButton);
+		
+		JButton btnBackToLog = new JButton("Back to log in page");
+		btnBackToLog.addMouseListener(new MouseAdapter() {
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				cardLayout.show(mainPanel, "Log In");
+			}
+		});
+		btnBackToLog.setForeground(new Color(85, 169, 85));
+		btnBackToLog.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		btnBackToLog.setBounds(220, 474, 400, 40);
+		add(btnBackToLog);
+		
+
+		//Testing purpose (I'll delete this after)
+		JButton btnOpenNewWindow = new JButton("Open New Window");
+		btnOpenNewWindow.setForeground(new Color(85, 169, 85));
+		btnOpenNewWindow.setFont(new Font("Segoe UI Semibold", Font.PLAIN, 20));
+		btnOpenNewWindow.setBounds(220, 525, 400, 40);
+		add(btnOpenNewWindow);
+
+		btnOpenNewWindow.addMouseListener(new MouseAdapter() {
+		    @Override
+		    public void mouseClicked(MouseEvent e) {
+		    	String message = "Hello, " + fName.getText() + " " + lName.getText() + "\nWelcome to our platform!\n\n"
+		                + "Here is some long text to demonstrate the scrolling functionality. "
+		                + "You can add more lines of text to see the scroll effect in action. "
+		                + "This will allow for a larger amount of content to be displayed in a limited space.";
+
+		        MessageFrame messageFrame = new MessageFrame(message);
+		        messageFrame.setVisible(true);
+		    }
+		});
+
+	}
+}

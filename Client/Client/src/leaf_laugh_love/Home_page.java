@@ -1,13 +1,8 @@
 package leaf_laugh_love;
 
 import java.awt.*;
-import java.util.Vector;
 
 import javax.swing.*;
-import back_end.*;
-import objects.*;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
 
 public class Home_page extends JPanel {
 
@@ -16,6 +11,7 @@ public class Home_page extends JPanel {
 	/**
 	 * Create the panel.
 	 */
+<<<<<<< HEAD
 	public Home_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
 		//TODO add all the available page here
 		
@@ -134,16 +130,101 @@ public class Home_page extends JPanel {
 			
 			JLabel image = new JLabel(ImageProcessor.Resize(plants.get(i).GetImagePath(), 100, 100));
 			image.setBounds(0, 0, 100, 100);
+=======
+	public Home_page(JPanel mainPanel, CardLayout cardLayout) {
+        setLayout(null);
 
-		    plantCard.add(plantId);
-		    plantCard.add(price);
-		    plantCard.add(addBttn);
-		    //plantCard.add(detailBttn);
-		    plantCard.add(image);
+        JLabel pageLabel = new JLabel("Dashboard");
+        pageLabel.setFont(new Font("Segoe UI", Font.BOLD, 32));
+        pageLabel.setBounds(80, 28, 164, 43);
+        add(pageLabel);
 
-		    plantsList.add(plantCard, gbc);
-		    gbc.gridy++;   // Move to the next row
-		}
-       
+        JPanel plantsList = new JPanel();
+        plantsList.setLayout(new GridBagLayout()); // Use GridBagLayout
+        plantsList.setBackground(new Color(217, 217, 217));
+
+        JScrollPane scrollPane = new JScrollPane(plantsList);
+        scrollPane.setBounds(120, 125, 600, 450);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        add(scrollPane);
+        
+        GridBagConstraints gbc = new GridBagConstraints();
+        gbc.gridx = 0;
+        gbc.gridy = 0;
+        gbc.weightx = 1;
+        gbc.fill = GridBagConstraints.HORIZONTAL;
+        gbc.insets = new Insets(10, 0, 10, 0); // Space between rows
+
+        for (int i = 0; i < 10; i++) {
+ 
+            JPanel plantCard = new JPanel();
+            plantCard.setLayout(null);
+            plantCard.setPreferredSize(new Dimension(600, 100)); // Fixed size
+>>>>>>> parent of e694fdc (Update)
+
+            plantCard.setBackground(new Color(170, 170, 170));
+            // Set background color based on order status
+//            switch (i) {
+//                case 0 -> plantCard.setBackground(new Color(170, 170, 170));
+//                case 1 -> plantCard.setBackground(new Color(184, 223, 255));
+//                case 2 -> plantCard.setBackground(new Color(85, 169, 85));
+//                case -1 -> plantCard.setBackground(new Color(255, 72, 72));
+//                default -> plantCard.setBackground(new Color(170, 170, 170));
+//            }
+            
+            ImageIcon imageIcon = new ImageIcon("image.jpg"); // Replace with your image path
+
+            // Resize the image to 100x100
+            Image img = imageIcon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
+            imageIcon = new ImageIcon(img);
+
+            // Create a JLabel with the image
+            JLabel imageLabel = new JLabel(imageIcon);
+            imageLabel.setBounds(0, 0, 100, 100);
+
+            JLabel plantName = new JLabel(Integer.toString(i));
+            plantName.setFont(new Font("Segoe UI", Font.BOLD, 20));
+            plantName.setBounds(110, 9, 225, 27);
+
+            JLabel price = new JLabel("$" + i);
+            price.setFont(new Font("Segoe UI", Font.PLAIN, 20));
+            price.setPreferredSize(new Dimension(479, 27));
+            price.setBounds(110, 36, 225, 27);
+
+            JButton addButton = new JButton("Add to cart");
+            addButton.setBounds(110, 63, 113, 30);
+//            JLabel orderStatus;
+//            if(o.GetStatus() == 0) {
+//            	orderStatus = new JLabel("Processing");
+//            	orderStatus.setFont(new Font("Segoe UI", Font.BOLD, 20));
+//            }
+//            else if(o.GetStatus() == 1) {
+//            	orderStatus = new JLabel("Ready to pick up");
+//            	orderStatus.setFont(new Font("Segoe UI", Font.BOLD, 20));
+//            }
+//            else if(o.GetStatus() == 2) {
+//            	orderStatus = new JLabel("Completed");
+//            	orderStatus.setFont(new Font("Segoe UI", Font.BOLD, 20));
+//            }
+//            else if(o.GetStatus() == -1) {
+//            	orderStatus = new JLabel("Cancelled");
+//            	orderStatus.setFont(new Font("Segoe UI", Font.BOLD, 20));
+//            }
+//            else {
+//            	orderStatus = new JLabel("Unknown");
+//            	orderStatus.setFont(new Font("Segoe UI", Font.BOLD, 20));
+//            }
+
+            plantCard.add(plantName);
+            plantCard.add(price);
+            plantCard.add(addButton);
+            plantCard.add(imageLabel);
+//          orderCard.add(orderStatus);
+            plantsList.add(plantCard, gbc);
+            
+            gbc.gridy++; // Move to the next row
+
+        }
+
     }
 }

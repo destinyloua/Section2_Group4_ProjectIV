@@ -18,12 +18,11 @@ public class Dashboard_page extends JPanel {
      * Create the panel.
      */
     public Dashboard_page(JPanel mainPanel, CardLayout cardLayout) {
-    	setBackground(new Color(255, 255, 255));
         setLayout(null);
 
-        JLabel pageLabel = new JLabel("Dashboard | Orders Management");
+        JLabel pageLabel = new JLabel("Dashboard");
         pageLabel.setFont(new Font("Segoe UI", Font.BOLD, 32));
-        pageLabel.setBounds(80, 28, 723, 43);
+        pageLabel.setBounds(80, 28, 164, 43);
         add(pageLabel);
 
         orderList = new JPanel();
@@ -40,6 +39,7 @@ public class Dashboard_page extends JPanel {
         reloadButton.setBounds(620, 517, 100, 40);
         add(reloadButton);
         
+<<<<<<< HEAD
         JLabel logo = new JLabel("Logo");
         logo.setIcon(new ImageIcon("C:\\Users\\baona\\Desktop\\School\\Project 4\\Section2_Group4_ProjectIV\\Server\\Server\\resources\\images\\logo.png"));
         logo.setBounds(10, 20, 60, 60);
@@ -110,6 +110,8 @@ public class Dashboard_page extends JPanel {
         lblNewLabel_1_2.setBounds(10, 42, 571, 32);
         panel.add(lblNewLabel_1_2);
         
+=======
+>>>>>>> parent of e694fdc (Update)
         // Initial load of orders
         loadOrders();
 
@@ -184,7 +186,7 @@ public class Dashboard_page extends JPanel {
             orderList.add(orderCard, gbc);
             gbc.gridy++; // Move to the next row
 
-            editButton.addActionListener(e -> new Order_info_window(o.GetId()));
+            editButton.addActionListener(ev -> new Order_info_window(o.GetId()));
         }
 
         orderList.revalidate(); // Refresh layout

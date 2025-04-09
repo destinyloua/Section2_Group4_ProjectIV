@@ -2,20 +2,18 @@ package objects;
 
 import javax.imageio.ImageIO;
 import javax.swing.*;
-
-import back_end.*;
-
 import java.awt.*;
 import java.awt.image.BufferedImage;
-import java.io.*;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.io.ByteArrayInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.IOException;
 
-public class ImageObject implements Objects{
-	private File file;
+public class ImageObject {
+	private String fileName;
+	private String filePath;
 	private Image imageData;
 	private ImageIcon icon;
-	private byte[] data;
+	private byte[] imageByteData;
 	
 	public ImageObject(byte[] data) {
         try {
@@ -28,43 +26,6 @@ public class ImageObject implements Objects{
         }
 	}
 	
-	public ImageObject(String filePath) {
-		this.icon = new ImageIcon(filePath);
-		this.imageData = icon.getImage().getScaledInstance(100, 100, Image.SCALE_SMOOTH);
-		this.icon = new ImageIcon(imageData);
-	}
-	
-	public void SetFileName(String filePath) {
-		this.file = new File(filePath);
-	}
-	
-	public Boolean ResizeImage(int w, int h) {
-		try {
-			this.imageData = icon.getImage().getScaledInstance(w, h, Image.SCALE_SMOOTH);
-			return true;
-		}
-		catch (Exception e){
-			System.out.println("Error: " + e.getMessage());
-			return false;
-		}
-	}
-	
-	public Boolean SaveImage(String newName) {
-		try {
-			// Load the image
-            File inputFile = new File("image.jpg"); // Change this to your image path
-            BufferedImage imageBuffer = ImageIO.read(inputFile);
-
-            // Save the resized image
-            File outputFile = new File(newName);
-            ImageIO.write(imageBuffer, "jpg", outputFile); // Change "png" to "jpg" if needed
-            return true;
-		}
-		catch(Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			return false;
-		}
-	}
 	
 	public byte[] Serialize() {
         // Convert ImageIcon to Image
@@ -81,11 +42,11 @@ public class ImageObject implements Objects{
         // Convert BufferedImage to byte array
         try (ByteArrayOutputStream baos = new ByteArrayOutputStream()) {
             ImageIO.write(bufferedImage, "jpg", baos);
-            this.data = baos.toByteArray();
-            return data;
+            this.imageByteData = baos.toByteArray();
+            return imageByteData;
         } catch (IOException e) {
             e.printStackTrace();
             return null;
         }
-	}
+    }
 }

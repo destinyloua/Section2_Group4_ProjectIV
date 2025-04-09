@@ -55,6 +55,7 @@ public class FileHandler {
             return null;
         }
     }
+<<<<<<< HEAD
     
     public static void SaveLog(String message) {
 		SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yy-HH:mm:ss");
@@ -69,4 +70,6 @@ public class FileHandler {
         String logMessage = timeStamp + ": " + message;
         FileHandler.WriteToFile(fileName, logMessage);
     }
+=======
+>>>>>>> parent of e694fdc (Update)
 }

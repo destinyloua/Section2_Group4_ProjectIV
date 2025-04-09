@@ -1,10 +1,13 @@
 package back_end;
 
 import java.net.*;
+<<<<<<< HEAD
 
 import objects.Message;
 import objects.Packet;
 
+=======
+>>>>>>> parent of e694fdc (Update)
 import java.io.*;
 
 public class SocketHandler {
@@ -45,17 +48,6 @@ public class SocketHandler {
 	        }
 	}
 	
-	public static Boolean MakeConnection(int port) {
-		 try {
-			 	socket = new Socket("localhost", port);
-	            System.out.println("Connected to server");
-	            return true;
-	        } catch (IOException e) {
-	            e.printStackTrace();
-	            return false;
-	        }
-	}
-	
 	public static Boolean SendData(byte[] data) {
         // Create DataOutputStream to send raw data (binary data)
 		try {
@@ -74,6 +66,7 @@ public class SocketHandler {
 		}
 	}
 	
+<<<<<<< HEAD
 	public static Boolean SendMessage(Message message) {
         // Create DataOutputStream to send raw data (binary data)
 		try {
@@ -171,6 +164,8 @@ public class SocketHandler {
 		}
 	}
 	
+=======
+>>>>>>> parent of e694fdc (Update)
 	public static byte[] ReceiveData() {
 		try {
             // Create DataInputStream to read raw data (binary data)

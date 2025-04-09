@@ -1,0 +1,18 @@
+package leaf_laugh_love;
+
+import java.awt.CardLayout;
+
+import javax.swing.JPanel;
+
+public class Home_page extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Create the panel.
+	 */
+	public Home_page(JPanel mainPanel, CardLayout cardLayout) {
+
+	}
+
+}

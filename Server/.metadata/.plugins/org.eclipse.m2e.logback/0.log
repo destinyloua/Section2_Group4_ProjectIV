@@ -1214,6 +1214,7 @@
 2025-02-19 15:22:08,332 [main] INFO  org.burningwave.core.Cache - (Cache.java:76) - Building cache
 2025-02-19 15:22:08,365 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:443) - org.burningwave.core.assembler.StaticComponentContainer initialized in 0.2297156 seconds
 2025-02-19 15:22:10,677 [Worker-1: Loading available Gradle versions] INFO  o.e.b.c.i.u.g.PublishedGradleVersions - Gradle version information cache is out-of-date. Trying to update.
+<<<<<<< HEAD
 2025-02-20 09:34:33,991 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:368) - Instantiated org.burningwave.core.SLF4JManagedLoggerRepository
 2025-02-20 09:34:33,991 [main] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:369) - 
 
@@ -4877,3 +4878,5 @@
 2025-04-09 14:34:29,022 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:420) - Stopping all threads monitoring thread
 2025-04-09 14:34:29,023 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:425) - Closing ThreadHolder
 2025-04-09 14:34:29,025 [Burningwave - Resource releaser] INFO  o.b.c.a.StaticComponentContainer - (StaticComponentContainer.java:430) - Shutting down ThreadSupplier
+=======
+>>>>>>> parent of e694fdc (Update)

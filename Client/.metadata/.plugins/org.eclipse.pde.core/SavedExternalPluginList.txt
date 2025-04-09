@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # List of external plug-in models previously loaded. Timestamp: 1743437569842
 file:/C:/Users/baona/.p2/pool/plugins/bcpg_1.80.0.jar
 file:/C:/Users/baona/.p2/pool/plugins/bcpkix_1.80.0.jar
@@ -14,6 +15,23 @@ file:/C:/Users/baona/.p2/pool/plugins/ch.qos.logback.core_1.5.17.jar
 file:/C:/Users/baona/.p2/pool/plugins/com.evolvedbinary.thirdparty.org.apache.xmlrpc.xmlrpc-client_5.0.0.jar
 file:/C:/Users/baona/.p2/pool/plugins/com.google.gson_2.12.1.jar
 file:/C:/Users/baona/.p2/pool/plugins/com.google.guava_33.4.0.jre.jar
+=======
+# List of external plug-in models previously loaded. Timestamp: 1739661815183
+file:/C:/Users/baona/.p2/pool/plugins/bcpg_1.79.0.jar
+file:/C:/Users/baona/.p2/pool/plugins/bcpkix_1.79.0.jar
+file:/C:/Users/baona/.p2/pool/plugins/bcprov_1.79.0.jar
+file:/C:/Users/baona/.p2/pool/plugins/bcutil_1.79.0.jar
+file:/C:/Users/baona/.p2/pool/plugins/biz.aQute.bnd.util_7.0.0.202310060912.jar
+file:/C:/Users/baona/.p2/pool/plugins/biz.aQute.bndlib_7.0.0.202310060912.jar
+file:/C:/Users/baona/.p2/pool/plugins/biz.aQute.repository_7.0.0.202310060912.jar
+file:/C:/Users/baona/.p2/pool/plugins/biz.aQute.resolve_7.0.0.202310060912.jar
+file:/C:/Users/baona/.p2/pool/plugins/bndtools.api_7.0.0.202310060912.jar
+file:/C:/Users/baona/.p2/pool/plugins/bndtools.jareditor_7.0.0.202310060912.jar
+file:/C:/Users/baona/.p2/pool/plugins/ch.qos.logback.classic_1.5.12.jar
+file:/C:/Users/baona/.p2/pool/plugins/ch.qos.logback.core_1.5.12.jar
+file:/C:/Users/baona/.p2/pool/plugins/com.google.gson_2.11.0.jar
+file:/C:/Users/baona/.p2/pool/plugins/com.google.guava_33.3.1.jre.jar
+>>>>>>> parent of e694fdc (Update)
 file:/C:/Users/baona/.p2/pool/plugins/com.google.guava.failureaccess_1.0.2.jar
 file:/C:/Users/baona/.p2/pool/plugins/com.googlecode.javaewah.JavaEWAH_1.2.3.jar
 file:/C:/Users/baona/.p2/pool/plugins/com.ibm.icu_76.1.0.jar

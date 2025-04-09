@@ -1,0 +1,73 @@
+package leaf_laugh_love;
+
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.EventQueue;
+import java.awt.FlowLayout;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JScrollPane;
+import javax.swing.BorderFactory;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+
+public class Order_info_window extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	public Order_info_window(Order order) {
+		setTitle("Order #" + order.GetId());
+        setSize(840, 700);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        // Main container
+        JPanel mainPanel = new JPanel(new BorderLayout());
+
+        // Title label (Static)
+        JLabel titleLabel = new JLabel("Number List", SwingConstants.CENTER);
+        titleLabel.setFont(new Font("Segoe UI", Font.BOLD, 18));
+        mainPanel.add(titleLabel, BorderLayout.NORTH);
+
+        // Scrollable content panel (list of JPanels)
+        JPanel scrollablePanel = new JPanel();
+        scrollablePanel.setLayout(new BoxLayout(scrollablePanel, BoxLayout.Y_AXIS));
+
+        // Add numbered panels to the scrollable area
+        for (int i = 1; i <= 20; i++) { // You can change the range
+            JPanel itemPanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+            itemPanel.setBorder(BorderFactory.createLineBorder(Color.GRAY)); // Optional border
+            itemPanel.setPreferredSize(new Dimension(350, 40)); // Set panel height
+
+            JLabel plantName = new JLabel("Plant: " + i);
+            plantName.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+            JLabel quantity = new JLabel("$" + i +" x " + i);
+            quantity.setFont(new Font("Segoe UI", Font.PLAIN, 16));
+
+            itemPanel.add(plantName);
+            itemPanel.add(quantity);
+            scrollablePanel.add(itemPanel);
+        }
+
+        // Make the scrollablePanel scrollable
+        JScrollPane scrollPane = new JScrollPane(scrollablePanel);
+        scrollPane.setPreferredSize(new Dimension(350, 150)); // Adjust height of the scrollable zone
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+
+        // Add scrollable area to the center
+        mainPanel.add(scrollPane, BorderLayout.CENTER);
+
+        // Static close button
+        JButton closeButton = new JButton("Close");
+        closeButton.addActionListener(e -> dispose());
+        mainPanel.add(closeButton, BorderLayout.SOUTH);
+
+        add(mainPanel);
+    }
+}

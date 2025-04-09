@@ -2,8 +2,7 @@ package leaf_laugh_love;
 
 import javax.swing.*;
 
-import back_end.*;
-import objects.*;
+import objects.Account;
 
 import java.awt.*;
 import java.awt.event.*;
@@ -51,6 +50,7 @@ public class Log_in_page extends JPanel {
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// Send data to server
+<<<<<<< HEAD
 				Account a = new Account(login_email.getText(), login_password.getText());
 				if(ResponseHandler.AuthenticateLogin(a)) {
 					System.out.println("Auth ok");
@@ -76,6 +76,11 @@ public class Log_in_page extends JPanel {
 					mainPanel.repaint();
 					mainPanel.revalidate();
 					System.out.println("Log in failed");
+=======
+				Account newAccount = new Account(login_email.getText(), login_password.getText());
+				if(newAccount.Authenticate()) {
+					
+>>>>>>> parent of e694fdc (Update)
 				}
 			}
 		});

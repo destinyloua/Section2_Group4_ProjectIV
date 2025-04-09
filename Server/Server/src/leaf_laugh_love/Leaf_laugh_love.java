@@ -67,6 +67,17 @@ public class Leaf_laugh_love extends JFrame {
 		setTitle("Leaf, Laugh, Love Dashboard");
 		DatabaseHandler.SetUpConnection(url, user, password);
 		DatabaseHandler.ConnectDatabase();
+//		
+//		
+//		Vector<Order> list = new Vector<>();
+//		list = DatabaseHandler.FecthOrdersList();
+//		
+//		for(int i=0; i<list.size();i++) {
+//			list.get(i).Display();
+//		}
+		
+		Order o1 = DatabaseHandler.FecthOrder(1);
+		o1.Display();
 		
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 840, 700);
@@ -85,8 +96,12 @@ public class Leaf_laugh_love extends JFrame {
         else {
         	mainPanel.add(new Error_page(mainPanel, cardLayout), "Error");
         }
+        
+//      Thread socketThread = new Thread(new Message_page());
+//      socketThread.start();
 	}
 	
+<<<<<<< HEAD
 	public static void StartServer() {		
 	    while (true) {  // Keep listening for new connections
 	        try {
@@ -106,5 +121,11 @@ public class Leaf_laugh_love extends JFrame {
 	            System.out.println("Error in connection. Restarting server...");
 	        }
 	    }
+=======
+	public static void StartServer() {
+		SocketHandler.MakeConnection(27000);
+        Thread requestHandlingThread = new Thread(new RequestHandler());
+        requestHandlingThread.start();
+>>>>>>> parent of e694fdc (Update)
 	}
 }

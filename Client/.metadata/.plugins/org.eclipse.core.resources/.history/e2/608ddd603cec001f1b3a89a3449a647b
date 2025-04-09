@@ -1,0 +1,52 @@
+package leaf_laugh_love;
+
+import java.awt.BorderLayout;
+import java.awt.EventQueue;
+import java.awt.Font;
+
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.SwingConstants;
+import javax.swing.border.EmptyBorder;
+import javax.swing.JScrollPane;
+import javax.swing.BoxLayout;
+
+public class Order_info_window extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	public Order_info_window(Order order) {
+		setTitle("Order# " + Integer.toString(order.GetId()));
+        setSize(840, 700);
+        setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        setLocationRelativeTo(null);
+
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(null);
+        getContentPane().add(mainPanel);
+        
+        JScrollPane scrollPane = new JScrollPane();
+        scrollPane.setBounds(120, 300, 600, 270);
+        mainPanel.add(scrollPane);
+        
+        JPanel panel_1 = new JPanel();
+        scrollPane.setViewportView(panel_1);
+        panel_1.setLayout(new BoxLayout(panel_1, BoxLayout.X_AXIS));
+        
+        for(int i=0; i<order.GetPId().size();i++) {
+        	
+        }
+        	        
+        JLabel messageLabel = new JLabel(Integer.toString(order.GetId()), SwingConstants.CENTER);
+        messageLabel.setBounds(124, 76, 403, 22);
+        mainPanel.add(messageLabel);
+        messageLabel.setFont(new Font("Segoe UI", Font.BOLD, 16));
+        
+        JPanel orderPanel = new JPanel();
+        orderPanel.setBounds(120, 136, 290, 60);
+        mainPanel.add(orderPanel);
+        
+        JLabel lblNewLabel = new JLabel("New label");
+        orderPanel.add(lblNewLabel);
+	}
+}

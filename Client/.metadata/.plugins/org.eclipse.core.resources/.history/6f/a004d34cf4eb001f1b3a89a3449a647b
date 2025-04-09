@@ -1,0 +1,16 @@
+package leaf_laugh_love;
+
+import javax.swing.JPanel;
+
+public class Error_page extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+
+	/**
+	 * Create the panel.
+	 */
+	public Error_page() {
+
+	}
+
+}

@@ -1,8 +1,11 @@
 package back_end;
 
 import java.net.*;
+<<<<<<< HEAD
 import objects.Packet;
 
+=======
+>>>>>>> parent of e694fdc (Update)
 import java.io.*;
 
 public class SocketHandler {
@@ -96,44 +99,6 @@ public class SocketHandler {
 			return false;
 		}
 	}
-	
-	public static Boolean SendData(Objects object) {
-        // Create DataOutputStream to send raw data (binary data)
-		try {
-	        DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
-	        byte[] data = object.Serialize();
-	        // Send the length of the data first
-	        out.writeInt(data.length);  // Write the length of the byte array
-
-	        // Send the actual raw byte data
-	        out.write(data);  // Write the byte array data	
-	        return true;
-		}
-		catch(Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			return false;
-		}
-	}
-	
-	public static Boolean SendData(Packet packet) {
-        // Create DataOutputStream to send raw data (binary data)
-		try {
-	        DataOutputStream out = new DataOutputStream(clientSocket.getOutputStream());
-
-	        // Send the length of the data first
-	        out.writeInt(packet.GetPacket().length);  // Write the length of the byte array
-
-	        // Send the actual raw byte data
-	        out.write(packet.GetPacket());  // Write the byte array data	
-	        return true;
-		}
-		catch(Exception e) {
-			System.out.println("Error: " + e.getMessage());
-			return false;
-		}
-	}
-	
-
 	
 	public static byte[] ReceiveData() {
 		try {

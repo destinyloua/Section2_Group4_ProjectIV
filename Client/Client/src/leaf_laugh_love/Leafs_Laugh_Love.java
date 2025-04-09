@@ -6,7 +6,6 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
-import back_end.ResponseHandler;
 import back_end.SocketHandler;
 import objects.*;
 
@@ -47,7 +46,9 @@ public class Leafs_Laugh_Love extends JFrame {
 		addWindowListener(new WindowAdapter() {
 			@Override
 			public void windowClosing(WindowEvent e) {
-				ResponseHandler.TerminateConnection();
+				byte[] frame = ByteBuffer.allocate(4).putInt(-1).array();
+				SocketHandler.SendData(frame);
+				SocketHandler.CloseConnection();
 				System.out.println("Closed");
 				System.exit(1);
 			}
@@ -67,7 +68,14 @@ public class Leafs_Laugh_Love extends JFrame {
 
         //Connect to server
         if(SocketHandler.MakeConnection()) {
+<<<<<<< HEAD
             mainPanel.add(new Log_in_page(mainPanel, cardLayout,a,o), "Log In");
+=======
+            mainPanel.add(new Log_in_page(mainPanel, cardLayout), "Log In");
+            mainPanel.add(new Sign_up_page(mainPanel, cardLayout), "Sign Up");
+            mainPanel.add(new Sign_up_success_page(mainPanel, cardLayout), "Sign Up Success");
+        	mainPanel.add(new Error_page(mainPanel, cardLayout), "Error");
+>>>>>>> parent of e694fdc (Update)
         }
         else {
         	mainPanel.add(new Error_page(mainPanel, cardLayout, a, o), "Error");

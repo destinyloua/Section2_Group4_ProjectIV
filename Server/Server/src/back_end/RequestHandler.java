@@ -1,8 +1,6 @@
 package back_end;
 
-import java.io.File;
 import java.nio.ByteBuffer;
-import java.nio.file.Files;
 import java.text.*;
 import java.util.*;
 
@@ -12,35 +10,62 @@ import objects.*;
 public class RequestHandler implements Runnable {
 	private static int object;
 	private static int action;
-	private static ByteBuffer read;
-	private static byte[] data;
-	
-	private static Packet packet = new Packet();;
 	
 	public static Boolean Processing() {
 		while(SocketHandler.CheckConnection()) {
+<<<<<<< HEAD
 			data = SocketHandler.ReceiveData();
 			System.out.println(data.length);
 			System.out.println("Request received");
 			read = ByteBuffer.wrap(data);
+=======
+			byte[] data = SocketHandler.ReceiveData();
+			ByteBuffer read = ByteBuffer.wrap(data);
+>>>>>>> parent of e694fdc (Update)
 			object = read.getInt();
 			if(object == -1) {
 				System.out.println("Client disconnect");
-				TerminateConnection();
+				SocketHandler.Disconnect();
 				break;
 			}
 			else {
 				action = read.getInt();
+<<<<<<< HEAD
 				if(read.remaining() > 0) {
 					data = new byte[read.remaining()];
 					read.get(data);
 					read = ByteBuffer.wrap(data);
 				}
 				//Account
+=======
+>>>>>>> parent of e694fdc (Update)
 				if(object == 1) {
 					if(action == 1) {
-						CreateAccount();
+						byte[] accountData = new byte[read.remaining()];
+						read.get(accountData);
+						Account a = new Account(accountData);
+						object =0;
+						action = 0;
+						if(DatabaseHandler.InsertNewAccount(a)) {
+							byte[] response = ByteBuffer.allocate(4).putInt(1).array();
+							SocketHandler.SendData(response);
+							SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yy-HH:mm:ss");
+					        String timeStamp = dateFormat.format(new Date());
+					        String logMessage = timeStamp + ": New account created";
+					        FileHandler.WriteToFile("Log.txt", logMessage);
+						}
+						else {
+							//Failed
+							byte[] response = ByteBuffer.allocate(4).putInt(0).array();
+							SocketHandler.SendData(response);
+							
+							SimpleDateFormat dateFormat = new SimpleDateFormat("MM/dd/yy-HH:mm:ss");
+					        String timeStamp = dateFormat.format(new Date());
+					        String logMessage = timeStamp + ": New account create (Failed)";
+					        FileHandler.WriteToFile("Log.txt", logMessage);
+						}
 					}
+<<<<<<< HEAD
 					else if(action == 2) {
 						Authenticate();
 					}
@@ -91,6 +116,11 @@ public class RequestHandler implements Runnable {
 		            	System.out.println("Client chat connected");
 			 
 			            new Message_window();
+=======
+					
+					else {
+						//Auth
+>>>>>>> parent of e694fdc (Update)
 					}
 				}
 			}
@@ -98,6 +128,7 @@ public class RequestHandler implements Runnable {
 		return true;
 	}
 	
+<<<<<<< HEAD
 	public static Boolean UpdateAccount() {
 		System.out.println("Request received update");
 		Account a = new Account(data);
@@ -327,6 +358,8 @@ public class RequestHandler implements Runnable {
 		return true;
 	}
 	
+=======
+>>>>>>> parent of e694fdc (Update)
 	@Override
     public void run() {
 		Processing();

@@ -1,13 +1,13 @@
 package leaf_laugh_love;
 
 import javax.swing.JPanel;
-
 import javax.swing.JLabel;
 import java.awt.Font;
 import javax.swing.SwingConstants;
 
-import back_end.*;
-import objects.*;
+import back_end.RequestHandler;
+import back_end.SocketHandler;
+import objects.Account;
 
 import javax.swing.JTextField;
 import java.awt.Rectangle;
@@ -85,6 +85,7 @@ public class Sign_up_page extends JPanel {
 		btnNewButton.setBounds(220, 478, 400, 40);
 		add(btnNewButton);
 		btnNewButton.addActionListener(e -> {
+<<<<<<< HEAD
 			a.SetAccount(fName.getText(), lName.getText(), email.getText().toLowerCase(), password.getText());
 			if(ResponseHandler.CreateAccount(a)) {
 				mainPanel.removeAll();
@@ -92,6 +93,11 @@ public class Sign_up_page extends JPanel {
 				mainPanel.repaint();
 				mainPanel.revalidate();
 				cardLayout.show(mainPanel, "Sign up success");
+=======
+			Account a = new Account(fName.getText(), lName.getText(), email.getText(), password.getText());
+			if(RequestHandler.CreateAccount(a)) {
+				cardLayout.show(mainPanel, "Sign Up Success");
+>>>>>>> parent of e694fdc (Update)
 			}
 			else {
 				mainPanel.removeAll();
