@@ -32,21 +32,21 @@ public class Help_window {
 	        JScrollPane scrollPane = new JScrollPane(chatArea);
 	        frame.getContentPane().add(scrollPane, BorderLayout.CENTER);
 	        
-	        JPanel inputPanel = new JPanel(new BorderLayout());
-	        messageField = new JTextField();
-	        sendButton = new JButton("Send");
-	        inputPanel.add(messageField, BorderLayout.CENTER);
-	        inputPanel.add(sendButton, BorderLayout.EAST);
-	        frame.getContentPane().add(inputPanel, BorderLayout.SOUTH);
-	        
 	        endBttn = new JButton("End chat");
-	        inputPanel.add(endBttn, BorderLayout.SOUTH);
+	        scrollPane.setColumnHeaderView(endBttn);
 	        endBttn.addActionListener(e->{
 	        	//TODO send termination signal to server
 	        	Terminate();
 	        	FileHandler.SaveLog("Client ended chat");
 	        	frame.setVisible(false);
 	        });
+	        
+	        JPanel inputPanel = new JPanel(new BorderLayout());
+	        messageField = new JTextField();
+	        sendButton = new JButton("Send");
+	        inputPanel.add(messageField, BorderLayout.CENTER);
+	        inputPanel.add(sendButton, BorderLayout.EAST);
+	        frame.getContentPane().add(inputPanel, BorderLayout.SOUTH);
 	        
 	        sendButton.addActionListener(new ActionListener() {
 	            @Override

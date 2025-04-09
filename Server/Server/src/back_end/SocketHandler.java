@@ -15,14 +15,11 @@ public class SocketHandler {
 	public static Boolean MakeChatConnection(int port) {
 		try {
 			serverChatSocket = new ServerSocket(port);
-            FileHandler.SaveLog("Server is listening for chat on port "+ port+".");
-
             System.out.println("Server listening on port " + port);
 
             // Accept client connection
             chatSocket = serverChatSocket.accept();
             System.out.println("Client chat connected!");
-            FileHandler.SaveLog("Client connected to chat socket.");
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -71,11 +68,10 @@ public class SocketHandler {
 		try {
 			serverSocket = new ServerSocket(port);
             System.out.println("Server listening on port " + port);
-            FileHandler.SaveLog("Server is listening on port " + port + ".");
+
             // Accept client connection
             clientSocket = serverSocket.accept();
             System.out.println("Client connected!");
-            FileHandler.SaveLog("Client connected.");
             return true;
         } catch (IOException e) {
             e.printStackTrace();
@@ -129,7 +125,6 @@ public class SocketHandler {
 
 	        // Send the actual raw byte data
 	        out.write(packet.GetPacket());  // Write the byte array data	
-	        
 	        return true;
 		}
 		catch(Exception e) {
@@ -187,16 +182,13 @@ public class SocketHandler {
 	            // Finally, close the client socket itself
 	            clientSocket.close();
 	            System.out.println("Client connection closed.");
-	            FileHandler.SaveLog("Client disconnected.");
 	            return true;
 	        } else {
 	            System.out.println("No client connection to close.");
-	            FileHandler.SaveLog("No client connection to close.");
 	            return false;
 	        }
 	    } catch (IOException e) {
 	        System.out.println("Error while disconnecting: " + e.getMessage());
-	        FileHandler.SaveLog("Server failed to disconnect to client.");
 	        return false;
 	    }
 	}
@@ -207,14 +199,11 @@ public class SocketHandler {
 	        	serverChatSocket.close();
 	            chatSocket.close();
 	            System.out.println("Chat socket on port 27001 closed.");
-		        FileHandler.SaveLog("Chat socket is closed.");
-
 	        }
 	        chatSocket = null; // Ensure it is completely released
 	        return true;
 	    } catch (IOException e) {
 	        System.out.println("Error while closing chat connection: " + e.getMessage());
-	        FileHandler.SaveLog("Server failed to close chat socket.");
 	        return false;
 	    }
 	}
@@ -223,12 +212,10 @@ public class SocketHandler {
 		try {
 			serverSocket.close();
 			serverChatSocket.close();
-	        FileHandler.SaveLog("Server closed its connection.");
 			return true;
 		}
 		catch (Exception e){
 			System.out.println("Error: "+e.getMessage());
-			FileHandler.SaveLog("Server failed to close its connection.");
 			return false;
 		}
 	}

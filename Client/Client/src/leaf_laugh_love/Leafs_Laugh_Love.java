@@ -48,7 +48,8 @@ public class Leafs_Laugh_Love extends JFrame {
 			@Override
 			public void windowClosing(WindowEvent e) {
 				ResponseHandler.TerminateConnection();
-				System.exit(0);
+				System.out.println("Closed");
+				System.exit(1);
 			}
 		});
 		setTitle("Leaf, Laugh, Love shop");

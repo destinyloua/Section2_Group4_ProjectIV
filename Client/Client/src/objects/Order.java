@@ -74,9 +74,7 @@ public class Order implements Objects{
 	
 	public void ClearCart() {
 		this.pId.clear();
-		this.pId = new Vector<>();
 		this.quantity.clear();
-		this.quantity = new Vector<>();
 	}
 	
 	public int GetAId() {
