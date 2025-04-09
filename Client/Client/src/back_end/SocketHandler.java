@@ -192,9 +192,11 @@ public class SocketHandler {
 	
 	public static Boolean CheckConnection() {
 		if(socket == null) {
+			FileHandler.SaveLog("Client failed to connect to server");
 			return false;
 		}
 		else {
+			FileHandler.SaveLog("Client connected to server");
 			return socket.isConnected();
 		}
 	}
@@ -202,10 +204,12 @@ public class SocketHandler {
 	public static Boolean CloseConnection() {
 		try {
 			socket.close();
+			FileHandler.SaveLog("Client connection closed");
 			return true;
 		}
 		catch (Exception e){
 			System.out.println("Error: "+e.getMessage());
+			FileHandler.SaveLog("Error closing client connection " );
 			return false;
 		}
 	}
@@ -215,11 +219,13 @@ public class SocketHandler {
 	        if (chatSocket != null && !chatSocket.isClosed()) {
 	            chatSocket.close();
 	            System.out.println("Chat socket on port 27001 closed.");
+	            FileHandler.SaveLog("Chat connection closed");
 	        }
 	        chatSocket = null; // Ensure it is completely released
 	        return true;
 	    } catch (IOException e) {
 	        System.out.println("Error while closing chat connection: " + e.getMessage());
+	        FileHandler.SaveLog("Failed to close chat connection");
 	        return false;
 	    }
 	}

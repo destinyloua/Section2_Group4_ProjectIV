@@ -2,6 +2,7 @@ package leaf_laugh_love;
 
 import javax.swing.JPanel;
 
+import back_end.FileHandler;
 import objects.*;
 
 import javax.swing.JLabel;
@@ -19,6 +20,7 @@ public class Sign_up_success_page extends JPanel {
 	 * Create the panel.
 	 */
 	public Sign_up_success_page(JPanel mainPanel, CardLayout cardLayout, Account a, Order o) {
+		FileHandler.SaveLog("New client account created");
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Congratulations! Your account is created!");

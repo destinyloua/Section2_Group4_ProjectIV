@@ -95,10 +95,10 @@ public class Sign_up_page extends JPanel {
 			}
 			else {
 				mainPanel.removeAll();
-				mainPanel.add(new Error_page(mainPanel, cardLayout, a, o), "Error");
+				mainPanel.add(new Account_Already_Exists_page(mainPanel, cardLayout, a, o), "Account already exists");
 				mainPanel.repaint();
 				mainPanel.revalidate();
-				cardLayout.show(mainPanel, "Error");
+				cardLayout.show(mainPanel, "Account already exists");
 			}
         });
 		

@@ -2,7 +2,6 @@ package leaf_laugh_love;
 
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.EventQueue;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -15,13 +14,9 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
-import javax.swing.border.EmptyBorder;
-
 import back_end.DatabaseHandler;
 import back_end.ImageProcessor;
 import objects.Plant;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
 
 public class Plants_list_window extends JFrame {
 

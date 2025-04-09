@@ -476,6 +476,7 @@
 03/12/25-15:20:04: Authentication success
 03/12/25-15:20:04: Account 6 data sent to client
 03/12/25-15:20:09: Orders list of account #6 sent to client
+<<<<<<< HEAD
 03/12/25-20:23:54: Server started
 03/12/25-20:24:28: New account created
 03/12/25-20:24:35: Authentication success
@@ -563,9 +564,226 @@
 03/14/25-16:08:55: Server started
 03/14/25-16:10:58: Authentication success
 03/14/25-16:10:58: Account 5 data sent to client
+<<<<<<< HEAD
 03/14/25-16:20:31: Server started
 03/14/25-16:23:59: Authentication success
 03/14/25-16:23:59: Account 5 data sent to client
 03/14/25-19:44:43: Server stopped
 03/17/25-22:28:22: Server started
 03/17/25-22:28:33: Server stopped
+=======
+=======
+03/12/25-16:06:46: Server started
+03/12/25-16:11:07: Server stopped
+03/14/25-16:01:17: Server started
+03/14/25-16:01:51: Authentication success
+03/14/25-16:01:51: Account 6 data sent to client
+03/14/25-16:02:24: Plant 5data sent to client
+03/14/25-16:02:24: Plant 5data sent to client
+03/14/25-16:04:46: Plant 5data sent to client
+03/14/25-16:04:47: Plant 1data sent to client
+03/14/25-16:04:47: Plant 5data sent to client
+03/14/25-16:04:47: Plant 1data sent to client
+03/14/25-16:04:52: Plant 5data sent to client
+03/14/25-16:04:52: Plant 1data sent to client
+03/14/25-16:04:52: New order placed
+03/14/25-16:05:10: Orders list of account #6 sent to client
+03/14/25-16:53:45: Server stopped
+03/16/25-12:46:48: Server started
+03/16/25-12:47:13: Authentication success
+03/16/25-12:47:13: Account 6 data sent to client
+03/16/25-12:47:33: Server stopped
+03/16/25-12:56:12: Server started
+03/16/25-12:56:37: Authentication success
+03/16/25-12:56:37: Account 6 data sent to client
+03/16/25-12:57:23: Plant 1data sent to client
+03/16/25-12:57:24: Plant 1data sent to client
+03/16/25-12:57:26: Plant 1data sent to client
+03/16/25-12:57:26: New order placed
+03/16/25-12:57:42: Server stopped
+03/16/25-12:58:45: Server started
+03/16/25-12:59:12: Authentication success
+03/16/25-12:59:12: Account 6 data sent to client
+03/16/25-13:01:40: Server stopped
+03/16/25-13:03:11: Server started
+03/16/25-13:03:30: Authentication success
+03/16/25-13:03:30: Account 6 data sent to client
+03/16/25-13:03:59: Plant 2data sent to client
+03/16/25-13:03:59: Plant 1data sent to client
+03/16/25-13:03:59: Plant 2data sent to client
+03/16/25-13:03:59: Plant 1data sent to client
+03/16/25-13:04:01: Plant 2data sent to client
+03/16/25-13:04:01: Plant 1data sent to client
+03/16/25-13:04:01: New order placed
+03/16/25-13:21:42: Server stopped
+03/16/25-13:47:51: Server started
+03/16/25-13:48:10: Server started
+03/16/25-13:48:12: Server stopped
+03/16/25-13:48:48: Authentication success
+03/16/25-13:48:48: Account 6 data sent to client
+03/16/25-14:13:18: Server started
+03/16/25-14:13:34: Authentication success
+03/16/25-14:13:34: Account 6 data sent to client
+03/16/25-14:14:25: Server stopped
+03/16/25-14:17:54: Server started
+03/16/25-14:18:08: Authentication success
+03/16/25-14:18:08: Account 6 data sent to client
+03/16/25-14:18:53: Server stopped
+03/16/25-14:34:15: Server started
+03/16/25-14:34:33: Authentication success
+03/16/25-14:34:33: Account 6 data sent to client
+03/16/25-14:38:11: Server stopped
+03/16/25-14:40:53: Server started
+03/16/25-14:41:09: Authentication success
+03/16/25-14:41:09: Account 6 data sent to client
+<<<<<<< HEAD
+03/21/25-01:42:19: Server started
+03/21/25-01:52:14: Server stopped
+03/21/25-01:53:21: Server started
+03/21/25-01:53:25: Server started
+03/21/25-01:53:31: Server stopped
+03/21/25-01:53:32: Server stopped
+03/21/25-01:53:47: Server started
+03/21/25-01:54:05: Server stopped
+03/21/25-01:56:03: Server started
+03/21/25-01:56:16: Server stopped
+03/21/25-01:59:40: Server started
+03/21/25-01:59:54: Server stopped
+03/21/25-20:17:08: Server started
+03/21/25-20:20:08: Server stopped
+03/21/25-20:20:54: Server started
+03/21/25-20:21:26: Server stopped
+03/21/25-20:23:19: Server started
+03/21/25-20:23:51: Server stopped
+03/21/25-20:27:17: Server started
+03/21/25-20:27:53: Server stopped
+03/21/25-22:10:03: Server started
+03/21/25-22:10:33: New account created
+03/21/25-22:10:38: Authentication success
+03/21/25-22:10:38: Account 7 data sent to client
+03/21/25-22:10:45: Plant 3data sent to client
+03/21/25-22:10:45: Plant 3data sent to client
+03/21/25-22:10:47: Plant 3data sent to client
+03/21/25-22:10:47: New order placed
+03/21/25-22:11:54: Server stopped
+=======
+03/17/25-22:38:08: Client failed to connect to database
+03/17/25-22:38:08: Server started
+>>>>>>> dac37d781955309b8f7d7ebbe4c3dfbf5371cb5c
+>>>>>>> Destiny_Client
+03/21/25-22:40:15: Client failed to connect to database
+03/21/25-22:40:15: Server started
+03/21/25-22:41:08: Server started
+03/27/25-22:43:16: Server started
+03/27/25-22:43:53: Failed to create new account
+03/27/25-22:49:54: Server stopped
+03/27/25-22:50:06: Server started
+03/27/25-22:51:02: Failed to create new account
+03/27/25-22:52:11: Server stopped
+03/27/25-22:58:11: Server started
+03/27/25-22:59:42: Authentication success
+03/27/25-22:59:42: Account 6 data sent to client
+03/27/25-23:02:09: Plant 2data sent to client
+03/27/25-23:02:10: Plant 2data sent to client
+03/27/25-23:02:22: Plant 2data sent to client
+03/27/25-23:02:22: New order placed
+03/27/25-23:04:37: Orders list of account #6 sent to client
+03/27/25-23:24:58: Authentication success
+03/27/25-23:24:58: Account 6 data sent to client
+03/27/25-23:25:15: Plant 2data sent to client
+03/27/25-23:25:15: Plant 2data sent to client
+03/27/25-23:25:18: Plant 2data sent to client
+03/27/25-23:25:18: New order placed
+03/27/25-23:25:18: Orders list of account #6 sent to client
+03/27/25-23:25:56: Authentication success
+03/27/25-23:25:56: Account 6 data sent to client
+03/27/25-23:26:04: Plant 2data sent to client
+03/27/25-23:26:04: Plant 2data sent to client
+03/27/25-23:26:07: Plant 2data sent to client
+03/27/25-23:26:07: New order placed
+03/27/25-23:26:08: Orders list of account #6 sent to client
+03/27/25-23:27:26: Orders list of account #6 sent to client
+03/27/25-23:36:28: Plant 2data sent to client
+03/27/25-23:36:28: Plant 1data sent to client
+03/27/25-23:36:28: Plant 3data sent to client
+03/27/25-23:36:28: Plant 2data sent to client
+03/27/25-23:36:29: Plant 1data sent to client
+03/27/25-23:36:29: Plant 3data sent to client
+03/27/25-23:54:06: Server started
+03/27/25-23:55:52: Server stopped
+03/27/25-23:56:25: Server started
+03/27/25-23:56:48: Server stopped
+03/31/25-08:29:18: Client failed to connect to database
+03/31/25-08:29:18: Server started
+03/31/25-08:29:38: Client failed to connect to database
+03/31/25-08:29:39: Server started
+03/31/25-08:29:47: Client failed to connect to database
+03/31/25-08:29:47: Server started
+03/31/25-08:30:38: Client failed to connect to database
+03/31/25-08:30:38: Server started
+03/31/25-08:31:11: Client failed to connect to database
+03/31/25-08:31:11: Server started
+03/31/25-08:31:33: Client failed to connect to database
+03/31/25-08:31:33: Server started
+03/31/25-08:32:06: Server started
+03/31/25-08:33:09: Server stopped
+03/31/25-08:33:16: Server started
+03/31/25-08:34:28: Server started
+03/31/25-08:35:03: Failed to authenticate
+03/31/25-08:35:10: Failed to authenticate
+03/31/25-08:35:11: Failed to authenticate
+03/31/25-08:35:16: Failed to authenticate
+03/31/25-08:35:29: Failed to create new account
+03/31/25-08:35:35: Failed to authenticate
+03/31/25-08:37:12: Server started
+03/31/25-08:37:24: Failed to authenticate
+03/31/25-08:52:12: New account created
+03/31/25-08:52:18: Authentication success
+03/31/25-08:52:18: Account 6 data sent to client
+03/31/25-08:59:16: Server started
+03/31/25-08:59:24: Authentication success
+03/31/25-08:59:24: Account 6 data sent to client
+03/31/25-09:16:26: Server stopped
+03/31/25-12:19:44: Server started
+03/31/25-12:20:46: Authentication success
+03/31/25-12:20:46: Account 6 data sent to client
+03/31/25-12:20:56: Plant 1data sent to client
+03/31/25-12:20:57: Plant 2data sent to client
+03/31/25-12:20:57: Plant 1data sent to client
+03/31/25-12:20:58: Plant 2data sent to client
+03/31/25-12:21:48: Authentication success
+03/31/25-12:21:48: Account 6 data sent to client
+03/31/25-12:21:58: Plant 2data sent to client
+03/31/25-12:21:58: Plant 1data sent to client
+03/31/25-12:21:58: Plant 2data sent to client
+03/31/25-12:21:59: Plant 1data sent to client
+03/31/25-12:22:15: Plant 2data sent to client
+03/31/25-12:22:16: Plant 3data sent to client
+03/31/25-12:22:16: Plant 2data sent to client
+03/31/25-12:22:16: Plant 3data sent to client
+03/31/25-12:22:36: Server stopped
+03/31/25-12:24:54: Server started
+03/31/25-12:25:03: Authentication success
+03/31/25-12:25:03: Account 6 data sent to client
+03/31/25-12:27:01: Authentication success
+03/31/25-12:27:01: Account 6 data sent to client
+03/31/25-12:29:00: Server stopped
+03/31/25-12:29:05: Server started
+03/31/25-12:29:25: Server stopped
+03/31/25-12:29:30: Server started
+03/31/25-12:30:00: Server stopped
+03/31/25-12:30:27: Server started
+03/31/25-12:30:46: Authentication success
+03/31/25-12:30:46: Account 6 data sent to client
+03/31/25-12:31:58: Server stopped
+03/31/25-12:51:51: Client failed to connect to database
+03/31/25-12:51:51: Server started
+03/31/25-12:52:47: Client failed to connect to database
+03/31/25-12:52:48: Server started
+03/31/25-12:52:51: Server stopped
+03/31/25-12:55:21: Client failed to connect to database
+03/31/25-12:55:21: Server started
+03/31/25-12:57:41: Server stopped
+03/31/25-12:58:54: Client failed to connect to database
+03/31/25-12:58:54: Server started
+>>>>>>> origin/arvinTestBranch

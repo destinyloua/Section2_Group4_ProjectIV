@@ -1,10 +1,6 @@
 package back_end;
 
 import java.net.*;
-import java.nio.ByteBuffer;
-
-import objects.ImageObject;
-import objects.Message;
 import objects.Packet;
 
 import java.io.*;

@@ -10,6 +10,9 @@ import javax.swing.*;
 import back_end.*;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
+import java.io.IOException;
+
+
 
 public class Leaf_laugh_love extends JFrame {
 
@@ -17,6 +20,7 @@ public class Leaf_laugh_love extends JFrame {
     private JPanel contentPane;
     private CardLayout cardLayout;
     private JPanel mainPanel;
+    
 
 	/**
 	 * Launch the application.
@@ -59,7 +63,7 @@ public class Leaf_laugh_love extends JFrame {
 		String url = "jdbc:mysql://localhost:3306/project4";
 		//Change these!!
         String user = "root";
-        String password = "Tyler123";
+        String password = "sqlPFM00*";
 		setTitle("Leaf, Laugh, Love Dashboard");
 		DatabaseHandler.SetUpConnection(url, user, password);
 		DatabaseHandler.ConnectDatabase();

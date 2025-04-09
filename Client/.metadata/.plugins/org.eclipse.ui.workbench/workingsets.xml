@@ -5,5 +5,9 @@
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1738427115394_2" label="Window Working Set" name="Aggregate for window 1738427115392"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1738427287024_3" label="Window Working Set" name="Aggregate for window 1738427287024"/>
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1741982935755_4" label="Window Working Set" name="Aggregate for window 1741982935755"/>
+<<<<<<< HEAD
 <workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1741983511623_5" label="Window Working Set" name="Aggregate for window 1741983511623"/>
+=======
+<workingSet aggregate="true" factoryID="org.eclipse.ui.internal.WorkingSetFactory" id="1743193318037_5" label="Window Working Set" name="Aggregate for window 1743193318037"/>
+>>>>>>> origin/arvinTestBranch
 </workingSetManager>

@@ -15,10 +15,11 @@ public class Message_window {
 	    private JTextArea chatArea;
 	    private JTextField messageField;
 	    private JButton sendButton;
-	    
+	  
 	    public Message_window() {
 	        frame = new JFrame("Chat Client");
-	        frame.setSize(400, 400);
+	        //frame.setSize(400, 400);
+	        frame.setBounds(400, 0, 400, 400);
 	        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	        frame.setLayout(new BorderLayout());
 	        
@@ -74,11 +75,7 @@ public class Message_window {
 	                chatArea.append("Server: " + receivedMessage + "\n");
 	            }
 	        }
-	    }
-	    
-	    public static void main(String[] args) {
-	        SwingUtilities.invokeLater(Message_window::new);
-	    }
+	    }   
 }
 
 

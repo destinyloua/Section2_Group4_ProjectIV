@@ -80,7 +80,7 @@ public class Order implements Objects{
 	
 	public void SetItems(Vector<Integer> plants, Vector<Integer> qty) {
 		this.pId = plants;
-		this.quantity = qty;
+		this.quantity = qty;	
 	}
 	
 	public int GetId() {

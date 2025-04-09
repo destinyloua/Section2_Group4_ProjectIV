@@ -41,6 +41,8 @@ public class Error_page extends JPanel {
 			add(btnNewButton);
 		}
 		else if(!DatabaseHandler.CheckConnection()) {
+			//Log unsuccessful connection to the database
+			FileHandler.SaveLog("Client failed to connect to database");
 			JLabel connectionFailedLabel = new JLabel("Can not connect to the database right now :(");
 			connectionFailedLabel.setFont(new Font("Segoe UI", Font.BOLD, 32));
 			connectionFailedLabel.setForeground(Color.RED);

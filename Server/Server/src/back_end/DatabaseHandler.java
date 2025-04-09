@@ -26,7 +26,7 @@ public class DatabaseHandler {
             statement = connection.createStatement();
             return true;
         } catch (SQLException e) {
-            System.out.println("Error: " + e.getMessage());
+            e.getStackTrace();
             return false;
         }
 	}
@@ -268,7 +268,7 @@ public class DatabaseHandler {
 			resultSet = pstm.executeQuery();
 			while(resultSet.next()) {
 				pId.add(resultSet.getInt(1));
-				quantity.add(resultSet.getInt(1));
+				quantity.add(resultSet.getInt(2));
 			}
 		}
 		catch(Exception e) {
